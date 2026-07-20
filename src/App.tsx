@@ -470,6 +470,7 @@ const PACK_ELI = [
 const PACK_NOTE = 'Da ricordare, non da mettere in valigia: mai toccare le scimmie al Monkey Forest (niente sorrisi, niente cibo in vista) · bandiera rossa = niente bagno, soprattutto a Lombok sud · solo bevande sigillate, niente Arak né cocktail artigianali · controllare i giubbotti di salvataggio appena si sale su traghetto o barca.';
 
 export default function App() {
+  const [activeTab, setActiveTab] = useState<'itinerario' | 'briefing' | 'valigia'>('itinerario');
   const [activeStopId, setActiveStopId] = useState<number>(1);
   const [activePack, setActivePack] = useState<'leo' | 'eli'>('leo');
   const [activeActivity, setActiveActivity] = useState<any | null>(null);
@@ -478,6 +479,7 @@ export default function App() {
   const activeStop = (stops.find((s) => s.id === activeStopId) || stops[0]) as any;
 
   const handleSelectStop = (id: number, scroll: boolean) => {
+    setActiveTab('itinerario');
     setActiveStopId(id);
     if (scroll) {
       setTimeout(() => {
@@ -505,30 +507,32 @@ export default function App() {
 
   return (
     <>
-      <header className="hero">
-        <div className="wrap hero-inner">
-          <span className="hero-eyebrow">✈ 27 lug — 16 ago 2026</span>
-          <h1>Indonesia<br /><em>il giro dell'arcipelago</em></h1>
-          <p className="sub">Da Giava a Komodo, da Bali alle Gili, fino a Lombok. Venti giorni, sette tappe, un unico grande giro ad anello nell'arcipelago. Clicca una tappa sulla mappa per aprire i dettagli.</p>
-          <div className="hero-stats">
-            <div className="hstat"><div className="n">20</div><div className="l">Giorni</div></div>
-            <div className="hstat"><div className="n">7</div><div className="l">Tappe</div></div>
-            <div className="hstat"><div className="n">6</div><div className="l">Voli</div></div>
-            <div className="hstat"><div className="n">1</div><div className="l">Traghetto</div></div>
-            <div className="hstat"><div className="n">2</div><div className="l">Viaggiatori</div></div>
+      {activeTab === 'itinerario' && (
+        <header className="hero">
+          <div className="wrap hero-inner">
+            <span className="hero-eyebrow">✈ 27 lug — 16 ago 2026</span>
+            <h1>Indonesia<br /><em>il giro dell'arcipelago</em></h1>
+            <p className="sub">Da Giava a Komodo, da Bali alle Gili, fino a Lombok. Venti giorni, sette tappe, un unico grande giro ad anello nell'arcipelago. Clicca una tappa sulla mappa per aprire i dettagli.</p>
+            <div className="hero-stats">
+              <div className="hstat"><div className="n">20</div><div className="l">Giorni</div></div>
+              <div className="hstat"><div className="n">7</div><div className="l">Tappe</div></div>
+              <div className="hstat"><div className="n">6</div><div className="l">Voli</div></div>
+              <div className="hstat"><div className="n">1</div><div className="l">Traghetto</div></div>
+              <div className="hstat"><div className="n">2</div><div className="l">Viaggiatori</div></div>
+            </div>
+            <div className="hero-photos" id="heroPhotos">
+              {HERO_PHOTOS.map((f, idx) => (
+                <img key={idx} src={commonsImg(f, 400)} alt="Indonesia" loading="lazy" />
+              ))}
+            </div>
           </div>
-          <a className="hero-briefing-link" href="#briefingSection">🛡️ Briefing: documenti, farmacia, emergenze</a>
-          <a className="hero-briefing-link pack" href="#valigiaSection">🎒 La valigia: Leo e Eli</a>
-          <div className="hero-photos" id="heroPhotos">
-            {HERO_PHOTOS.map((f, idx) => (
-              <img key={idx} src={commonsImg(f, 400)} alt="Indonesia" loading="lazy" />
-            ))}
-          </div>
-        </div>
-      </header>
+        </header>
+      )}
 
       <main className="wrap">
-        {/* MAP SECTION */}
+        {activeTab === 'itinerario' && (
+          <>
+            {/* MAP SECTION */}
         <section className="map-section">
           <div className="section-head">
             <span className="eyebrow">La rotta</span>
@@ -849,10 +853,6 @@ export default function App() {
                       </div>
                     </details>
                   )}
-
-                  {activeStop.tips && (
-                    <div className="tip-box"><b>Nota pratica.</b> {activeStop.tips}</div>
-                  )}
                 </>
               ) : (
                 <>
@@ -945,10 +945,6 @@ export default function App() {
                       </div>
                     </div>
                   </details>
-
-                  {activeStop.tips && (
-                    <div className="tip-box"><b>Nota pratica.</b> {activeStop.tips}</div>
-                  )}
                 </>
               )}
 
@@ -977,10 +973,14 @@ export default function App() {
                       })}
                     </div>
                     <div style={{ marginTop: '12px' }}>
-                      <a className="briefing-jump" href="#briefingSection">📋 Apri il briefing generale</a>
+                      <a className="briefing-jump" href="#briefingSection" onClick={(e) => { e.preventDefault(); setActiveTab('briefing'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>📋 Apri il briefing generale</a>
                     </div>
                   </div>
                 </details>
+              )}
+
+              {activeStop.tips && (
+                <div className="tip-box"><b>Nota pratica.</b> {activeStop.tips}</div>
               )}
 
               {/* Prev / Next stop navigation buttons */}
@@ -1007,167 +1007,256 @@ export default function App() {
             </div>
           </div>
         </section>
+          </>
+        )}
 
-        {/* BRIEFING SECTION */}
-        <section className="briefing-section" id="briefingSection">
-          <div className="briefing-card">
-            <div className="briefing-head">
-              <span className="b-eyebrow">🛡️ Briefing generale</span>
-              <h2>Prima di partire, e una volta là</h2>
-              <p>Documenti, farmacia da viaggio, regole di comportamento e numeri utili. Fonte principale: scheda Indonesia di <b>viaggiaresicuri.it</b> (Unità di Crisi, Ministero degli Esteri), integrata con fonti sanitarie e allerte vulcaniche aggiornate.</p>
+        {activeTab === 'briefing' && (
+          <section className="briefing-section" id="briefingSection">
+            <div className="section-head text-center" style={{ marginBottom: '32px' }}>
+              <span className="eyebrow" style={{ color: 'var(--coral-deep)', fontWeight: 700, fontSize: '11.5px', letterSpacing: '0.14em', textTransform: 'uppercase' }}>🛡️ Briefing generale</span>
+              <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 'clamp(26px, 4vw, 36px)', color: 'var(--ink)', margin: '8px 0 6px' }}>Prima di partire, e una volta là</h2>
+              <p style={{ color: 'var(--ink-soft)', maxWidth: '600px', margin: '0 auto', fontSize: '14px', lineHeight: 1.55 }}>
+                Documenti, farmacia da viaggio, regole di comportamento e numeri utili. Fonte principale: scheda Indonesia di <b>viaggiaresicuri.it</b> (Unità di Crisi, Ministero degli Esteri), integrata con fonti sanitarie e allerte vulcaniche aggiornate.
+              </p>
             </div>
             <div className="briefing-body">
               <details className="acc">
-                <summary><span className="ico">📄</span> Documenti e ingresso<span className="chev">▸</span></summary>
-                <div className="acc-body">
-                  <p className="warn"><b>La trappola più insidiosa:</b> ci sono stati casi di turisti <b>italiani respinti</b> perché l'immigrazione ha contestato l'integrità del libretto del passaporto. Controllate <b>oggi</b> entrambi i passaporti: nessuno strappo o taglio, <b>nessuna scollatura</b> (soprattutto vicino alla copertina), pagina con foto e dati perfettamente leggibile, nessun segno o macchia su foto e codice a barre, nessuna pagina rimossa.</p>
-                  <ul>
-                    <li><b>Passaporto:</b> almeno <b>6 mesi</b> di validità residua e <b>due pagine bianche</b>. Requisito tassativo, nessuna eccezione.</li>
-                    <li><b>e-VOA (visto):</b> online su <a href="https://evisa.imigrasi.go.id" target="_blank" rel="noopener noreferrer">evisa.imigrasi.go.id</a> circa una settimana prima della partenza. IDR 500.000, valido 30 giorni (voi ne state 20). Serve anche un biglietto di ritorno o proseguimento.</li>
-                    <li><b>Dichiarazione doganale elettronica:</b> da compilare <b>non prima di 3 giorni</b> dall'arrivo su <a href="https://allindonesia.imigrasi.go.id" target="_blank" rel="noopener noreferrer">allindonesia.imigrasi.go.id</a></li>
-                    <li><b>Tassa turistica Bali:</b> IDR 150.000 a testa, dovuta anche arrivando dal resto dell'Indonesia — vale per voi il 3/08 da Labuan Bajo. Si paga su <a href="https://lovebali.baliprov.go.id" target="_blank" rel="noopener noreferrer">lovebali.baliprov.go.id</a>, si riceve un QR: salvatelo offline. <b>Spegnete la VPN e gli ad-blocker</b>, o il portale fallisce. L'unico dominio ufficiale finisce in <b>.go.id</b>: esistono cloni che fanno pagare il doppio.</li>
-                    <li><b>Registrate il viaggio</b> su <a href="https://www.dovesiamonelmondo.it" target="_blank" rel="noopener noreferrer">dovesiamonelmondo.it</a> o con l'app <b>Viaggiare Sicuri</b>, e segnalate la presenza a consolare.jakarta@esteri.it con generalità, periodo e recapiti.</li>
-                    <li>Portate <b>sempre il passaporto</b> con voi: ci sono stati fermi in cella fino a identificazione per chi ne era sprovvisto.</li>
-                  </ul>
-                </div>
-              </details>
-
-              <details className="acc">
-                <summary><span class="ico">💊</span> Farmacia da viaggio<span className="chev">▸</span></summary>
-                <div className="acc-body">
-                  <p>La logica: alle Gili e a Komodo le farmacie sono poche e voi cambiate isola ogni pochi giorni. Quello che vi serve per gestire eventuali imprevisti durante il viaggio:</p>
-                  <table className="kit-table">
-                    <tbody>
-                      <tr><td>Sali reidratanti</td><td>Il più importante: contro il Bali belly il rischio vero è la disidratazione, non la diarrea in sé</td></tr>
-                      <tr><td>Loperamide (Imodium)</td><td>Sintomatico, per quando dovete prendere un volo o il traghetto</td></tr>
-                      <tr><td>Fermenti lattici</td><td>Aiutano a riequilibrare la flora intestinale durante il viaggio</td></tr>
-                      <tr><td>Paracetamolo + ibuprofene</td><td>Febbre, dolori, post-Batur</td></tr>
-                      <tr><td>Antistaminico</td><td>Punture e reazioni</td></tr>
-                      <tr><td>Repellente (DEET/icaridina)</td><td>La dengue è endemica: è la difesa principale</td></tr>
-                      <tr><td>Disinfettante, cerotti, garze</td><td>Ferite da corallo e scogli alle Gili</td></tr>
-                      <tr><td>Gel mani alcolico</td><td>Prevenzione diretta</td></tr>
-                      <tr><td>SPF 50+</td><td>Sole equatoriale</td></tr>
-                      <tr><td>Antibiotico</td><td>Solo se ve lo prescrive il vostro medico prima di partire, per i casi seri</td></tr>
-                    </tbody>
-                  </table>
-                  <p className="warn"><b>Farmaci vietati:</b> in Indonesia molti farmaci da prescrizione come <b>codeina, sonniferi e trattamenti per l\'ADHD sono illegali</b>. Per <b>ansiolitici e benzodiazepine</b> serve un documento ufficiale con prescrizione e dosaggio <b>in inglese</b>. Se qualcuno di voi due li usa abitualmente, portate quel documento.</p>
-                  <p><b>Malaria — merita una telefonata alla ASL.</b> Viaggiare Sicuri elenca come endemiche le province orientali e <b>Lombok</b>: due delle vostre tappe. Ma le Gili e le zone turistiche come Kuta Lombok sono considerate a rischio molto basso, e per Komodo e Flores la maggior parte dei viaggiatori non prende profilassi (Komodo è secca quasi tutto l\'anno, pochissime zanzare). Le fonti divergono: il CDC classifica le Gili come "nessun rischio", altri database specialistici consigliano le pastiglie. <b>Portate l\'itinerario preciso a un centro di medicina dei viaggi</b> e fatevelo dire da loro.</p>
-                  <p><b>Rabbia.</b> A Bali il vaccino antirabbico post-esposizione è spesso difficile da reperire negli ospedali per costo e scarsa disponibilità — le cliniche private di Ubud lo tengono in stock. Vedi le accortezze della tappa di Ubud per cosa fare in caso di morso o graffio.</p>
-                </div>
-              </details>
-
-              <details className="acc">
-                <summary><span className="ico">💧</span> Acqua e cibo<span className="chev">▸</span></summary>
-                <div className="acc-body">
-                  <ul>
-                    <li>Solo <b>acqua in bottiglia sigillata</b>, mai dal rubinetto — <b>anche per lavarvi i denti</b>.</li>
-                    <li><b>Niente ghiaccio</b>, a meno che i cubetti non siano <b>bucati al centro</b>: significa che è industriale, prodotto con acqua filtrata.</li>
-                    <li>Lavare frutta e verdura con disinfettanti (amuchina o bicarbonato, reperibili in loco). Meglio evitare crudo, buffet scoperti e frutta non sbucciata.</li>
-                    <li>Come scegliere dove mangiare: locali con <b>buon ricambio di clienti</b>, cucina visibile, cibo cotto al momento e servito caldo.</li>
-                  </ul>
-                  <p><b>Se arriva il Bali belly:</b> riposo, idratazione con sali, dieta leggera (riso in bianco, banane, zuppe). Ma con <b>febbre alta, sangue nelle feci o sintomi oltre le 48 ore</b> → medico.</p>
-                </div>
-              </details>
-
-              <details className="acc">
-                <summary><span className="ico">🙏</span> Comportamento<span className="chev">▸</span></summary>
-                <div className="acc-body">
-                  <p><b>Effusioni in pubblico.</b> La Farnesina è esplicita: le effusioni amorose in pubblico possono essere sanzionate. Parliamo di buon senso, non di rinunciare a tenersi per mano — ma baci e abbracci prolungati vanno tenuti per gli spazi privati. Il livello di tolleranza cambia molto da zona a zona: trovate la nota specifica dentro ogni tappa.</p>
-                  <p><b>Nei templi:</b> sarong e spalle coperte (noleggio al cancello, IDR 10.000–20.000). <b>Mai calpestare i canang sari</b>, le offerte di fiori a terra: giratele. Donne mestruate fuori dalle aree sacre.</p>
-                  <p><b>Regole ufficiali di Bali</b> (Circolare del Governatore SE n. 7/2025): vietato arrampicarsi su alberi sacri o monumenti, foto inappropriate o nude nei siti religiosi, gettare rifiuti in laghi/fiumi/mare, plastica monouso, comportamenti aggressivi verso locali o altri turisti. C'è una task force apposita: le violazioni gravi portano a <b>deportazione e blacklist</b>, non ad avvertimenti.</p>
-                  <p><b>Soldi:</b> cambiare solo presso money changer autorizzati e <b>ricontare i contanti davanti all'operatore prima di uscire</b> — le frodi sulla somma sono frequenti. Mai perdere di vista la carta di credito: le clonazioni sono in aumento.</p>
-                </div>
-              </details>
-
-              <details className="acc">
-                <summary><span className="ico">⚠️</span> I tre rischi trasversali<span class="chev">▸</span></summary>
-                <div className="acc-body">
-                  <p><b>🍸 Metanolo — il più serio.</b> In Indonesia si registrano <b>decessi e danni permanenti</b> (coma, convulsioni, cecità, danni al sistema nervoso) da alcolici contenenti metanolo per distillazione inadeguata. I casi si sono verificati in bar, negozi e hotel proprio nelle zone turistiche di <b>Bali, Lombok e Gili</b> — tutte vostre tappe. Bande criminali producono repliche contraffatte di marche famose. Le bevande interessate: l'<b>Arak</b> (liquore di riso o zucchero di palma), cocktail e superalcolici contraffatti — e l'Arak viene spesso usato nei locali per allungare i superalcolici.<br />
-                  <b>Regole:</b> solo locali autorizzati, mai bevande artigianali, sigilli intatti, etichette senza errori ortografici. <b>Sintomi:</b> confusione, vertigini, sonnolenza o forte stanchezza, vomito, <b>alterazioni della vista</b> (visione offuscata, difficoltà con le luci intense), dolori addominali e muscolari. <b>In pratica: birra in bottiglia sigillata, e lasciate perdere i cocktail nei baretti economici.</b></p>
-                  <p><b>🥤 Spiking.</b> Segnalati casi di somministrazione di droghe a fini di stupro a <b>Bali, Lombok e Gili</b>. Attenzione durante la preparazione delle bevande, mai lasciarle incustodite, mai accettarle da sconosciuti.</p>
-                  <p><b>🛵 Scippi e sicurezza notturna.</b> Borseggi condotti <b>da uomini in motorino ai danni di donne straniere</b> nelle ore serali, vicino ai locali notturni. Taxi solo di compagnie registrate (Bluebird, Silverbird); con le app, verificare che l'autista corrisponda e condividere il viaggio. <b>In caso di rapina, non opporre resistenza.</b></p>
-                </div>
-              </details>
-
-              <details className="acc">
-                <summary><span className="ico">🏥</span> Assicurazione e sanità<span class="chev">▸</span></summary>
-                <div className="acc-body">
-                  <p className="warn">Gli stranieri in Indonesia <b>non godono di alcuna forma di assistenza sanitaria pubblica</b>. E — indipendentemente dalla gravità delle condizioni del paziente — <b>l'assistenza non viene erogata senza previo pagamento o garanzia dell'assicurazione</b>.</p>
-                  <ul>
-                    <li>Il livello delle strutture pubbliche non è paragonabile agli standard occidentali.</li>
-                    <li>I costi in clinica privata sono elevatissimi: <b>alcuni interventi superano i 100.000 euro</b>.</li>
-                    <li>Nelle zone remote l'evacuazione medica può costare <b>decine di migliaia di euro</b>.</li>
-                    <li>Per emergenze gravi è consigliabile rivolgersi alle strutture di <b>Singapore</b> (voli frequenti, meno di 2 ore).</li>
-                    <li>Camere iperbariche solo a <b>Giava e Bali</b>.</li>
-                  </ul>
-                  <p><b>Verificate che la polizza copra:</b> evacuazione e rimpatrio sanitario, trekking su vulcano, attività in mare, ed eventuali <b>eventi vulcanici</b> — molte polizze standard li escludono.</p>
-                </div>
-              </details>
-
-              <details className="acc">
-                <summary><span className="ico">📞</span> Numeri e contatti utili<span class="chev">▸</span></summary>
-                <div className="acc-body">
-                  <div className="emergency-grid">
-                    <div className="emg"><span className="n">119</span><span className="l">Emergenze sanitarie</span></div>
-                    <div className="emg"><span class="n">110</span><span className="l">Polizia</span></div>
-                    <div className="emg"><span className="n">113</span><span className="l">Vigili del fuoco</span></div>
+                  <summary><span className="ico">📄</span> Documenti e ingresso<span className="chev">▸</span></summary>
+                  <div className="acc-body">
+                    <p className="warn"><b>La trappola più insidiosa:</b> ci sono stati casi di turisti <b>italiani respinti</b> perché l'immigrazione ha contestato l'integrità del libretto del passaporto. Controllate <b>oggi</b> entrambi i passaporti: nessuno strappo o taglio, <b>nessuna scollatura</b> (soprattutto vicino alla copertina), pagina con foto e dati perfectly leggibile, nessun segno o macchia su foto e codice a barre, nessuna pagina rimossa.</p>
+                    <ul>
+                      <li><b>Passaporto:</b> almeno <b>6 mesi</b> di validità residua e <b>due pagine bianche</b>. Requisito tassativo, nessuna eccezione.</li>
+                      <li><b>e-VOA (visto):</b> online su <a href="https://evisa.imigrasi.go.id" target="_blank" rel="noopener noreferrer">evisa.imigrasi.go.id</a> circa una settimana prima della partenza. IDR 500.000, valido 30 giorni (voi ne state 20). Serve anche un biglietto di ritorno o proseguimento.</li>
+                      <li><b>Dichiarazione doganale elettronica:</b> da compilare <b>non prima di 3 giorni</b> dall'arrivo su <a href="https://allindonesia.imigrasi.go.id" target="_blank" rel="noopener noreferrer">allindonesia.imigrasi.go.id</a></li>
+                      <li><b>Tassa turistica Bali:</b> IDR 150.000 a testa, dovuta anche arrivando dal resto dell'Indonesia — vale per voi il 3/08 da Labuan Bajo. Si paga su <a href="https://lovebali.baliprov.go.id" target="_blank" rel="noopener noreferrer">lovebali.baliprov.go.id</a>, si riceve un QR: salvatelo offline. <b>Spegnete la VPN e gli ad-blocker</b>, o il portale fallisce. L'unico dominio ufficiale finisce in <b>.go.id</b>: esistono cloni che fanno pagare il doppio.</li>
+                      <li><b>Registrate il viaggio</b> su <a href="https://www.dovesiamonelmondo.it" target="_blank" rel="noopener noreferrer">dovesiamonelmondo.it</a> o con l'app <b>Viaggiare Sicuri</b>, e segnalate la presenza a consolare.jakarta@esteri.it con generalità, periodo e recapiti.</li>
+                      <li>Portate <b>sempre il passaporto</b> con voi: ci sono stati fermi in cella fino a identificazione per chi ne era sprovvisto.</li>
+                    </ul>
                   </div>
-                  <p><b>Ambasciata d'Italia a Jakarta</b><br />Jalan Diponegoro 45, Menteng — tel. +62 21 319 374 45<br />consolare.jakarta@esteri.it</p>
-                  <p><b>Cellulare emergenze</b> (solo emergenze reali: incidenti, arresti, calamità)<br />Dall'Indonesia: <b>08151811344</b> — dall'Italia: +62 815 181 1344<br />Attivo negli orari di chiusura dell'ambasciata: lun–gio 18:30–22:00, ven 15:30–22:00, sabato/domenica/festivi 08:30–22:00.</p>
-                  <p className="warn">Il <b>Consolato Onorario a Bali è attualmente vacante</b>: il riferimento per tutta l'Indonesia è Jakarta.</p>
-                  <p><b>Vulcani in tempo reale:</b> <a href="https://magma.esdm.go.id" target="_blank" rel="noopener noreferrer">magma.esdm.go.id</a><br />
-                  <b>Scheda paese aggiornata:</b> <a href="https://www.viaggiaresicuri.it/find-country/country/IDN" target="_blank" rel="noopener noreferrer">viaggiaresicuri.it</a></p>
-                  <p>Se subite comportamenti scorretti da parte di rappresentanti delle Autorità locali, segnalatelo subito a consolare.jakarta@esteri.it indicando la stazione di Polizia e possibilmente il nome dell'agente: sono stati riferiti casi di <b>richieste improprie di denaro</b>, presentate come costi amministrativi, per ricevere denunce di furto o aggressione — anche a Bali e Lombok.</p>
-                </div>
-              </details>
-            </div>
-          </div>
-        </section>
+                </details>
 
-        {/* VALIGIA SECTION */}
-        <section className="briefing-section" id="valigiaSection">
-          <div className="briefing-card">
-            <div className="briefing-head">
-              <span className="b-eyebrow">🎒 La valigia</span>
-              <h2>Trolley piccolo, viaggio leggero</h2>
-              <p>Pensata per un bagaglio compatto vista la quantità di voli interni, con due lavate programmate (Ubud e Gili Air) a coprire il resto. Scegli chi sta preparando la valigia.</p>
+                <details className="acc">
+                  <summary><span className="ico">💊</span> Farmacia da viaggio<span className="chev">▸</span></summary>
+                  <div className="acc-body">
+                    <p>La logica: alle Gili e a Komodo le farmacie sono poche e voi cambiate isola ogni pochi giorni. Quello che vi serve per gestire eventuali imprevisti durante il viaggio:</p>
+                    <table className="kit-table">
+                      <tbody>
+                        <tr><td>Sali reidratanti</td><td>Il più importante: contro il Bali belly il rischio vero è la disidratazione, non la diarrea in sé</td></tr>
+                        <tr><td>Loperamide (Imodium)</td><td>Sintomatico, per quando dovete prendere un volo o il traghetto</td></tr>
+                        <tr><td>Fermenti lattici</td><td>Aiutano a riequilibrare la flora intestinale durante il viaggio</td></tr>
+                        <tr><td>Paracetamolo + ibuprofene</td><td>Febbre, dolori, post-Batur</td></tr>
+                        <tr><td>Antistaminico</td><td>Punture e reazioni</td></tr>
+                        <tr><td>Repellente (DEET/icaridina)</td><td>La dengue è endemica: è la difesa principale</td></tr>
+                        <tr><td>Disinfettante, cerotti, garze</td><td>Ferite da corallo e scogli alle Gili</td></tr>
+                        <tr><td>Gel mani alcolico</td><td>Prevenzione diretta</td></tr>
+                        <tr><td>SPF 50+</td><td>Sole equatoriale</td></tr>
+                        <tr><td>Antibiotico</td><td>Solo se ve lo prescrive il vostro medico prima di partire, per i casi seri</td></tr>
+                      </tbody>
+                    </table>
+                    <p className="warn"><b>Farmaci vietati:</b> in Indonesia molti farmaci da prescrizione come <b>codeina, sonniferi e trattamenti per l'ADHD sono illegali</b>. Per <b>ansiolitici e benzodiazepine</b> serve un documento ufficiale con prescrizione e dosaggio <b>in inglese</b>. Se qualcuno di voi due li usa abitualmente, portate quel documento.</p>
+                    <p><b>Malaria — merita una telefonata alla ASL.</b> Viaggiare Sicuri elenca come endemiche le province orientali e <b>Lombok</b>: due delle vostre tappe. Ma le Gili e le zone turistiche come Kuta Lombok sono considerate a rischio molto basso, e per Komodo e Flores la maggior parte dei viaggiatori non prende profilassi (Komodo è secca quasi tutto l'anno, pochissime zanzare). Le fonti divergono: il CDC classifica le Gili come "nessun rischio", altri database specialistici consigliano le pastiglie. <b>Portate l'itinerario preciso a un centro di medicina dei viaggi</b> e fatevelo dire da loro.</p>
+                    <p><b>Rabbia.</b> A Bali il vaccino antirabbico post-esposizione è spesso difficile da reperire negli ospedali per costo e scarsa disponibilità — le cliniche private di Ubud lo tengono in stock. Vedi le accortezze della tappa di Ubud per cosa fare in caso di morso o graffio.</p>
+                  </div>
+                </details>
+
+                <details className="acc">
+                  <summary><span className="ico">💧</span> Acqua e cibo<span className="chev">▸</span></summary>
+                  <div className="acc-body">
+                    <ul>
+                      <li>Solo <b>acqua in bottiglia sigillata</b>, mai dal rubinetto — <b>anche per lavarvi i denti</b>.</li>
+                      <li><b>Niente ghiaccio</b>, a meno che i cubetti non siano <b>bucati al centro</b>: significa che è industriale, prodotto con acqua filtrata.</li>
+                      <li>Lavare frutta e verdura con disinfettanti (amuchina o bicarbonato, reperibili in loco). Meglio evitare crudo, buffet scoperti e frutta non sbucciata.</li>
+                      <li>Come scegliere dove mangiare: locali con <b>buon ricambio di clienti</b>, cucina visibile, cibo cotto al momento e servito caldo.</li>
+                    </ul>
+                    <p><b>Se arriva il Bali belly:</b> riposo, idratazione con sali, dieta leggera (riso in bianco, banane, zuppe). Ma con <b>febbre alta, sangue nelle feci o sintomi oltre le 48 ore</b> → medico.</p>
+                  </div>
+                </details>
+
+                <details className="acc">
+                  <summary><span className="ico">🙏</span> Comportamento<span className="chev">▸</span></summary>
+                  <div className="acc-body">
+                    <p><b>Effusioni in pubblico.</b> La Farnesina è esplicita: le effusioni amorose in pubblico possono essere sanzionate. Parliamo di buon senso, non di rinunciare a tenersi per mano — ma baci e abbracci prolungati vanno tenuti per gli spazi privati. Il livello di tolleranza cambia molto da zona a zona: trovate la nota specifica dentro ogni tappa.</p>
+                    <p><b>Nei templi:</b> sarong e spalle coperte (noleggio al cancello, IDR 10.000–20.000). <b>Mai calpestare i canang sari</b>, le offerte di fiori a terra: giratele. Donne mestruate fuori dalle aree sacre.</p>
+                    <p><b>Regole ufficiali di Bali</b> (Circolare del Governatore SE n. 7/2025): vietato arrampicarsi su alberi sacri o monumenti, foto inappropriate o nude nei siti religiosi, gettare rifiuti in laghi/fiumi/mare, plastica monouso, comportamenti aggressivi verso locali o altri turisti. C'è una task force apposita: le violazioni gravi portano a <b>deportazione e blacklist</b>, non ad avvertimenti.</p>
+                    <p><b>Soldi:</b> cambiare solo presso money changer autorizzati e <b>ricontare i contanti davanti all'operatore prima di uscire</b> — le frodi sulla somma sono frequenti. Mai perdere di vista la carta di credito: le clonazioni sono in aumento.</p>
+                  </div>
+                </details>
+
+                <details className="acc">
+                  <summary><span className="ico">⚠️</span> I tre rischi trasversali<span className="chev">▸</span></summary>
+                  <div className="acc-body">
+                    <p><b>🍸 Metanolo — il più serio.</b> In Indonesia si registrano <b>decessi e danni permanenti</b> (coma, convulsioni, cecità, danni al sistema nervoso) da alcolici contenenti metanolo per distillazione inadeguata. I casi si sono verificati in bar, negozi e hotel proprio nelle zone turistiche di <b>Bali, Lombok e Gili</b> — tutte vostre tappe. Bande criminali producono repliche contraffatte di marche famose. Le bevande interessate: l'<b>Arak</b> (liquore di riso o zucchero di palma), cocktail e superalcolici contraffatti — e l'Arak viene spesso usato nei locali per allungare i superalcolici.<br />
+                    <b>Regole:</b> solo locali autorizzati, mai bevande artigianali, sigilli intatti, etichette senza errori ortografici. <b>Sintomi:</b> confusione, vertigini, sonnolenza o forte stanchezza, vomito, <b>alterazioni della vista</b> (visione offuscata, difficoltà con le luci intense), dolori addominali e muscolari. <b>In pratica: birra in bottiglia sigillata, e lasciate perdere i cocktail nei baretti economici.</b></p>
+                    <p><b>🥤 Spiking.</b> Segnalati casi di somministrazione di droghe a fini di stupro a <b>Bali, Lombok e Gili</b>. Attenzione durante la preparazione delle bevande, mai lasciarle incustodite, mai accettarle da sconosciuti.</p>
+                    <p><b>🛵 Scippi e sicurezza notturna.</b> Borseggi condotti <b>da uomini in motorino ai danni di donne straniere</b> nelle ore serali, vicino ai locali notturni. Taxi solo di compagnie registrate (Bluebird, Silverbird); con le app, verificare che l'autista corrisponda e condividere il viaggio. <b>In caso di rapina, non opporre resistenza.</b></p>
+                  </div>
+                </details>
+
+                <details className="acc">
+                  <summary><span className="ico">🏥</span> Assicurazione e sanità<span className="chev">▸</span></summary>
+                  <div className="acc-body">
+                    <p className="warn">Gli stranieri in Indonesia <b>non godono di alcuna forma di assistenza sanitaria pubblica</b>. E — indipendentemente dalla gravità delle condizioni del paziente — <b>l'assistenza non viene erogata senza previo pagamento o garanzia dell'assicurazione</b>.</p>
+                    <ul>
+                      <li>Il livello delle strutture pubbliche non è paragonabile agli standard occidentali.</li>
+                      <li>I costi in clinica privata sono elevatissimi: <b>alcuni interventi superano i 100.000 euro</b>.</li>
+                      <li>Nelle zone remote l'evacuazione medica può costare <b>decine di migliaia di euro</b>.</li>
+                      <li>Per emergenze gravi è consigliabile rivolgersi alle strutture di <b>Singapore</b> (voli frequenti, meno di 2 ore).</li>
+                      <li>Camere iperbariche solo a <b>Giava e Bali</b>.</li>
+                    </ul>
+                    <p><b>Verificate che la polizza copra:</b> evacuazione e rimpatrio sanitario, trekking su vulcano, attività in mare, ed eventuali <b>eventi vulcanici</b> — molte polizze standard li escludono.</p>
+                  </div>
+                </details>
+
+                <details className="acc">
+                  <summary><span className="ico">📞</span> Numeri e contatti utili<span className="chev">▸</span></summary>
+                  <div className="acc-body">
+                    <div className="emergency-grid">
+                      <div className="emg"><span className="n">119</span><span className="l">Emergenze sanitarie</span></div>
+                      <div className="emg"><span className="n">110</span><span className="l">Polizia</span></div>
+                      <div className="emg"><span className="n">113</span><span className="l">Vigili del fuoco</span></div>
+                    </div>
+                    <p><b>Ambasciata d'Italia a Jakarta</b><br />Jalan Diponegoro 45, Menteng — tel. +62 21 319 374 45<br />consolare.jakarta@esteri.it</p>
+                    <p><b>Cellulare emergenze</b> (solo emergenze reali: incidenti, arresti, calamità)<br />Dall'Indonesia: <b>08151811344</b> — dall'Italia: +62 815 181 1344<br />Attivo negli orari di chiusura dell'ambasciata: lun–gio 18:30–22:00, ven 15:30–22:00, sabato/domenica/festivi 08:30–22:00.</p>
+                    <p className="warn">Il <b>Consolato Onorario a Bali è attualmente vacante</b>: il riferimento per tutta l'Indonesia è Jakarta.</p>
+                    <p><b>Vulcani in tempo reale:</b> <a href="https://magma.esdm.go.id" target="_blank" rel="noopener noreferrer">magma.esdm.go.id</a><br />
+                    <b>Scheda paese aggiornata:</b> <a href="https://www.viaggiaresicuri.it/find-country/country/IDN" target="_blank" rel="noopener noreferrer">viaggiaresicuri.it</a></p>
+                    <p>Se subite comportamenti scorretti da parte di rappresentanti delle Autorità locali, segnalatelo subito a consolare.jakarta@esteri.it indicando la stazione di Polizia e possibilmente il nome dell'agente: sono stati riferiti casi di <b>richieste improprie di denaro</b>, presentate come costi amministrativi, per ricevere denunce di furto o aggressione — anche a Bali e Lombok.</p>
+                  </div>
+                </details>
             </div>
-            <div className="pack-toggle">
+          </section>
+        )}
+
+        {activeTab === 'valigia' && (
+          <section className="briefing-section" id="valigiaSection">
+            <div className="section-head text-center" style={{ marginBottom: '32px' }}>
+              <span className="eyebrow" style={{ color: 'var(--coral-deep)', fontWeight: 700, fontSize: '11.5px', letterSpacing: '0.14em', textTransform: 'uppercase' }}>🎒 La valigia</span>
+              <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 'clamp(26px, 4vw, 36px)', color: 'var(--ink)', margin: '8px 0 6px' }}>Trolley piccolo, viaggio leggero</h2>
+              <p style={{ color: 'var(--ink-soft)', maxWidth: '600px', margin: '0 auto', fontSize: '14px', lineHeight: 1.55 }}>
+                Pensata per un bagaglio compatto vista la quantità di voli interni, con due lavate programmate (Ubud e Gili Air) a coprire il resto. Scegli chi sta preparando la valigia.
+              </p>
+            </div>
+
+            {/* ALERT PESO BAGAGLIO */}
+            <div className="baggage-alert" style={{
+              background: 'rgba(255, 107, 74, 0.05)',
+              border: '1.5px solid rgba(255, 107, 74, 0.25)',
+              borderRadius: '16px',
+              padding: '20px',
+              marginBottom: '28px',
+              color: 'var(--ink)',
+              fontSize: '14px',
+              lineHeight: '1.6'
+            }}>
+              <h3 style={{ margin: '0 0 10px 0', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--coral-deep)', fontWeight: '700', fontSize: '15.5px' }}>
+                ⚠️ Analisi Biglietti: Limiti e Peso Ideale del Bagaglio
+              </h3>
+              <p style={{ margin: '0 0 12px 0', color: 'var(--ink-soft)' }}>
+                Dall'analisi delle vostre prenotazioni allegate, emerge che <b>tutti i voli hanno franchigie incluse ma con forti discrepanze di peso e dimensioni</b>. Ecco i limiti tassativi da rispettare per evitare addebiti o blocchi all'imbarco:
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '12px', marginBottom: '14px' }}>
+                <div style={{ background: 'var(--paper)', padding: '12px 14px', borderRadius: '10px', border: '1px solid var(--sand-deep)' }}>
+                  <b style={{ color: 'var(--jungle-deep)' }}>🎒 Bagaglio a Mano (In Cabina) — Max 7 KG</b>
+                  <ul style={{ margin: '6px 0 0 0', paddingLeft: '18px', color: 'var(--ink-soft)', fontSize: '13px' }}>
+                    <li><b>Citilink (Mataram → Jakarta):</b> Dimensioni max rigidissime: <b>17 x 34 x 41 cm</b> (molto più piccolo di un trolley standard!).</li>
+                    <li><b>Batik Air / Super Air Jet (Yogya → Labuan Bajo):</b> Dimensioni max: <b>20 x 40 x 30 cm</b>.</li>
+                    <li><i>Consiglio pratico:</i> Evitate trolley rigidi in cabina che verrebbero misurati; preferite uno zaino o borsone morbido che si adatta alle cappelliere e ai misuratori.</li>
+                  </ul>
+                </div>
+                <div style={{ background: 'var(--paper)', padding: '12px 14px', borderRadius: '10px', border: '1px solid var(--sand-deep)' }}>
+                  <b style={{ color: 'var(--jungle-deep)' }}>🧳 Bagaglio da Stiva (Registrato) — Il vero collo di bottiglia</b>
+                  <ul style={{ margin: '6px 0 0 0', paddingLeft: '18px', color: 'var(--ink-soft)', fontSize: '13px' }}>
+                    <li style={{ marginBottom: '6px' }}><b>Volo Yogyakarta → Jakarta (Batik Air):</b> <span style={{ color: 'var(--coral-deep)', fontWeight: 'bold' }}>ATTENZIONE! Il bagaglio da stiva NON è incluso</span> in questa tratta! Dovrete viaggiare solo con bagaglio a mano o acquistarlo separatamente.</li>
+                    <li style={{ marginBottom: '6px' }}><b>Volo Jakarta → Labuan Bajo (Super Air Jet):</b> Limite massimo di soli <b style={{ color: 'var(--coral-deep)' }}>10 KG</b> a persona!</li>
+                    <li><b>Altri voli (Labuan Bajo → Denpasar & Citilink):</b> Limite di <b>15 KG</b> (Saudia internazionale ha 23 KG).</li>
+                  </ul>
+                </div>
+              </div>
+              <div style={{ background: 'rgba(14, 77, 60, 0.05)', padding: '10px 14px', borderRadius: '8px', borderLeft: '4px solid var(--jungle)', color: 'var(--ink-soft)' }}>
+                💡 <b>PESO IDEALE CONSIGLIATO:</b> Per viaggiare sereni e senza intoppi su tutte le tratte, puntate a un peso di <b>max 10 KG per il bagaglio da stiva</b> (così siete coperti sul volo Super Air Jet) ed evitate trolley rigidi voluminosi per la cabina. E non dimenticate di verificare l'aggiunta del bagaglio da stiva per il volo interno Batik Air da Yogyakarta a Jakarta!
+              </div>
+            </div>
+
+            <div className="pack-toggle" style={{ marginBottom: '20px' }}>
               <button id="packBtnLeo" className={activePack === 'leo' ? 'active' : ''} onClick={() => setActivePack('leo')}>👤 Leo</button>
               <button id="packBtnEli" className={activePack === 'eli' ? 'active' : ''} onClick={() => setActivePack('eli')}>👤 Eli</button>
             </div>
-            <div className="pack-body">
-              {(activePack === 'leo' ? PACK_LEO : PACK_ELI).map((cat, cIdx) => (
-                <details className="pack-cat" key={cIdx} open>
-                  <summary><span>{cat.ico} {cat.title}</span><span className="line"></span><span className="chev">▸</span></summary>
-                  <ul className="pack-list">
-                    {cat.items.map((it, iIdx) => {
-                      const itemKey = `${activePack}-${cIdx}-${iIdx}`;
-                      const isChecked = !!checkedItems[itemKey];
-                      return (
-                        <li key={iIdx} className={isChecked ? 'checked' : ''}>
-                          <input 
-                            type="checkbox" 
-                            checked={isChecked}
-                            onChange={(e) => handleCheckboxChange(itemKey, e.target.checked)} 
-                          /> 
-                          <span>{it}</span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </details>
-              ))}
-              <div className="pack-note">{PACK_NOTE}</div>
+
+            <div className="briefing-body">
+                {(activePack === 'leo' ? PACK_LEO : PACK_ELI).map((cat, cIdx) => (
+                  <details className="acc" key={cIdx}>
+                    <summary>
+                      <span className="ico">{cat.ico}</span> {cat.title}
+                      <span className="chev">▸</span>
+                    </summary>
+                    <div className="acc-body">
+                      <ul className="pack-list">
+                        {cat.items.map((it, iIdx) => {
+                          const itemKey = `${activePack}-${cIdx}-${iIdx}`;
+                          const isChecked = !!checkedItems[itemKey];
+                          return (
+                            <li key={iIdx} className={isChecked ? 'checked' : ''}>
+                              <input 
+                                type="checkbox" 
+                                checked={isChecked}
+                                onChange={(e) => handleCheckboxChange(itemKey, e.target.checked)} 
+                              /> 
+                              <span>{it}</span>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  </details>
+                ))}
+                <div className="pack-note">
+                  {PACK_NOTE}
+                </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
       </main>
 
       {/* FOOTER */}
       <footer>
         Fatto con <span className="heart">♥</span> per Leo &amp; Eli — buon viaggio nell'arcipelago.
       </footer>
+
+      {/* BOTTOM NAVIGATION BAR */}
+      <nav className="bottom-nav">
+        <div className="bottom-nav-inner">
+          <button 
+            className={`nav-tab-item ${activeTab === 'itinerario' ? 'active' : ''}`}
+            onClick={() => {
+              setActiveTab('itinerario');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
+            <span className="nav-tab-icon">🗺️</span>
+            <span className="nav-tab-label">Itinerario</span>
+          </button>
+          <button 
+            className={`nav-tab-item ${activeTab === 'briefing' ? 'active' : ''}`}
+            onClick={() => {
+              setActiveTab('briefing');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
+            <span className="nav-tab-icon">📋</span>
+            <span className="nav-tab-label">Briefing</span>
+          </button>
+          <button 
+            className={`nav-tab-item ${activeTab === 'valigia' ? 'active' : ''}`}
+            onClick={() => {
+              setActiveTab('valigia');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
+            <span className="nav-tab-icon">🎒</span>
+            <span className="nav-tab-label">Valigia</span>
+          </button>
+        </div>
+      </nav>
 
       {/* DETAILED PHOTO MODAL */}
       {activeActivity && (

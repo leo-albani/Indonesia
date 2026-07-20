@@ -379,25 +379,27 @@ body {
   flex: 1;
   padding: 12px;
   border-radius: 12px;
-  border: 1.5px solid rgba(255, 248, 236, 0.25);
-  background: rgba(255, 248, 236, 0.05);
-  color: var(--sand);
+  border: 1.5px solid var(--sand-deep);
+  background: var(--paper);
+  color: var(--ink-soft);
   font-family: 'Space Mono', monospace;
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.04em;
   cursor: pointer;
   transition: all .15s ease;
+  box-shadow: 0 4px 12px rgba(14, 77, 60, 0.02);
 }
 
 .pack-toggle button.active {
-  background: var(--coral);
-  border-color: var(--coral);
+  background: var(--jungle);
+  border-color: var(--jungle);
   color: #fff;
 }
 
 .pack-toggle button:hover:not(.active) {
-  border-color: rgba(255, 248, 236, 0.5);
+  border-color: var(--jungle);
+  color: var(--ink);
 }
 
 .pack-body {
@@ -427,7 +429,7 @@ body {
   font-size: 12.5px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--jungle-deep);
   font-weight: 700;
   padding: 4px 0;
 }
@@ -439,12 +441,13 @@ body {
 .pack-cat summary .line {
   flex: 1;
   height: 1px;
-  background: rgba(255, 248, 236, 0.15);
+  background: var(--sand-deep);
 }
 
 .pack-cat summary .chev {
   font-size: 11px;
   transition: transform .18s ease;
+  color: var(--jungle);
 }
 
 .pack-cat[open] summary .chev {
@@ -466,25 +469,26 @@ body {
   padding: 8px 6px;
   border-radius: 8px;
   font-size: 13.5px;
-  color: rgba(255, 248, 236, 0.85);
+  color: var(--ink);
   line-height: 1.5;
 }
 
 .pack-list li:hover {
-  background: rgba(255, 248, 236, 0.05);
+  background: var(--sand-deep);
 }
 
 .pack-list input[type=checkbox] {
   margin-top: 3px;
   width: 16px;
   height: 16px;
-  accent-color: var(--coral);
+  accent-color: var(--jungle);
   flex: none;
   cursor: pointer;
 }
 
 .pack-list li.checked {
-  color: rgba(255, 248, 236, 0.4);
+  color: var(--ink-soft);
+  opacity: 0.6;
   text-decoration: line-through;
 }
 
@@ -492,9 +496,11 @@ body {
   margin-top: 10px;
   font-size: 12.5px;
   line-height: 1.6;
-  color: rgba(255, 248, 236, 0.7);
+  color: var(--ink-soft);
   border-left: 2px solid var(--gold);
-  padding-left: 11px;
+  background: rgba(242, 162, 59, 0.04);
+  padding: 10px 14px;
+  border-radius: 6px;
   font-style: italic;
 }
 
@@ -1497,7 +1503,7 @@ body {
 
 /* ---------- briefing generale ---------- */
 .briefing-section {
-  padding: 0 0 60px;
+  padding: 32px 0 60px;
 }
 
 .briefing-card {
@@ -1565,8 +1571,9 @@ body {
   border-radius: 14px;
   overflow: hidden;
   margin-bottom: 8px;
-  background: rgba(255, 248, 236, 0.06);
-  border: 1px solid rgba(255, 248, 236, 0.12);
+  background: var(--paper);
+  border: 1px solid var(--sand-deep);
+  box-shadow: 0 4px 18px rgba(14, 77, 60, 0.03);
 }
 
 .acc summary {
@@ -1578,7 +1585,7 @@ body {
   padding: 15px 16px;
   font-weight: 700;
   font-size: 14.5px;
-  color: var(--sand);
+  color: var(--ink);
 }
 
 .acc summary::-webkit-details-marker {
@@ -1588,7 +1595,7 @@ body {
 .acc summary .chev {
   margin-left: auto;
   font-size: 12px;
-  color: var(--gold);
+  color: var(--jungle);
   transition: transform .18s ease;
 }
 
@@ -1597,7 +1604,7 @@ body {
 }
 
 .acc summary:hover {
-  background: rgba(255, 248, 236, 0.05);
+  background: var(--sand-deep);
 }
 
 .acc summary .ico {
@@ -1606,9 +1613,9 @@ body {
 
 .acc-body {
   padding: 2px 16px 18px;
-  font-size: 13px;
+  font-size: 13.5px;
   line-height: 1.65;
-  color: rgba(255, 248, 236, 0.82);
+  color: var(--ink-soft);
 }
 
 .acc-body p {
@@ -1616,7 +1623,7 @@ body {
 }
 
 .acc-body b {
-  color: var(--gold);
+  color: var(--jungle-deep);
 }
 
 .acc-body ul {
@@ -1629,14 +1636,17 @@ body {
 }
 
 .acc-body a {
-  color: #8FE3D6;
+  color: var(--turquoise);
+  text-decoration: underline;
 }
 
 .acc-body .warn {
   border-left: 3px solid var(--coral);
-  padding-left: 11px;
+  padding: 10px 14px;
   margin: 12px 0;
-  color: #FFD8CE;
+  background: rgba(255, 107, 74, 0.04);
+  border-radius: 8px;
+  color: var(--ink);
 }
 
 .kit-table {
@@ -1648,13 +1658,13 @@ body {
 
 .kit-table td {
   padding: 8px 4px;
-  border-bottom: 1px solid rgba(255, 248, 236, 0.12);
+  border-bottom: 1px solid var(--sand-deep);
   vertical-align: top;
 }
 
 .kit-table td:first-child {
   font-weight: 700;
-  color: var(--sand);
+  color: var(--ink);
   width: 42%;
   padding-right: 12px;
 }
@@ -1669,7 +1679,7 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: rgba(255, 248, 236, 0.07);
+  background: var(--sand-deep);
   border-radius: 11px;
   padding: 11px 13px;
 }
@@ -1678,13 +1688,13 @@ body {
   font-family: 'Space Mono', monospace;
   font-weight: 700;
   font-size: 16px;
-  color: var(--gold);
+  color: var(--coral-deep);
   flex: none;
 }
 
 .emg .l {
   font-size: 12.5px;
-  color: rgba(255, 248, 236, 0.85);
+  color: var(--ink);
   min-width: 0;
 }
 
@@ -1770,4 +1780,93 @@ footer {
 
 footer .heart {
   color: var(--coral);
+}
+
+/* ---------- Bottom Navigation ---------- */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--sand-deep);
+  box-shadow: 0 -4px 24px rgba(14, 77, 60, 0.08);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.bottom-nav-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 64px;
+  padding: 0 16px;
+}
+
+.nav-tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 6px 0;
+  transition: all 0.2s ease;
+  position: relative;
+  font-family: 'Space Mono', monospace;
+}
+
+.nav-tab-item:focus {
+  outline: none;
+}
+
+.nav-tab-icon {
+  font-size: 20px;
+  line-height: 1;
+  margin-bottom: 2px;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-tab-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.nav-tab-item.active {
+  color: var(--jungle-deep);
+}
+
+.nav-tab-item.active .nav-tab-icon {
+  transform: scale(1.22);
+}
+
+.nav-tab-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 16px;
+  height: 3px;
+  background: var(--coral);
+  border-radius: 99px;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateY(4px);
+}
+
+.nav-tab-item.active::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add padding to the body so content is not hidden behind the navigation bar */
+body {
+  padding-bottom: 96px !important;
 }
