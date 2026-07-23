@@ -474,12 +474,209 @@ const PACK_ELI = [
 
 const PACK_NOTE = 'Da ricordare, non da mettere in valigia: mai toccare le scimmie al Monkey Forest (niente sorrisi, niente cibo in vista) · bandiera rossa = niente bagno, soprattutto a Lombok sud · solo bevande sigillate, niente Arak né cocktail artigianali · controllare i giubbotti di salvataggio appena si sale su traghetto o barca.';
 
+const TIMELINE_STEPS: Array<
+  | {
+      type: 'stop';
+      data: {
+        id: number;
+        num: string;
+        name: string;
+        region: string;
+        dates: string;
+        nights: string;
+        badge: string;
+        accent: string;
+      };
+    }
+  | {
+      type: 'transition';
+      data: {
+        date: string;
+        icon: string;
+        title: string;
+        mode: string;
+        route: string;
+        details: string;
+      };
+    }
+> = [
+  {
+    type: 'transition',
+    data: {
+      date: '27 – 28 Luglio',
+      icon: '✈️',
+      title: 'Volo di Andata dall\'Italia',
+      mode: 'Volo internazionale (Saudia)',
+      route: 'Roma (FCO) ➔ Jeddah (JED) ➔ Jakarta (CGK)',
+      details: 'Partenza 27/07 ore 09:25 da Roma. Scalo a Jeddah (2h15). Atterraggio a Jakarta il 28/07 ore 07:35 am.'
+    }
+  },
+  {
+    type: 'stop',
+    data: {
+      id: 1,
+      num: '01',
+      name: 'Jakarta',
+      region: 'Giava Ovest',
+      dates: '27 – 29 luglio',
+      nights: '2 notti',
+      badge: 'Atterraggio & Recupero jet-lag',
+      accent: 'gold'
+    }
+  },
+  {
+    type: 'transition',
+    data: {
+      date: '29 Luglio',
+      icon: '✈️',
+      title: 'Giorno di Spostamento',
+      mode: 'Volo interno',
+      route: 'Jakarta (CGK) ➔ Yogyakarta (JOG)',
+      details: 'Partenza ore 11:30 · Durata 1h 20m (Spostamento da Giava ovest a Giava centrale)'
+    }
+  },
+  {
+    type: 'stop',
+    data: {
+      id: 2,
+      num: '02',
+      name: 'Yogyakarta',
+      region: 'Giava Centrale',
+      dates: '29 – 31 luglio',
+      nights: '2 notti',
+      badge: 'Templi UNESCO (Borobudur & Prambanan)',
+      accent: 'coral'
+    }
+  },
+  {
+    type: 'transition',
+    data: {
+      date: '31 Luglio',
+      icon: '✈️',
+      title: 'Giorno di Spostamento (2 Voli)',
+      mode: '2 Voli interni (Scalo Jakarta)',
+      route: 'Yogyakarta (JOG) ➔ Jakarta (CGK) ➔ Labuan Bajo / Komodo (LBJ)',
+      details: '1° Volo JOG-CGK (07:55 - 09:05) · Scalo ~4h a Jakarta · 2° Volo CGK-LBJ (13:00 - 16:25)'
+    }
+  },
+  {
+    type: 'stop',
+    data: {
+      id: 3,
+      num: '03',
+      name: 'Komodo',
+      region: 'Labuan Bajo, Flores',
+      dates: '31 luglio – 3 agosto',
+      nights: '3 notti',
+      badge: 'Parco Nazionale, Draghi & Mare',
+      accent: 'jungle'
+    }
+  },
+  {
+    type: 'transition',
+    data: {
+      date: '3 Agosto',
+      icon: '✈️',
+      title: 'Giorno di Spostamento',
+      mode: 'Volo interno + Auto',
+      route: 'Labuan Bajo (LBJ) ➔ Bali Denpasar (DPS) ➔ Ubud',
+      details: 'Partenza ore 17:30 · Volo 1h 15m + Transfer in auto dall\'aeroporto di Denpasar a Ubud'
+    }
+  },
+  {
+    type: 'stop',
+    data: {
+      id: 4,
+      num: '04',
+      name: 'Ubud',
+      region: 'Bali',
+      dates: '3 – 8 agosto',
+      nights: '5 notti',
+      badge: 'Risaie UNESCO, Vulcano Batur & Natura',
+      accent: 'turquoise'
+    }
+  },
+  {
+    type: 'transition',
+    data: {
+      date: '8 Agosto',
+      icon: '⛴️',
+      title: 'Giorno di Spostamento',
+      mode: 'Fast Ferry (Traghetto)',
+      route: 'Bali (Padang Bai) ➔ Gili Air',
+      details: 'Fast Ferry Wahana Virendra · Partenza ore 08:30 da Padang Bai · Durata ~2 ore via mare'
+    }
+  },
+  {
+    type: 'stop',
+    data: {
+      id: 5,
+      num: '05',
+      name: 'Gili Air',
+      region: 'Isole Gili',
+      dates: '8 – 12 agosto',
+      nights: '4 notti',
+      badge: 'Mare, Tartarughe, Relax & Cucina',
+      accent: 'coral'
+    }
+  },
+  {
+    type: 'transition',
+    data: {
+      date: '12 Agosto',
+      icon: '⛵',
+      title: 'Giorno di Spostamento',
+      mode: 'Barca locale + Auto',
+      route: 'Gili Air ➔ Porto di Lombok ➔ Kuta Lombok',
+      details: 'Barca locale fino al porto di Lombok (~20m) + Transfer in auto fino a Kuta Lombok (~1h 30m)'
+    }
+  },
+  {
+    type: 'stop',
+    data: {
+      id: 6,
+      num: '06',
+      name: 'Kuta Lombok',
+      region: 'Lombok Sud',
+      dates: '12 – 15 agosto',
+      nights: '3 notti',
+      badge: 'Spiagge, Surf & Tramonto a Bukit Merese',
+      accent: 'gold'
+    }
+  },
+  {
+    type: 'transition',
+    data: {
+      date: '15 – 16 Agosto',
+      icon: '✈️',
+      title: 'Voli di Rientro',
+      mode: 'Volo interno + Voli internazionali (Saudia)',
+      route: 'Kuta Lombok ➔ Aeroporto Lombok (LOP) ➔ Jakarta ➔ Jeddah ➔ Roma',
+      details: 'Volo LOP-CGK + Volo Saudia CGK-JED-FCO con notte in transit hotel Aerotel Jeddah. Arrivo a FCO il 16/08 ore 14:40.'
+    }
+  },
+  {
+    type: 'stop',
+    data: {
+      id: 7,
+      num: '07',
+      name: 'Rientro a Roma',
+      region: 'Italia (FCO)',
+      dates: '16 agosto',
+      nights: 'Arrivo a FCO ore 14:40',
+      badge: 'Fine del viaggio',
+      accent: 'jungle'
+    }
+  }
+];
+
 export default function App() {
   const [activeTab, setActiveTab] = useState<'itinerario' | 'briefing' | 'valigia'>('itinerario');
   const [activeStopId, setActiveStopId] = useState<number>(1);
   const [activePack, setActivePack] = useState<'leo' | 'eli'>('leo');
   const [activeActivity, setActiveActivity] = useState<any | null>(null);
   const [checkedItems, setCheckedItems] = useState<{ [key: string]: boolean }>({});
+  const [itineraryViewMode, setItineraryViewMode] = useState<'simplified' | 'map' | 'all'>('simplified');
 
   const activeStop = (stops.find((s) => s.id === activeStopId) || stops[0]) as any;
 
@@ -537,13 +734,186 @@ export default function App() {
       <main className="wrap">
         {activeTab === 'itinerario' && (
           <>
+            {/* VIEW MODE SELECTOR */}
+            <div className="view-mode-bar" style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '10px',
+              margin: '28px 0 24px',
+              flexWrap: 'wrap'
+            }}>
+              <button 
+                type="button"
+                className={`mode-btn ${itineraryViewMode === 'simplified' ? 'active' : ''}`}
+                onClick={() => setItineraryViewMode('simplified')}
+              >
+                📍 Timeline Semplificata & Spostamenti
+              </button>
+              <button 
+                type="button"
+                className={`mode-btn ${itineraryViewMode === 'map' ? 'active' : ''}`}
+                onClick={() => setItineraryViewMode('map')}
+              >
+                🗺️ Mappa Interattiva
+              </button>
+              <button 
+                type="button"
+                className={`mode-btn ${itineraryViewMode === 'all' ? 'active' : ''}`}
+                onClick={() => setItineraryViewMode('all')}
+              >
+                👁️ Vista Completa (Tutto)
+              </button>
+            </div>
+
+            {/* SIMPLIFIED TIMELINE SECTION */}
+            {(itineraryViewMode === 'simplified' || itineraryViewMode === 'all') && (
+              <section className="simplified-timeline-section" style={{ marginBottom: '40px', marginTop: '10px' }}>
+                <div className="section-head text-center" style={{ marginBottom: '28px' }}>
+                  <span className="eyebrow" style={{ color: 'var(--coral-deep)', fontWeight: 700, fontSize: '11.5px', letterSpacing: '0.14em', textTransform: 'uppercase' }}>
+                    📍 VISTA SEMPLIFICATA
+                  </span>
+                  <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 'clamp(24px, 3.8vw, 34px)', color: 'var(--ink)', margin: '8px 0 6px' }}>
+                    Tappe Collegate & Giorni di Transizione
+                  </h2>
+                  <p style={{ color: 'var(--ink-soft)', maxWidth: '640px', margin: '0 auto', fontSize: '14.5px', lineHeight: 1.55 }}>
+                    L'itinerario in ordine temporale con i periodi di permanenza in ogni tappa e, ben evidenziati in risalto, tutti i giorni di spostamento in volo, traghetto o barca.
+                  </p>
+                </div>
+
+                <div className="timeline-flow" style={{ display: 'flex', flexDirection: 'column', gap: '14px', maxWidth: '840px', margin: '0 auto' }}>
+                  {TIMELINE_STEPS.map((step, idx) => {
+                    if (step.type === 'stop') {
+                      const s = step.data;
+                      const isActive = activeStopId === s.id;
+                      return (
+                        <div 
+                          key={`stop-${s.id}`} 
+                          className={`timeline-stop-card ${isActive ? 'active' : ''}`}
+                          onClick={() => handleSelectStop(s.id, true)}
+                          style={{
+                            background: 'var(--paper)',
+                            borderRadius: '16px',
+                            padding: '18px 24px',
+                            border: isActive ? `2.5px solid ${ACCENTS[s.accent].solid}` : '1.5px solid var(--sand-deep)',
+                            boxShadow: isActive ? '0 8px 24px rgba(14, 77, 60, 0.12)' : '0 2px 8px rgba(0,0,0,0.03)',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            gap: '16px',
+                            flexWrap: 'wrap'
+                          }}
+                        >
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                            <span className="stop-num-badge" style={{
+                              background: ACCENTS[s.accent].solid,
+                              color: '#fff',
+                              fontWeight: 700,
+                              fontSize: '13px',
+                              padding: '6px 14px',
+                              borderRadius: '999px',
+                              fontFamily: "'Space Mono', monospace"
+                            }}>
+                              Tappa {s.num}
+                            </span>
+                            <div>
+                              <h3 style={{ margin: 0, fontSize: '19px', fontWeight: 700, color: 'var(--jungle-deep)' }}>
+                                {s.name}
+                              </h3>
+                              <span style={{ fontSize: '13.5px', color: 'var(--ink-soft)' }}>
+                                {s.region} · <span style={{ color: 'var(--coral-deep)', fontWeight: 600 }}>{s.badge}</span>
+                              </span>
+                            </div>
+                          </div>
+
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                            <div style={{ textAlign: 'right' }}>
+                              <div style={{ fontWeight: 700, fontSize: '15px', color: 'var(--ink)' }}>
+                                📅 {s.dates}
+                              </div>
+                              <div style={{ fontSize: '13px', color: 'var(--ink-soft)' }}>
+                                🌙 {s.nights}
+                              </div>
+                            </div>
+                            <span style={{ fontSize: '18px', color: 'var(--jungle)', fontWeight: 700 }}>➔</span>
+                          </div>
+                        </div>
+                      );
+                    } else {
+                      const t = step.data;
+                      return (
+                        <div 
+                          key={`trans-${idx}`} 
+                          className="timeline-transition-card"
+                          style={{
+                            background: 'linear-gradient(135deg, rgba(255, 246, 229, 0.95) 0%, rgba(255, 238, 208, 0.98) 100%)',
+                            border: '2px dashed var(--gold-deep)',
+                            borderRadius: '14px',
+                            padding: '16px 22px',
+                            margin: '2px 0 2px 20px',
+                            boxShadow: '0 4px 16px rgba(242, 162, 59, 0.1)'
+                          }}
+                        >
+                          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                              <span style={{ fontSize: '24px', background: '#fff', padding: '6px 12px', borderRadius: '12px', boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
+                                {t.icon}
+                              </span>
+                              <div>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '4px' }}>
+                                  <span style={{
+                                    background: 'var(--coral-deep)',
+                                    color: '#fff',
+                                    fontSize: '10.5px',
+                                    fontWeight: 800,
+                                    padding: '3px 8px',
+                                    borderRadius: '4px',
+                                    letterSpacing: '0.06em',
+                                    textTransform: 'uppercase'
+                                  }}>
+                                    ⚡ GIORNO DI TRANSIZIONE
+                                  </span>
+                                  <span style={{ fontWeight: 700, fontSize: '14.5px', color: 'var(--ink)' }}>
+                                    📅 {t.date}
+                                  </span>
+                                  <span style={{
+                                    background: 'rgba(14, 77, 60, 0.1)',
+                                    color: 'var(--jungle-deep)',
+                                    fontSize: '12px',
+                                    fontWeight: 700,
+                                    padding: '2px 9px',
+                                    borderRadius: '6px'
+                                  }}>
+                                    {t.mode}
+                                  </span>
+                                </div>
+                                <div style={{ fontWeight: 700, fontSize: '15px', color: 'var(--jungle-deep)' }}>
+                                  {t.route}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div style={{ fontSize: '13px', color: 'var(--ink-soft)', marginTop: '8px', borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '6px' }}>
+                            💡 {t.details}
+                          </div>
+                        </div>
+                      );
+                    }
+                  })}
+                </div>
+              </section>
+            )}
+
             {/* MAP SECTION */}
-        <section className="map-section">
-          <div className="section-head">
-            <span className="eyebrow">La rotta</span>
-            <h2>Un anello attraverso l'arcipelago</h2>
-            <p>Da Giacarta si vola fino a Komodo, poi si torna indietro passando per Bali, le Gili e Lombok, prima del rientro via Giacarta e Jeddah. Le distanze non sono in scala — è più una cartolina che una mappa.</p>
-          </div>
+            {(itineraryViewMode === 'map' || itineraryViewMode === 'all') && (
+              <section className="map-section">
+                <div className="section-head">
+                  <span className="eyebrow">La rotta</span>
+                  <h2>Un anello attraverso l'arcipelago</h2>
+                  <p>Da Giacarta si vola fino a Komodo, poi si torna indietro passando per Bali, le Gili e Lombok, prima del rientro via Giacarta e Jeddah. Le distanze non sono in scala — è più una cartolina che una mappa.</p>
+                </div>
+
           <div className="map-scroll">
             <svg id="mapSvg" viewBox="0 0 1220 500" xmlns="http://www.w3.org/2000/svg">
               <defs>
@@ -706,6 +1076,7 @@ export default function App() {
             ))}
           </div>
         </section>
+      )}
 
         {/* DETAIL PANEL */}
         <section className="detail-section" id="detailSection">
@@ -1134,62 +1505,59 @@ export default function App() {
 
         {activeTab === 'valigia' && (
           <section className="briefing-section" id="valigiaSection">
-            <div className="section-head text-center" style={{ marginBottom: '32px' }}>
+            <div className="section-head text-center" style={{ marginBottom: '28px' }}>
               <span className="eyebrow" style={{ color: 'var(--coral-deep)', fontWeight: 700, fontSize: '11.5px', letterSpacing: '0.14em', textTransform: 'uppercase' }}>🎒 La valigia</span>
-              <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 'clamp(26px, 4vw, 36px)', color: 'var(--ink)', margin: '8px 0 6px' }}>Trolley piccolo, viaggio leggero</h2>
-              <p style={{ color: 'var(--ink-soft)', maxWidth: '600px', margin: '0 auto', fontSize: '14px', lineHeight: 1.55 }}>
-                Pensata per un bagaglio compatto vista la quantità di voli interni, con due lavate programmate (Ubud e Gili Air) a coprire il resto. Scegli chi sta preparando la valigia.
-              </p>
+              <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 'clamp(26px, 4vw, 36px)', color: 'var(--ink)', margin: '8px 0 6px' }}>Gestione Bagagli e Valigia</h2>
             </div>
 
-            {/* ALERT PESO BAGAGLIO */}
+            {/* GESTIONE BAGAGLI */}
             <div className="baggage-alert" style={{
-              background: 'rgba(255, 107, 74, 0.05)',
-              border: '1.5px solid rgba(255, 107, 74, 0.25)',
+              background: 'var(--paper)',
+              border: '1px solid var(--sand-deep)',
               borderRadius: '16px',
-              padding: '20px',
+              padding: '24px',
               marginBottom: '28px',
               color: 'var(--ink)',
-              fontSize: '14px',
-              lineHeight: '1.6'
+              boxShadow: '0 4px 18px rgba(14, 77, 60, 0.05)'
             }}>
-              <h3 style={{ margin: '0 0 10px 0', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--coral-deep)', fontWeight: '700', fontSize: '15.5px' }}>
-                ⚠️ Analisi Biglietti: Limiti e Peso Ideale del Bagaglio
+              <h3 style={{ margin: '0 0 16px 0', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--jungle-deep)', fontWeight: '700', fontSize: '17px' }}>
+                🧳 Gestione Bagagli
               </h3>
-              <p style={{ margin: '0 0 12px 0', color: 'var(--ink-soft)' }}>
-                Dall'analisi delle vostre prenotazioni allegate, emerge che <b>tutti i voli hanno franchigie incluse ma con forti discrepanze di peso e dimensioni</b>. Ecco i limiti tassativi da rispettare per evitare addebiti o blocchi all'imbarco:
-              </p>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '12px', marginBottom: '14px' }}>
-                <div style={{ background: 'var(--paper)', padding: '12px 14px', borderRadius: '10px', border: '1px solid var(--sand-deep)' }}>
-                  <b style={{ color: 'var(--jungle-deep)' }}>🎒 Bagaglio a Mano (In Cabina) — Max 7 KG</b>
-                  <ul style={{ margin: '6px 0 0 0', paddingLeft: '18px', color: 'var(--ink-soft)', fontSize: '13px' }}>
-                    <li><b>Citilink (Mataram → Jakarta):</b> Dimensioni max rigidissime: <b>17 x 34 x 41 cm</b> (molto più piccolo di un trolley standard!).</li>
-                    <li><b>Batik Air / Super Air Jet (Yogya → Labuan Bajo):</b> Dimensioni max: <b>20 x 40 x 30 cm</b>.</li>
-                    <li><i>Consiglio pratico:</i> Evitate trolley rigidi in cabina che verrebbero misurati; preferite uno zaino o borsone morbido che si adatta alle cappelliere e ai misuratori.</li>
-                  </ul>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px', marginBottom: '18px' }}>
+                <div style={{ background: 'var(--sand)', padding: '12px 14px', borderRadius: '12px', border: '1px solid var(--sand-deep)', fontSize: '13.5px' }}>
+                  <b style={{ color: 'var(--jungle-deep)', display: 'block', marginBottom: '4px', fontSize: '14px' }}>Roma – Jakarta</b>
+                  <span style={{ color: 'var(--ink-soft)' }}>7 kg cabina e 23 kg stiva</span>
                 </div>
-                <div style={{ background: 'var(--paper)', padding: '12px 14px', borderRadius: '10px', border: '1px solid var(--sand-deep)' }}>
-                  <b style={{ color: 'var(--jungle-deep)' }}>🧳 Bagaglio da Stiva (Registrato) — Il vero collo di bottiglia</b>
-                  <ul style={{ margin: '6px 0 0 0', paddingLeft: '18px', color: 'var(--ink-soft)', fontSize: '13px' }}>
-                    <li style={{ marginBottom: '6px' }}><b>Volo Yogyakarta → Jakarta (Batik Air):</b> <span style={{ color: 'var(--coral-deep)', fontWeight: 'bold' }}>ATTENZIONE! Il bagaglio da stiva NON è incluso</span> in questa tratta! Dovrete viaggiare solo con bagaglio a mano o acquistarlo separatamente.</li>
-                    <li style={{ marginBottom: '6px' }}><b>Volo Jakarta → Labuan Bajo (Super Air Jet):</b> Limite massimo di soli <b style={{ color: 'var(--coral-deep)' }}>10 KG</b> a persona!</li>
-                    <li><b>Altri voli (Labuan Bajo → Denpasar & Citilink):</b> Limite di <b>15 KG</b> (Saudia internazionale ha 23 KG).</li>
-                  </ul>
+                <div style={{ background: 'var(--sand)', padding: '12px 14px', borderRadius: '12px', border: '1px solid var(--sand-deep)', fontSize: '13.5px' }}>
+                  <b style={{ color: 'var(--jungle-deep)', display: 'block', marginBottom: '4px', fontSize: '14px' }}>Jakarta – Yogyakarta</b>
+                  <span style={{ color: 'var(--ink-soft)' }}>7 kg cabina e 20 kg stiva</span>
+                </div>
+                <div style={{ background: 'var(--sand)', padding: '12px 14px', borderRadius: '12px', border: '1px solid var(--sand-deep)', fontSize: '13.5px' }}>
+                  <b style={{ color: 'var(--jungle-deep)', display: 'block', marginBottom: '4px', fontSize: '14px' }}>Yogyakarta – Komodo</b>
+                  <span style={{ color: 'var(--ink-soft)' }}>7 kg cabina e 10 kg stiva</span>
+                </div>
+                <div style={{ background: 'var(--sand)', padding: '12px 14px', borderRadius: '12px', border: '1px solid var(--sand-deep)', fontSize: '13.5px' }}>
+                  <b style={{ color: 'var(--jungle-deep)', display: 'block', marginBottom: '4px', fontSize: '14px' }}>Komodo – Bali</b>
+                  <span style={{ color: 'var(--ink-soft)' }}>7 kg cabina e 15 kg stiva</span>
+                </div>
+                <div style={{ background: 'var(--sand)', padding: '12px 14px', borderRadius: '12px', border: '1px solid var(--sand-deep)', fontSize: '13.5px' }}>
+                  <b style={{ color: 'var(--jungle-deep)', display: 'block', marginBottom: '4px', fontSize: '14px' }}>Lombok – Jakarta</b>
+                  <span style={{ color: 'var(--ink-soft)' }}>7 kg cabina e 15 kg stiva</span>
                 </div>
               </div>
-              <div style={{ background: 'rgba(14, 77, 60, 0.05)', padding: '10px 14px', borderRadius: '8px', borderLeft: '4px solid var(--jungle)', color: 'var(--ink-soft)' }}>
-                💡 <b>PESO IDEALE CONSIGLIATO:</b> Per viaggiare sereni e senza intoppi su tutte le tratte, puntate a un peso di <b>max 10 KG per il bagaglio da stiva</b> (così siete coperti sul volo Super Air Jet) ed evitate trolley rigidi voluminosi per la cabina. E non dimenticate di verificare l'aggiunta del bagaglio da stiva per il volo interno Batik Air da Yogyakarta a Jakarta!
+              <div style={{ background: 'rgba(14, 77, 60, 0.06)', padding: '14px 18px', borderRadius: '12px', borderLeft: '4px solid var(--jungle)', color: 'var(--ink)', fontSize: '14px', lineHeight: '1.6' }}>
+                💡 <b>Regola del viaggio:</b> Bisogna portare quindi un <b>trolley da massimo 10 kg</b> che imbarchiamo sempre in stiva + uno <b>zainone da massimo 7 kg</b> che portiamo in cappelliera.
               </div>
             </div>
 
             <div className="pack-toggle" style={{ marginBottom: '20px' }}>
-              <button id="packBtnLeo" className={activePack === 'leo' ? 'active' : ''} onClick={() => setActivePack('leo')}>👤 Leo</button>
-              <button id="packBtnEli" className={activePack === 'eli' ? 'active' : ''} onClick={() => setActivePack('eli')}>👤 Eli</button>
+              <button id="packBtnLeo" className={activePack === 'leo' ? 'active' : ''} onClick={() => setActivePack('leo')}>👤 Valigia Leo</button>
+              <button id="packBtnEli" className={activePack === 'eli' ? 'active' : ''} onClick={() => setActivePack('eli')}>👤 Valigia Eli</button>
             </div>
 
             <div className="briefing-body">
                 {(activePack === 'leo' ? PACK_LEO : PACK_ELI).map((cat, cIdx) => (
-                  <details className="acc" key={cIdx}>
+                  <details className="acc" key={cIdx} open>
                     <summary>
                       <span className="ico">{cat.ico}</span> {cat.title}
                       <span className="chev">▸</span>
@@ -1214,9 +1582,6 @@ export default function App() {
                     </div>
                   </details>
                 ))}
-                <div className="pack-note">
-                  {PACK_NOTE}
-                </div>
             </div>
           </section>
         )}

@@ -226,18 +226,29 @@ export const STOPS_DATA: StopItinerary[] = [
       label: "Come si arriva · da Yogyakarta",
       segments: [
         {
-          route: "Yogyakarta (JOG) → Labuan Bajo (LBJ)",
-          flightNo: "Volo interno",
+          route: "Yogyakarta (JOG) → Jakarta (CGK)",
+          flightNo: "Volo 1",
           company: "—",
           date: "31 lug 2026",
-          dep: "15:30",
-          arr: "~17:00",
-          duration: "1h 30m",
-          note: "Volo directo verso Komodo",
+          dep: "07:55",
+          arr: "09:05",
+          duration: "1h 10m",
+          note: "Partenza da Yogyakarta per Jakarta",
+          bookedVia: "Kiss&Fly"
+        },
+        {
+          route: "Jakarta (CGK) → Labuan Bajo / Komodo (LBJ)",
+          flightNo: "Volo 2",
+          company: "—",
+          date: "31 lug 2026",
+          dep: "13:00",
+          arr: "16:25",
+          duration: "2h 25m",
+          note: "Scalo a Jakarta di ~4 ore (cambio aereo)",
           bookedVia: "Kiss&Fly"
         }
       ],
-      footNote: "Tratta interna diretta verso l'estremo est dell'itinerario, prima di tornare verso ovest."
+      footNote: "2 voli nella stessa giornata: partenza alle 07:55 da Yogyakarta, arrivo alle 09:05 a Jakarta, circa 4 ore di scalo e volo per Labuan Bajo (13:00 – 16:25)."
     },
     hotel: {
       name: "Harbour Komodo Hotel",

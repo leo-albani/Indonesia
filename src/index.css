@@ -1870,3 +1870,75 @@ footer .heart {
 body {
   padding-bottom: 96px !important;
 }
+
+/* ---------- SIMPLIFIED TIMELINE STYLES ---------- */
+.mode-btn {
+  background: var(--paper);
+  border: 1.5px solid var(--sand-deep);
+  color: var(--ink-soft);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mode-btn:hover {
+  border-color: var(--jungle);
+  color: var(--jungle-deep);
+  transform: translateY(-1px);
+}
+
+.mode-btn.active {
+  background: var(--jungle-deep);
+  color: #fff;
+  border-color: var(--jungle-deep);
+  box-shadow: 0 4px 14px rgba(14, 77, 60, 0.2);
+}
+
+.timeline-flow {
+  position: relative;
+  padding-left: 8px;
+}
+
+.timeline-stop-card {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-stop-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(14, 77, 60, 0.12) !important;
+}
+
+.timeline-transition-card {
+  transition: all 0.25s ease;
+}
+
+.timeline-transition-card:hover {
+  box-shadow: 0 6px 20px rgba(242, 162, 59, 0.16) !important;
+}
+
+@media (max-width: 640px) {
+  .timeline-stop-card {
+    padding: 14px 16px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .timeline-stop-card > div:last-child {
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px dashed var(--sand-deep);
+    padding-top: 10px;
+    margin-top: 4px;
+  }
+  .timeline-transition-card {
+    margin-left: 0 !important;
+    padding: 12px 14px !important;
+  }
+}
+
