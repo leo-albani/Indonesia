@@ -670,13 +670,39 @@ const TIMELINE_STEPS: Array<
   }
 ];
 
+// CALENDAR DAILY DATA
+const CALENDAR_DAYS = [
+  { id: 0, dateNum: '27 LUG', dayNum: 27, month: 'Luglio', dayName: 'Lun', fullDate: '27 Luglio', stopId: 1, stopName: 'Jakarta', accent: 'gold', activity: 'Partenza da Roma FCO (09:25) ➔ Scalo a Jeddah', shortLabel: '✈️ Partenza Roma & Scalo Jeddah', isTransition: true, transIcon: '✈️', transDetail: 'Volo Saudia SV204 (09:25) Roma-Jeddah + SV816 Jeddah-Jakarta' },
+  { id: 1, dateNum: '28 LUG', dayNum: 28, month: 'Luglio', dayName: 'Mar', fullDate: '28 Luglio', stopId: 1, stopName: 'Jakarta', accent: 'gold', activity: 'Arrivo a Giacarta CGK (07:35) & recupero jet-lag in hotel', shortLabel: 'Arrivo CGK & Hotel', isTransition: false },
+  { id: 2, dateNum: '29 LUG', dayNum: 29, month: 'Luglio', dayName: 'Mer', fullDate: '29 Luglio', stopId: 2, stopName: 'Yogyakarta', accent: 'coral', activity: 'Volo Giacarta ➔ Yogyakarta (11:30 - 12:50)', shortLabel: '✈️ Volo CGK ➔ JOG', isTransition: true, transIcon: '✈️', transDetail: 'Volo interno CGK ➔ JOG + Transfer in hotel' },
+  { id: 3, dateNum: '30 LUG', dayNum: 30, month: 'Luglio', dayName: 'Gio', fullDate: '30 Luglio', stopId: 2, stopName: 'Yogyakarta', accent: 'coral', activity: 'Templi UNESCO Borobudur & Prambanan', shortLabel: 'Borobudur & Prambanan', isTransition: false },
+  { id: 4, dateNum: '31 LUG', dayNum: 31, month: 'Luglio', dayName: 'Ven', fullDate: '31 Luglio', stopId: 3, stopName: 'Komodo', accent: 'jungle', activity: 'Volo 1 JOG-CGK (07:55) + Scalo ~4h + Volo 2 CGK-LBJ (13:00)', shortLabel: '✈️ 2 Voli via CGK per LBJ', isTransition: true, transIcon: '✈️', transDetail: '2 Voli interni via Jakarta per Labuan Bajo / Komodo (arrivo 16:25)' },
+  { id: 5, dateNum: '1 AGO', dayNum: 1, month: 'Agosto', dayName: 'Sab', fullDate: '1 Agosto', stopId: 3, stopName: 'Komodo', accent: 'jungle', activity: 'Parco Nazionale Komodo: Isola di Komodo, Draghi & Pink Beach', shortLabel: 'Parco Komodo & Draghi', isTransition: false },
+  { id: 6, dateNum: '2 AGO', dayNum: 2, month: 'Agosto', dayName: 'Dom', fullDate: '2 Agosto', stopId: 3, stopName: 'Komodo', accent: 'jungle', activity: 'Escursione in barca, Snorkeling Padar & Manta Point', shortLabel: 'Snorkeling Padar & Mante', isTransition: false },
+  { id: 7, dateNum: '3 AGO', dayNum: 3, month: 'Agosto', dayName: 'Lun', fullDate: '3 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Volo Labuan Bajo ➔ Bali (17:30 - 18:45) + Transfer Ubud', shortLabel: '✈️ Volo LBJ ➔ Bali', isTransition: true, transIcon: '✈️', transDetail: 'Volo per Bali (DPS) + Transfer auto fino ad Ubud' },
+  { id: 8, dateNum: '4 AGO', dayNum: 4, month: 'Agosto', dayName: 'Mar', fullDate: '4 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Risaie di Tegallalang & Sacred Monkey Forest', shortLabel: 'Risaie & Monkey Forest', isTransition: false },
+  { id: 9, dateNum: '5 AGO', dayNum: 5, month: 'Agosto', dayName: 'Mer', fullDate: '5 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Trekking all\'alba sul Vulcano Batur e Sorgenti Termali', shortLabel: 'Vulcano Batur Sunrise', isTransition: false },
+  { id: 10, dateNum: '6 AGO', dayNum: 6, month: 'Agosto', dayName: 'Gio', fullDate: '6 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Tempio di Tirta Empul & Cascata Tukad Cepung', shortLabel: 'Tempio Tirta Empul', isTransition: false },
+  { id: 11, dateNum: '7 AGO', dayNum: 7, month: 'Agosto', dayName: 'Ven', fullDate: '7 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Relax, Mercato artigianale, Yoga & Massaggio balinese', shortLabel: 'Relax & Massaggi', isTransition: false },
+  { id: 12, dateNum: '8 AGO', dayNum: 8, month: 'Agosto', dayName: 'Sab', fullDate: '8 Agosto', stopId: 5, stopName: 'Gili Air', accent: 'gold', activity: 'Fast Ferry Padang Bai ➔ Gili Air (08:30)', shortLabel: '⛴️ Fast Ferry Padang Bai', isTransition: true, transIcon: '⛴️', transDetail: 'Transfer porto Padang Bai + Fast Ferry per Gili Air (~2 ore)' },
+  { id: 13, dateNum: '9 AGO', dayNum: 9, month: 'Agosto', dayName: 'Dom', fullDate: '9 Agosto', stopId: 5, stopName: 'Gili Air', accent: 'gold', activity: 'Snorkeling con le tartarughe & Barriera Corallina', shortLabel: 'Snorkeling Tartarughe', isTransition: false },
+  { id: 14, dateNum: '10 AGO', dayNum: 10, month: 'Agosto', dayName: 'Lun', fullDate: '10 Agosto', stopId: 5, stopName: 'Gili Air', accent: 'gold', activity: 'Giro dell\'isola in bicicletta & Tramonto sul mare', shortLabel: 'Giro Bici & Sunset', isTransition: false },
+  { id: 15, dateNum: '11 AGO', dayNum: 11, month: 'Agosto', dayName: 'Mar', fullDate: '11 Agosto', stopId: 5, stopName: 'Gili Air', accent: 'gold', activity: 'Sunset Spot, Aperitivo in spiaggia & Relax totale', shortLabel: 'Sunset Beach Relax', isTransition: false },
+  { id: 16, dateNum: '12 AGO', dayNum: 12, month: 'Agosto', dayName: 'Mer', fullDate: '12 Agosto', stopId: 6, stopName: 'Kuta Lombok', accent: 'coral', activity: 'Barca locale per Lombok + Auto fino a Kuta Lombok', shortLabel: '⛵ Barca per Lombok', isTransition: true, transIcon: '⛵', transDetail: 'Barca per Bangsal (~20m) + Transfer auto per Kuta Lombok (~1h30m)' },
+  { id: 17, dateNum: '13 AGO', dayNum: 13, month: 'Agosto', dayName: 'Gio', fullDate: '13 Agosto', stopId: 6, stopName: 'Kuta Lombok', accent: 'coral', activity: 'Spiagge di Mawun, Selong Belanak & Lezione di Surf', shortLabel: 'Spiagge Mawun & Surf', isTransition: false },
+  { id: 18, dateNum: '14 AGO', dayNum: 14, month: 'Agosto', dayName: 'Ven', fullDate: '14 Agosto', stopId: 6, stopName: 'Kuta Lombok', accent: 'coral', activity: 'Relax in spiaggia & Tramonto a Bukit Merese', shortLabel: 'Bukit Merese Sunset', isTransition: false },
+  { id: 19, dateNum: '15 AGO', dayNum: 15, month: 'Agosto', dayName: 'Sab', fullDate: '15 Agosto', stopId: 7, stopName: 'Rientro', accent: 'jungle', activity: 'Volo Lombok ➔ Jakarta ➔ Jeddah (Notte in transit hotel)', shortLabel: '✈️ Volo LOP-CGK-JED', isTransition: true, transIcon: '✈️', transDetail: 'Partenza da Lombok LOP ore 13:40, scalo Jakarta & volo notturno' },
+  { id: 20, dateNum: '16 AGO', dayNum: 16, month: 'Agosto', dayName: 'Dom', fullDate: '16 Agosto', stopId: 7, stopName: 'Rientro', accent: 'jungle', activity: 'Volo Jeddah ➔ Roma FCO (Arrivo ore 14:40)', shortLabel: '✈️ Volo JED-FCO & Arrivo', isTransition: false }
+];
+
 export default function App() {
   const [activeTab, setActiveTab] = useState<'itinerario' | 'briefing' | 'valigia'>('itinerario');
   const [activeStopId, setActiveStopId] = useState<number>(1);
   const [activePack, setActivePack] = useState<'leo' | 'eli'>('leo');
   const [activeActivity, setActiveActivity] = useState<any | null>(null);
   const [checkedItems, setCheckedItems] = useState<{ [key: string]: boolean }>({});
-  const [itineraryViewMode, setItineraryViewMode] = useState<'simplified' | 'map' | 'all'>('simplified');
+  const [itineraryViewMode, setItineraryViewMode] = useState<'simplified' | 'all'>('simplified');
+  const [selectedCalDay, setSelectedCalDay] = useState<any>(CALENDAR_DAYS[0]);
 
   const activeStop = (stops.find((s) => s.id === activeStopId) || stops[0]) as any;
 
@@ -734,12 +760,12 @@ export default function App() {
       <main className="wrap">
         {activeTab === 'itinerario' && (
           <>
-            {/* VIEW MODE SELECTOR */}
+            {/* VIEW MODE SELECTOR (2 VISTE) */}
             <div className="view-mode-bar" style={{
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              gap: '10px',
+              gap: '12px',
               margin: '28px 0 24px',
               flexWrap: 'wrap'
             }}>
@@ -748,165 +774,201 @@ export default function App() {
                 className={`mode-btn ${itineraryViewMode === 'simplified' ? 'active' : ''}`}
                 onClick={() => setItineraryViewMode('simplified')}
               >
-                📍 Timeline Semplificata & Spostamenti
-              </button>
-              <button 
-                type="button"
-                className={`mode-btn ${itineraryViewMode === 'map' ? 'active' : ''}`}
-                onClick={() => setItineraryViewMode('map')}
-              >
-                🗺️ Mappa Interattiva
+                📅 Calendario Giornaliero (Vista Semplificata)
               </button>
               <button 
                 type="button"
                 className={`mode-btn ${itineraryViewMode === 'all' ? 'active' : ''}`}
                 onClick={() => setItineraryViewMode('all')}
               >
-                👁️ Vista Completa (Tutto)
+                👁️ Vista Dettagliata Completa
               </button>
             </div>
 
-            {/* SIMPLIFIED TIMELINE SECTION */}
-            {(itineraryViewMode === 'simplified' || itineraryViewMode === 'all') && (
-              <section className="simplified-timeline-section" style={{ marginBottom: '40px', marginTop: '10px' }}>
-                <div className="section-head text-center" style={{ marginBottom: '28px' }}>
-                  <span className="eyebrow" style={{ color: 'var(--coral-deep)', fontWeight: 700, fontSize: '11.5px', letterSpacing: '0.14em', textTransform: 'uppercase' }}>
-                    📍 VISTA SEMPLIFICATA
-                  </span>
-                  <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 'clamp(24px, 3.8vw, 34px)', color: 'var(--ink)', margin: '8px 0 6px' }}>
-                    Tappe Collegate & Giorni di Transizione
-                  </h2>
-                  <p style={{ color: 'var(--ink-soft)', maxWidth: '640px', margin: '0 auto', fontSize: '14.5px', lineHeight: 1.55 }}>
-                    L'itinerario in ordine temporale con i periodi di permanenza in ogni tappa e, ben evidenziati in risalto, tutti i giorni di spostamento in volo, traghetto o barca.
-                  </p>
-                </div>
+            {/* CALENDAR SECTION */}
+            <section className="calendar-section" style={{ marginBottom: '40px', marginTop: '10px' }}>
+              <div className="section-head text-center" style={{ marginBottom: '20px' }}>
+                <span className="eyebrow" style={{ color: 'var(--coral-deep)', fontWeight: 700, fontSize: '11.5px', letterSpacing: '0.14em', textTransform: 'uppercase' }}>
+                  📅 CALENDARIO GIORNALIERO (27 LUG – 16 AGO 2026)
+                </span>
+                <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 'clamp(24px, 3.8vw, 34px)', color: 'var(--ink)', margin: '8px 0 6px' }}>
+                  Dove saremo giorno per giorno
+                </h2>
+                <p style={{ color: 'var(--ink-soft)', maxWidth: '640px', margin: '0 auto', fontSize: '14.5px', lineHeight: 1.55 }}>
+                  Griglia classica giorno per giorno. Clicca su una qualsiasi data per visualizzare subito il programma della giornata e aprire la tappa nei dettagli.
+                </p>
+              </div>
 
-                <div className="timeline-flow" style={{ display: 'flex', flexDirection: 'column', gap: '14px', maxWidth: '840px', margin: '0 auto' }}>
-                  {TIMELINE_STEPS.map((step, idx) => {
-                    if (step.type === 'stop') {
-                      const s = step.data;
-                      const isActive = activeStopId === s.id;
-                      return (
-                        <div 
-                          key={`stop-${s.id}`} 
-                          className={`timeline-stop-card ${isActive ? 'active' : ''}`}
-                          onClick={() => handleSelectStop(s.id, true)}
-                          style={{
-                            background: 'var(--paper)',
-                            borderRadius: '16px',
-                            padding: '18px 24px',
-                            border: isActive ? `2.5px solid ${ACCENTS[s.accent].solid}` : '1.5px solid var(--sand-deep)',
-                            boxShadow: isActive ? '0 8px 24px rgba(14, 77, 60, 0.12)' : '0 2px 8px rgba(0,0,0,0.03)',
-                            cursor: 'pointer',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'space-between',
-                            gap: '16px',
-                            flexWrap: 'wrap'
-                          }}
-                        >
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                            <span className="stop-num-badge" style={{
-                              background: ACCENTS[s.accent].solid,
-                              color: '#fff',
-                              fontWeight: 700,
-                              fontSize: '13px',
-                              padding: '6px 14px',
-                              borderRadius: '999px',
-                              fontFamily: "'Space Mono', monospace"
-                            }}>
-                              Tappa {s.num}
+              {/* CLASSIC MONTH GRID CALENDAR */}
+              <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
+                  {/* MESE DI LUGLIO 2026 */}
+                  <div className="month-calendar-box">
+                    <div className="month-title">
+                      <span>JUL 2026 · Luglio</span>
+                      <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--ink-soft)' }}>27 — 31 Luglio (5 Giorni)</span>
+                    </div>
+
+                    <div className="calendar-grid-wrapper">
+                      <div className="calendar-grid">
+                        {['LUN', 'MAR', 'MER', 'GIO', 'VEN', 'SAB', 'DOM'].map((h, i) => (
+                          <div key={i} className="cal-header-cell">{h}</div>
+                        ))}
+
+                        {/* July 27 to 31 */}
+                        {CALENDAR_DAYS.filter(d => d.month === 'Luglio').map((d) => {
+                          const isSelected = selectedCalDay?.id === d.id;
+                          return (
+                            <div 
+                              key={d.id}
+                              className={`cal-grid-day ${d.isTransition ? 'is-trans' : ''} ${isSelected ? 'selected' : ''}`}
+                              onClick={() => {
+                                setSelectedCalDay(d);
+                                setActiveStopId(d.stopId);
+                              }}
+                            >
+                              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                                <span className="cal-day-num">{d.dayNum}</span>
+                                {d.isTransition && <span style={{ fontSize: '12px' }}>{d.transIcon}</span>}
+                              </div>
+
+                              <span className="cal-day-stop-tag" style={{ background: ACCENTS[d.accent].solid }}>
+                                📍 {d.stopName}
+                              </span>
+
+                              <div className="cal-day-short-label">
+                                {d.shortLabel}
+                              </div>
+                            </div>
+                          );
+                        })}
+
+                        {/* Empty cells for Saturday and Sunday in July */}
+                        <div className="cal-grid-day empty"></div>
+                        <div className="cal-grid-day empty"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* MESE DI AGOSTO 2026 */}
+                  <div className="month-calendar-box">
+                    <div className="month-title">
+                      <span>AGO 2026 · Agosto</span>
+                      <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--ink-soft)' }}>1 — 16 Agosto (16 Giorni)</span>
+                    </div>
+
+                    <div className="calendar-grid-wrapper">
+                      <div className="calendar-grid">
+                        {['LUN', 'MAR', 'MER', 'GIO', 'VEN', 'SAB', 'DOM'].map((h, i) => (
+                          <div key={i} className="cal-header-cell">{h}</div>
+                        ))}
+
+                        {/* 5 empty padding cells before 1st August (Saturday) */}
+                        <div className="cal-grid-day empty"></div>
+                        <div className="cal-grid-day empty"></div>
+                        <div className="cal-grid-day empty"></div>
+                        <div className="cal-grid-day empty"></div>
+                        <div className="cal-grid-day empty"></div>
+
+                        {/* August 1 to 16 */}
+                        {CALENDAR_DAYS.filter(d => d.month === 'Agosto').map((d) => {
+                          const isSelected = selectedCalDay?.id === d.id;
+                          return (
+                            <div 
+                              key={d.id}
+                              className={`cal-grid-day ${d.isTransition ? 'is-trans' : ''} ${isSelected ? 'selected' : ''}`}
+                              onClick={() => {
+                                setSelectedCalDay(d);
+                                setActiveStopId(d.stopId);
+                              }}
+                            >
+                              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                                <span className="cal-day-num">{d.dayNum}</span>
+                                {d.isTransition && <span style={{ fontSize: '12px' }}>{d.transIcon}</span>}
+                              </div>
+
+                              <span className="cal-day-stop-tag" style={{ background: ACCENTS[d.accent].solid }}>
+                                📍 {d.stopName}
+                              </span>
+
+                              <div className="cal-day-short-label">
+                                {d.shortLabel}
+                              </div>
+                            </div>
+                          );
+                        })}
+
+                        {/* 5 empty padding cells to complete row */}
+                        <div className="cal-grid-day empty"></div>
+                        <div className="cal-grid-day empty"></div>
+                        <div className="cal-grid-day empty"></div>
+                        <div className="cal-grid-day empty"></div>
+                        <div className="cal-grid-day empty"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* SELECTED DAY PREVIEW CARD */}
+                  {selectedCalDay && (
+                    <div className="selected-day-detail-card">
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px', marginBottom: '12px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                          <span style={{
+                            background: 'var(--sand)',
+                            border: '1px solid var(--sand-deep)',
+                            padding: '6px 14px',
+                            borderRadius: '10px',
+                            fontWeight: 800,
+                            fontSize: '15px',
+                            color: 'var(--jungle-deep)'
+                          }}>
+                            📅 {selectedCalDay.dayName} {selectedCalDay.fullDate}
+                          </span>
+
+                          <span className="cal-stop-badge" style={{ background: ACCENTS[selectedCalDay.accent].solid, fontSize: '13px', padding: '4px 12px' }}>
+                            📍 Tappa {selectedCalDay.stopId}: {selectedCalDay.stopName}
+                          </span>
+
+                          {selectedCalDay.isTransition && (
+                            <span className="cal-trans-pill">
+                              {selectedCalDay.transIcon} SPOSTAMENTO
                             </span>
-                            <div>
-                              <h3 style={{ margin: 0, fontSize: '19px', fontWeight: 700, color: 'var(--jungle-deep)' }}>
-                                {s.name}
-                              </h3>
-                              <span style={{ fontSize: '13.5px', color: 'var(--ink-soft)' }}>
-                                {s.region} · <span style={{ color: 'var(--coral-deep)', fontWeight: 600 }}>{s.badge}</span>
-                              </span>
-                            </div>
-                          </div>
-
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                            <div style={{ textAlign: 'right' }}>
-                              <div style={{ fontWeight: 700, fontSize: '15px', color: 'var(--ink)' }}>
-                                📅 {s.dates}
-                              </div>
-                              <div style={{ fontSize: '13px', color: 'var(--ink-soft)' }}>
-                                🌙 {s.nights}
-                              </div>
-                            </div>
-                            <span style={{ fontSize: '18px', color: 'var(--jungle)', fontWeight: 700 }}>➔</span>
-                          </div>
+                          )}
                         </div>
-                      );
-                    } else {
-                      const t = step.data;
-                      return (
-                        <div 
-                          key={`trans-${idx}`} 
-                          className="timeline-transition-card"
-                          style={{
-                            background: 'linear-gradient(135deg, rgba(255, 246, 229, 0.95) 0%, rgba(255, 238, 208, 0.98) 100%)',
-                            border: '2px dashed var(--gold-deep)',
-                            borderRadius: '14px',
-                            padding: '16px 22px',
-                            margin: '2px 0 2px 20px',
-                            boxShadow: '0 4px 16px rgba(242, 162, 59, 0.1)'
-                          }}
+
+                        <button 
+                          type="button"
+                          className="mode-btn"
+                          style={{ background: 'var(--jungle-deep)', color: '#fff', border: 'none', padding: '8px 16px', fontSize: '13px' }}
+                          onClick={() => handleSelectStop(selectedCalDay.stopId, true)}
                         >
-                          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                              <span style={{ fontSize: '24px', background: '#fff', padding: '6px 12px', borderRadius: '12px', boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-                                {t.icon}
-                              </span>
-                              <div>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '4px' }}>
-                                  <span style={{
-                                    background: 'var(--coral-deep)',
-                                    color: '#fff',
-                                    fontSize: '10.5px',
-                                    fontWeight: 800,
-                                    padding: '3px 8px',
-                                    borderRadius: '4px',
-                                    letterSpacing: '0.06em',
-                                    textTransform: 'uppercase'
-                                  }}>
-                                    ⚡ GIORNO DI TRANSIZIONE
-                                  </span>
-                                  <span style={{ fontWeight: 700, fontSize: '14.5px', color: 'var(--ink)' }}>
-                                    📅 {t.date}
-                                  </span>
-                                  <span style={{
-                                    background: 'rgba(14, 77, 60, 0.1)',
-                                    color: 'var(--jungle-deep)',
-                                    fontSize: '12px',
-                                    fontWeight: 700,
-                                    padding: '2px 9px',
-                                    borderRadius: '6px'
-                                  }}>
-                                    {t.mode}
-                                  </span>
-                                </div>
-                                <div style={{ fontWeight: 700, fontSize: '15px', color: 'var(--jungle-deep)' }}>
-                                  {t.route}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div style={{ fontSize: '13px', color: 'var(--ink-soft)', marginTop: '8px', borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '6px' }}>
-                            💡 {t.details}
-                          </div>
-                        </div>
-                      );
-                    }
-                  })}
-                </div>
-              </section>
-            )}
+                          Apri i dettagli della Tappa {selectedCalDay.stopId} ({selectedCalDay.stopName}) ➔
+                        </button>
+                      </div>
 
-            {/* MAP SECTION */}
-            {(itineraryViewMode === 'map' || itineraryViewMode === 'all') && (
+                      <div style={{ fontSize: '16px', fontWeight: 700, color: 'var(--ink)', marginBottom: '6px' }}>
+                        {selectedCalDay.activity}
+                      </div>
+
+                      {selectedCalDay.isTransition && selectedCalDay.transDetail && (
+                        <div style={{
+                          background: 'linear-gradient(135deg, rgba(255, 248, 235, 0.95) 0%, rgba(255, 243, 218, 0.98) 100%)',
+                          border: '1.5px dashed var(--gold-deep)',
+                          padding: '12px 16px',
+                          borderRadius: '12px',
+                          marginTop: '10px',
+                          fontSize: '13.5px',
+                          color: 'var(--ink)'
+                        }}>
+                          <b>Dettaglio Spostamento:</b> {selectedCalDay.transDetail}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+            </section>
+
+            {/* MAP SECTION (solo in vista completa) */}
+            {(itineraryViewMode === 'all') && (
               <section className="map-section">
                 <div className="section-head">
                   <span className="eyebrow">La rotta</span>
@@ -1533,8 +1595,8 @@ export default function App() {
                   <span style={{ color: 'var(--ink-soft)' }}>7 kg cabina e 20 kg stiva</span>
                 </div>
                 <div style={{ background: 'var(--sand)', padding: '12px 14px', borderRadius: '12px', border: '1px solid var(--sand-deep)', fontSize: '13.5px' }}>
-                  <b style={{ color: 'var(--jungle-deep)', display: 'block', marginBottom: '4px', fontSize: '14px' }}>Yogyakarta – Komodo</b>
-                  <span style={{ color: 'var(--ink-soft)' }}>7 kg cabina e 10 kg stiva</span>
+                  <b style={{ color: 'var(--jungle-deep)', display: 'block', marginBottom: '4px', fontSize: '14px' }}>Yogyakarta – Komodo (2 voli)</b>
+                  <span style={{ color: 'var(--ink-soft)' }}>7 kg cabina e 20 kg stiva</span>
                 </div>
                 <div style={{ background: 'var(--sand)', padding: '12px 14px', borderRadius: '12px', border: '1px solid var(--sand-deep)', fontSize: '13.5px' }}>
                   <b style={{ color: 'var(--jungle-deep)', display: 'block', marginBottom: '4px', fontSize: '14px' }}>Komodo – Bali</b>
@@ -1546,7 +1608,7 @@ export default function App() {
                 </div>
               </div>
               <div style={{ background: 'rgba(14, 77, 60, 0.06)', padding: '14px 18px', borderRadius: '12px', borderLeft: '4px solid var(--jungle)', color: 'var(--ink)', fontSize: '14px', lineHeight: '1.6' }}>
-                💡 <b>Regola del viaggio:</b> Bisogna portare quindi un <b>trolley da massimo 10 kg</b> che imbarchiamo sempre in stiva + uno <b>zainone da massimo 7 kg</b> che portiamo in cappelliera.
+                💡 <b>Scelta ottimale per il viaggio:</b> Un <b>trolley da massimo 15 kg</b> (da imbarcare in stiva per rispettare tutte le tratte) + uno <b>zainone da massimo 7 kg</b> da portare in cappelliera.
               </div>
             </div>
 
