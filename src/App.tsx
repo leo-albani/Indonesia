@@ -1454,27 +1454,110 @@ export default function App() {
               <span className="eyebrow" style={{ color: 'var(--coral-deep)', fontWeight: 700, fontSize: '11.5px', letterSpacing: '0.14em', textTransform: 'uppercase' }}>🛡️ Briefing generale</span>
               <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 'clamp(26px, 4vw, 36px)', color: 'var(--ink)', margin: '8px 0 6px' }}>Prima di partire, e una volta là</h2>
               <p style={{ color: 'var(--ink-soft)', maxWidth: '600px', margin: '0 auto', fontSize: '14px', lineHeight: 1.55 }}>
-                Documenti, farmacia da viaggio, regole di comportamento e numeri utili. Fonte principale: scheda Indonesia di <b>viaggiaresicuri.it</b> (Unità di Crisi, Ministero degli Esteri), integrata con fonti sanitarie e allerte vulcaniche aggiornate.
+                Documenti, gestione denaro, farmacia da viaggio, regole di comportamento e numeri utili. Fonte principale: scheda Indonesia di <b>viaggiaresicuri.it</b> (Unità di Crisi, Ministero degli Esteri), integrata con fonti sanitarie e allerte vulcaniche aggiornate.
               </p>
             </div>
             <div className="briefing-body">
               <details className="acc">
-                  <summary><span className="ico">📄</span> Documenti e ingresso<span className="chev">▸</span></summary>
-                  <div className="acc-body">
-                    <p className="warn"><b>La trappola più insidiosa:</b> ci sono stati casi di turisti <b>italiani respinti</b> perché l'immigrazione ha contestato l'integrità del libretto del passaporto. Controllate <b>oggi</b> entrambi i passaporti: nessuno strappo o taglio, <b>nessuna scollatura</b> (soprattutto vicino alla copertina), pagina con foto e dati perfectly leggibile, nessun segno o macchia su foto e codice a barre, nessuna pagina rimossa.</p>
-                    <ul>
-                      <li><b>Passaporto:</b> almeno <b>6 mesi</b> di validità residua e <b>due pagine bianche</b>. Requisito tassativo, nessuna eccezione.</li>
-                      <li><b>e-VOA (visto):</b> online su <a href="https://evisa.imigrasi.go.id" target="_blank" rel="noopener noreferrer">evisa.imigrasi.go.id</a> circa una settimana prima della partenza. IDR 500.000, valido 30 giorni (voi ne state 20). Serve anche un biglietto di ritorno o proseguimento.</li>
-                      <li><b>Dichiarazione doganale elettronica:</b> da compilare <b>non prima di 3 giorni</b> dall'arrivo su <a href="https://allindonesia.imigrasi.go.id" target="_blank" rel="noopener noreferrer">allindonesia.imigrasi.go.id</a></li>
-                      <li><b>Tassa turistica Bali:</b> IDR 150.000 a testa, dovuta anche arrivando dal resto dell'Indonesia — vale per voi il 3/08 da Labuan Bajo. Si paga su <a href="https://lovebali.baliprov.go.id" target="_blank" rel="noopener noreferrer">lovebali.baliprov.go.id</a>, si riceve un QR: salvatelo offline. <b>Spegnete la VPN e gli ad-blocker</b>, o il portale fallisce. L'unico dominio ufficiale finisce in <b>.go.id</b>: esistono cloni che fanno pagare il doppio.</li>
-                      <li><b>Registrate il viaggio</b> su <a href="https://www.dovesiamonelmondo.it" target="_blank" rel="noopener noreferrer">dovesiamonelmondo.it</a> o con l'app <b>Viaggiare Sicuri</b>, e segnalate la presenza a consolare.jakarta@esteri.it con generalità, periodo e recapiti.</li>
-                      <li>Portate <b>sempre il passaporto</b> con voi: ci sono stati fermi in cella fino a identificazione per chi ne era sprovvisto.</li>
-                    </ul>
-                  </div>
-                </details>
+                <summary><span className="ico">📄</span> Documenti e ingresso<span className="chev">▸</span></summary>
+                <div className="acc-body">
+                  <p className="warn"><b>La trappola più insidiosa:</b> ci sono stati casi di turisti <b>italiani respinti</b> perché l'immigrazione ha contestato l'integrità del libretto del passaporto. Controllate <b>oggi</b> entrambi i passaporti: nessuno strappo o taglio, <b>nessuna scollatura</b> (soprattutto vicino alla copertina), pagina con foto e dati perfectly leggibile, nessun segno o macchia su foto e codice a barre, nessuna pagina rimossa.</p>
+                  <ul>
+                    <li><b>Passaporto:</b> almeno <b>6 mesi</b> di validità residua e <b>due pagine bianche</b>. Requisito tassativo, nessuna eccezione.</li>
+                    <li><b>e-VOA (visto):</b> online su <a href="https://evisa.imigrasi.go.id" target="_blank" rel="noopener noreferrer">evisa.imigrasi.go.id</a> circa una settimana prima della partenza. IDR 500.000, valido 30 giorni (voi ne state 20). Serve anche un biglietto di ritorno o proseguimento.</li>
+                    <li><b>Dichiarazione doganale elettronica:</b> da compilare <b>non prima di 3 giorni</b> dall'arrivo su <a href="https://allindonesia.imigrasi.go.id" target="_blank" rel="noopener noreferrer">allindonesia.imigrasi.go.id</a></li>
+                    <li><b>Tassa turistica Bali:</b> IDR 150.000 a testa, dovuta anche arrivando dal resto dell'Indonesia — vale per voi il 3/08 da Labuan Bajo. Si paga su <a href="https://lovebali.baliprov.go.id" target="_blank" rel="noopener noreferrer">lovebali.baliprov.go.id</a>, si riceve un QR: salvatelo offline. <b>Spegnete la VPN e gli ad-blocker</b>, o il portale fallisce. L'unico dominio ufficiale finisce in <b>.go.id</b>: esistono cloni che fanno pagare il doppio.</li>
+                    <li><b>Registrate il viaggio</b> su <a href="https://www.dovesiamonelmondo.it" target="_blank" rel="noopener noreferrer">dovesiamonelmondo.it</a> o con l'app <b>Viaggiare Sicuri</b>, e segnalate la presenza a consolare.jakarta@esteri.it con generalità, periodo e recapiti.</li>
+                    <li>Portate <b>sempre il passaporto</b> con voi: ci sono stati fermi in cella fino a identificazione per chi ne era sprovvisto.</li>
+                  </ul>
+                </div>
+              </details>
 
-                <details className="acc">
-                  <summary><span className="ico">💊</span> Farmacia da viaggio<span className="chev">▸</span></summary>
+              <details className="acc">
+                <summary><span className="ico">💳</span> Gestione del denaro e cambio valuta<span className="chev">▸</span></summary>
+                <div className="acc-body">
+                  <p><b>1. REGOLE GENERALI:</b></p>
+                  <ul>
+                    <li><b>Strumento principale per tutti i prelievi in loco:</b> Revolut, sempre in <b>IDR</b> e mai in EUR (rifiutare sempre la conversione dinamica DCC quando l'ATM la propone).</li>
+                    <li><b>Riserva contanti EUR (portata da Roma, 100–150€ in banconote nuove/integre):</b> resta ferma, si usa <b>SOLO in emergenza</b> (es. Revolut o carta bloccati), mai per cambio attivo.</li>
+                    <li><b>Carta di banca italiana normale (tenuta fisicamente separata da Revolut):</b> backup puro in caso di blocco/smarrimento carta; non va usata per "risparmiare" sui prelievi (Revolut resta più conveniente anche oltre la soglia gratuita).</li>
+                    <li><b>Mai cambiare valuta ai banchi in aeroporto:</b> applicano tassi dal <b>6% al 12% peggiori</b> del mercato. Evitare tassativamente anche i cambiavalute di strada senza insegna ufficiale nelle zone turistiche di Bali (rischio truffe sul resto o banconote scartate).</li>
+                    <li><b>Usare solo ATM dentro filiali bancarie:</b> preferire sempre banche ufficiali (<b>BCA, Mandiri, BNI, Permata</b>); mai usare macchinette isolate nei vicoli turistici.</li>
+                    <li><b>Grab:</b> si paga direttamente in app con carta collegata (Revolut/Apple Pay), quindi non pesa sul budget contanti.</li>
+                  </ul>
+
+                  <p style={{ marginTop: '20px' }}><b>2. GUIDA PRATICA REVOLUT PASSO-PASSO:</b></p>
+                  <ol style={{ paddingLeft: '20px', lineHeight: '1.65' }}>
+                    <li style={{ marginBottom: '8px' }}>
+                      <b>Piano Standard:</b> prelievi gratuiti fino a <b>200€ O 5 operazioni</b> al mese (qualunque limite si raggiunga prima), poi si applica una commissione del 2% (minimo 1€).
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <b>Il ciclo mensile gratuito si rinnova il 23 agosto</b> (verificato in app: <i>Profilo → Il tuo piano</i>): l'intero viaggio (27 luglio – 16 agosto) ricade quindi in <b>UN UNICO ciclo</b>, senza un secondo blocco di 200€ gratuiti a metà soggiorno.
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <b>Impatto reale delle commissioni:</b> solo i primi 200€ (o le prime 5 operazioni) restano senza commissioni; il resto dei prelievi del viaggio pagherà il 2%, per un costo totale stimato di circa <b>9–13€ sull'intero viaggio</b> — cifra trascurabile che non cambia la convenienza di usare Revolut per tutti i prelievi.
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <b>Fare pochi prelievi grandi invece di tanti piccoli:</b> ogni operazione consuma uno slot delle 5 gratuite indipendentemente dall'importo prelevato.
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <b>Mai prelevare nel weekend:</b> nei fine settimana Revolut applica una maggiorazione automatica indipendente dal piano.
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <b>Continuare a usare Revolut anche oltre la soglia gratuita:</b> il 2% resta molto più conveniente delle commissioni fisse e delle maggiorazioni sul cambio tipiche di una carta italiana normale all'estero.
+                    </li>
+                  </ol>
+
+                  <p style={{ marginTop: '20px' }}><b>3. TABELLA PRELIEVI CONSIGLIATI (cambio indicativo 1€ = 20.500 IDR):</b></p>
+                  <table className="kit-table">
+                    <thead>
+                      <tr style={{ borderBottom: '2px solid var(--sand-deep)', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.05em', color: 'var(--coral-deep)' }}>
+                        <td style={{ width: '28%', paddingBottom: '6px' }}><b>Quando</b></td>
+                        <td style={{ width: '28%', paddingBottom: '6px' }}><b>Importo IDR (~EUR)</b></td>
+                        <td style={{ paddingBottom: '6px' }}><b>Copre</b></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><b>28–29 Jul</b><br /><small style={{ color: 'var(--ink-soft)' }}>Feriale</small></td>
+                        <td><b>2.500.000 – 3.000.000 IDR</b><br /><small style={{ color: 'var(--jungle-deep)', fontWeight: 600 }}>~122 – 146€</small></td>
+                        <td>Jakarta + Yogyakarta + inizio Komodo</td>
+                      </tr>
+                      <tr>
+                        <td><b>31 Jul – 1 Aug</b></td>
+                        <td><b>2.000.000 IDR</b><br /><small style={{ color: 'var(--jungle-deep)', fontWeight: 600 }}>~98€</small></td>
+                        <td>Ingresso Parco Komodo (500.000 IDR/persona, solo contanti) + mance</td>
+                      </tr>
+                      <tr>
+                        <td style={{ background: '#FFF8EB' }}><b>5–6 Aug ⚠️</b><br /><small style={{ color: 'var(--coral-deep)', fontWeight: 700 }}>Ubud (Prelievo grande)</small></td>
+                        <td style={{ background: '#FFF8EB' }}><b>5.000.000 – 6.000.000 IDR</b><br /><small style={{ color: 'var(--coral-deep)', fontWeight: 700 }}>~244 – 293€</small><br /><small style={{ color: 'var(--ink-soft)' }}>(in 2 operazioni ATM)</small></td>
+                        <td style={{ background: '#FFF8EB' }}>Tutto Gili Air (zero ATM affidabili) + parte Kuta Lombok</td>
+                      </tr>
+                      <tr>
+                        <td><b>12–13 Aug</b></td>
+                        <td><b>2.000.000 – 3.000.000 IDR</b><br /><small style={{ color: 'var(--jungle-deep)', fontWeight: 600 }}>~98 – 146€</small></td>
+                        <td>Ultimi giorni + mance finali</td>
+                      </tr>
+                      <tr style={{ borderTop: '2px solid var(--sand-deep)', background: 'var(--sand)' }}>
+                        <td colSpan={2}><b>TOTALE STIMATO (coppia):</b></td>
+                        <td><b>13 – 16 Milioni IDR (~635 – 780€)</b></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div className="warn" style={{ marginTop: '20px', borderLeft: '4px solid var(--coral-deep)', background: '#FFF5F2', padding: '14px 16px', borderRadius: '10px' }}>
+                    <p style={{ margin: 0, color: 'var(--coral-deep)', fontWeight: 700, fontSize: '14px' }}>
+                      🚨 NOTA SU GILI AIR (NON NEGOZIABILE):
+                    </p>
+                    <p style={{ margin: '6px 0 0', color: 'var(--ink)', fontSize: '13.5px', lineHeight: '1.5' }}>
+                      <b>Nessun ATM affidabile sull'isola.</b> Il prelievo di Ubud del 5–6 agosto è quello non negoziabile: deve coprire l'intero soggiorno a Gili Air, senza alternative sul posto.
+                    </p>
+                  </div>
+                </div>
+              </details>
+
+              <details className="acc">
+                <summary><span className="ico">💊</span> Farmacia da viaggio<span className="chev">▸</span></summary>
                   <div className="acc-body">
                     <p>La logica: alle Gili e a Komodo le farmacie sono poche e voi cambiate isola ogni pochi giorni. Quello che vi serve per gestire eventuali imprevisti durante il viaggio:</p>
                     <table className="kit-table">
