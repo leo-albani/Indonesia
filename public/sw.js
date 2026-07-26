@@ -1,7 +1,8 @@
-const CACHE_NAME = "indonesia-itinerary-v1";
+const CACHE_NAME = "indonesia-itinerary-v2";
 const ASSETS_TO_CACHE = [
   "/",
   "/index.html",
+  "/manifest.webmanifest",
   "/manifest.json",
   "/icon-192.png",
   "/icon-512.png",
