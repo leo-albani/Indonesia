@@ -12,19 +12,19 @@
   "prefer_related_applications": false,
   "icons": [
     {
-      "src": "https://lh3.googleusercontent.com/d/1ESElMhbBjU6Aik_ZCKlzGr5d08x15leE=s192",
+      "src": "https://lh3.googleusercontent.com/d/1GTn2yjqFHOgcpDjaf-4vpB4Fj4G9_guQ=s192",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://lh3.googleusercontent.com/d/1ESElMhbBjU6Aik_ZCKlzGr5d08x15leE=s512",
+      "src": "https://lh3.googleusercontent.com/d/1GTn2yjqFHOgcpDjaf-4vpB4Fj4G9_guQ=s512",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://lh3.googleusercontent.com/d/1ESElMhbBjU6Aik_ZCKlzGr5d08x15leE=s512",
+      "src": "https://lh3.googleusercontent.com/d/1GTn2yjqFHOgcpDjaf-4vpB4Fj4G9_guQ=s512",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
