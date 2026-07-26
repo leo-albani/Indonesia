@@ -708,8 +708,7 @@ const FOOD_ITEMS = [
     scritturaIndonesiana: "Pisang Goreng (Alfabeto Latino) • ꦥꦶꦱꦁꦒꦺꦴꦱꦺꦁ (Aksara Jawa)",
     safetyLevel: "max",
     safetyBadge: "🟢 Massima Sicurezza — Frittura ad alta temperatura",
-    image: "/food/pisang_goreng.jpg",
-    fallbackImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Pisang_goreng_fried_banana.JPG/800px-Pisang_goreng_fried_banana.JPG",
+    image: "Pisang_goreng_fried_banana.JPG",
     gusto: "Croccante all'esterno e morbidissimo all'interno. Un contrasto perfetto tra la pastella leggermente salata e la dolcezza naturale e caramellata della banana calda.",
     comeFatto: "Banane locali tagliate a fettine, immerse in una pastella liquida di farina di riso, acqua e un pizzico di sale, poi fritte ad immersione in abbondante olio bollente.",
     percheSicuro: "Frittura profonda ad altissima temperatura (oltre 170°C) eseguita sul momento davanti ai tuoi occhi. Sterilizza istantaneamente ogni batterio ed elimina qualsiasi rischio sanitario."
@@ -720,8 +719,7 @@ const FOOD_ITEMS = [
     scritturaIndonesiana: "Sate Ayam (Alfabeto Latino) • ꦱꦠꦺꦲꦪꦩ꧀ (Aksara Jawa)",
     safetyLevel: "max",
     safetyBadge: "🟢 Massima Sicurezza — Cotto su brace ardente",
-    image: "/food/sate_ayam.jpg",
-    fallbackImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Sate_ayam-1.JPG/800px-Sate_ayam-1.JPG",
+    image: "Sate_ayam-1.JPG",
     gusto: "Intensamente affumicato con note caramellate e dolciastre. Il pollo è morbido e succoso, avvolto da una ricca e cremosa salsa alle arachidi tostate, soia dolce (Kecap Manis) e lime.",
     comeFatto: "Tasselli di petto o coscia di pollo infilzati su stecchi di bambù, marinati in soia e spezie, grigliati direttamente su braci vive di guscio di cocco fumante.",
     percheSicuro: "Cottura diretta a contatto immediato con il fuoco e la brace visibile. Vengono preparati espressamente e serviti caldissimi appena tolti dalla griglia."
@@ -729,11 +727,10 @@ const FOOD_ITEMS = [
   {
     nome: "Ikan / Ayam Bakar (Pesce o Pollo alla Griglia)",
     nomeIndonesiano: "Ikan Bakar / Ayam Bakar",
-    scritturaIndonesiana: "Ikan Bakar / Ayam Bakar (Alfabeto Latino) • ꦇꦏꦤ꧀ꦧꦏꦂ / ꦄꦪꦩ꧀ꦧꦏꦂ (Aksara Jawa) • ᬇᬓᬦᬄᬩᬓᬃ / ᬅᬬᬫᬄᬩᬓᬃ (Aksara Bali)",
+    scritturaIndonesiana: "Ikan Bakar / Ayam Bakar (Alfabeto Latino) • ꦇꦏꦤ꧀ꦧꦏꦂ / ꦄꦪꦩ꧀ꦧꦏꦂ (Aksara Jawa) • ᬇᬓᬦᬄᬩᬓᬃ / ᬅᬬᬫᬄᬩᬾᬢᬸᬢᬸ (Aksara Bali)",
     safetyLevel: "max",
     safetyBadge: "🟢 Massima Sicurezza — Grigliata a vista su braci",
-    image: "/food/ikan_bakar.jpg",
-    fallbackImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Gurame_bakar_kecap_2.JPG/800px-Gurame_bakar_kecap_2.JPG",
+    image: "Gurame_bakar_kecap_2.JPG",
     gusto: "Saporespeziato, affumicato e leggermente piccante. La pelle del pesce o del pollo si caramella grazie alla marinatura al tamarindo, curcuma e Kecap Manis, lasciando la carne tenera e saporita.",
     comeFatto: "Pesce fresco intero (o bocconi di pollo) spennellato abbondantemente con una pasta di scalogno, aglio, peperoncino e tamarindo, poi grigliato lentamente su braci incandescenti.",
     percheSicuro: "Grigliato espresso a vista al momento dell'ordine. L'intensa esposizione al calore diretto garantisce una cottura completa anche al cuore dell'alimento."
@@ -744,9 +741,8 @@ const FOOD_ITEMS = [
     scritturaIndonesiana: "Nasi Goreng (Alfabeto Latino) • ꦤꦱꦶꦒꦺꦴꦱꦺꦁ (Aksara Jawa)",
     safetyLevel: "max",
     safetyBadge: "🟢 Massima Sicurezza — Saltato in wok bollente",
-    image: "/food/nasi_goreng.jpg",
-    fallbackImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Nasi_Goreng_Kampung_%2811967588375%29.jpg/800px-Nasi_Goreng_Kampung_%2811967588375%29.jpg",
-    gusto: "Saporito, leggermente dolce e speziato, con note di uovo croccante, scalogno croccante e l'aroma inconfondibile della salsa di soia dolce caramellata ad alta temperatura.",
+    image: "Nasi_Goreng_Kampung_(11967588375).jpg",
+    gusto: "Saporito, leggermente dolce espeziato, con note di uovo croccante, scalogno croccante e l'aroma inconfondibile della salsa di soia dolce caramellata ad alta temperatura.",
     comeFatto: "Riso cotto a vapore il giorno prima (asciutto), saltato a fiamma vivace nel wok con paste di aglio e scalogno, uovo strapazzato, pollo sfilacciato o gamberi, servito con un uovo al tegamino sopra.",
     percheSicuro: "Saltato nel wok a temperature vertiginose per diversi minuti. Inoltre ha un altissimo ricambio (turnover) nelle bancarelle e nei warung: viene continuamente preparato al momento."
   },
@@ -756,8 +752,7 @@ const FOOD_ITEMS = [
     scritturaIndonesiana: "Mie Goreng (Alfabeto Latino) • ꦩꦶꦒꦺꦴꦱꦺꦁ (Aksara Jawa)",
     safetyLevel: "max",
     safetyBadge: "🟢 Massima Sicurezza — Saltato in wok bollente",
-    image: "/food/mie_goreng.jpg",
-    fallbackImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Mi_Goreng_GM.jpg/800px-Mi_Goreng_GM.jpg",
+    image: "Mi_Goreng_GM.jpg",
     gusto: "Ricco, salato con una nota dolce-speziata. I noodles assorbono la salsa di soia e le verdure saltate mantenendo una consistenza elastica e appagante.",
     comeFatto: "Noodles di frumento o di riso sbollentati e poi saltati ad alta fiamma nel wok con verdure a listarelle (cavolo, carote), uovo, bocconcini di pollo o gamberi e Kecap Manis.",
     percheSicuro: "Stesso principio vincente del Nasi Goreng: il wok rovente abbatte la carica batterica ed è una delle ordinazioni più popolari e veloci in tutta l'Indonesia."
@@ -768,8 +763,7 @@ const FOOD_ITEMS = [
     scritturaIndonesiana: "Soto Ayam (Alfabeto Latino) • ꦱꦺꦴꦠꦺꦴꦲꦪꦩ꧀ (Aksara Jawa)",
     safetyLevel: "max",
     safetyBadge: "🟢 Massima Sicurezza — Brodo servito bollente",
-    image: "/food/soto_ayam.jpg",
-    fallbackImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Soto_ayam.JPG/800px-Soto_ayam.JPG",
+    image: "Soto_ayam.JPG",
     gusto: "Aromatico, fresco e confortante. Un brodo dorato e profumato di lemongrass, foglie di lime kaffir e curcuma, bilanciato da un sorso di succo di lime spremuto sul momento.",
     comeFatto: "Brodo di pollo sobbollito per ore con curcuma, zenzero e galanga, versato caldo su vermicelli di riso, pollo sfilacciato, uovo sodo e germogli di soia, guarnito con scalogno fritto.",
     percheSicuro: "Viene servito letteralmente fumante e bollente. La bollitura prolungata del brodo elimina ogni batterio. Consiglio: evitare il condimento crudo se rimasto troppo tempo a temperatura ambiente."
@@ -780,8 +774,7 @@ const FOOD_ITEMS = [
     scritturaIndonesiana: "Ayam Betutu (Alfabeto Latino) • ᬅᬬᬫᬄᬩᬾᬢᬸᬢᬸ (Aksara Bali)",
     safetyLevel: "good",
     safetyBadge: "🟡 Buona Sicurezza — Cotto a lungo al vapore/forno",
-    image: "/food/ayam_betutu.jpg",
-    fallbackImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Ayam_Betutu.jpg/800px-Ayam_Betutu.jpg",
+    image: "Ayam_Betutu.jpg",
     gusto: "Molto piccante, speziato e avvolgente. Carne succulenta che si stacca da sola dall'osso, intrisa della complessa pasta di spezie balinese Bumbu Bali (zenzero, galanga, curcuma, peperoncino, noce moscata).",
     comeFatto: "Pollo intero o a pezzi avvolto strettamente in foglie di banana e cotto a fuoco lento o a vapore per molte ore (spesso sotto le ceneri calde) finché diventa tenerissimo.",
     percheSicuro: "La cottura prolungata di diverse ore garantisce la sterilizzazione. Attenzione: assicurati che nei warung venga servito ben caldo di pentola e non lasciato riposare a lungo a temperatura ambiente."
@@ -792,8 +785,7 @@ const FOOD_ITEMS = [
     scritturaIndonesiana: "Gudeg (Alfabeto Latino) • ꦒꦸꦢꦼꦒ꧀ (Aksara Jawa)",
     safetyLevel: "good",
     safetyBadge: "🟡 Buona Sicurezza — Stufato per ore",
-    image: "/food/gudeg.jpg",
-    fallbackImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Nasi_Gudeg.jpg/800px-Nasi_Gudeg.jpg",
+    image: "Nasi_Gudeg.jpg",
     gusto: "Dolce, terroso e cremoso. Il jackfruit acerbo assume un sapore profondo che ricorda la carne, aromatizzato con zucchero di palma, latte di cocco e foglie di teak che gli donano un colore bruno.",
     comeFatto: "Jackfruit giovane (nangka muda) stufato a fuoco bassissimo per 6-12 ore in una pentola di terracotta con latte di cocco, zucchero di palma, noce di candela e spezie.",
     percheSicuro: "Le molte ore di bollitura continua uccidono qualsiasi microrganismo. Scegliere ristoranti o warung molto frequentati (come Gudeg Yu Djum a Yogyakarta) dove la pentola è sempre in funzione."
@@ -801,13 +793,12 @@ const FOOD_ITEMS = [
   {
     nome: "Nasi Campur (Riso Misto con Assortimento)",
     nomeIndonesiano: "Nasi Campur",
-    scritturaIndonesiana: "Nasi Campur (Alfabeto Latino) • ꦤꦱꦶꦕꦩ꧀ꦥꦸꦂ (Aksara Jawa) • ᬦᬲᬶᬘꦩ꧀ꦥꬸᬃ (Aksara Bali)",
+    scritturaIndonesiana: "Nasi Campur (Alfabeto Latino) • ꦤꦱꦶꦕꦩ꧀ꦥꦸꦂ (Aksara Jawa) • ᬦᬲᬶꦘꦩ꧀ꦥꬸᬃ (Aksara Bali)",
     safetyLevel: "good",
     safetyBadge: "🟡 Buona Sicurezza — Scegliere componenti calde",
-    image: "/food/nasi_campur.jpg",
-    fallbackImage: "https://upload.wikimedia.org/wikipedia/commons/2/25/Plate_of_nasi_campur_%28Mandarin_Oriental_Hotel_Mahapahit%2C_Surabaya%2C_Indonesia%29.png",
+    image: "Plate_of_nasi_campur_(Mandarin_Oriental_Hotel_Mahapahit,_Surabaya,_Indonesia).png",
     gusto: "Un'esplosione di contrasti: una pallina di riso bianco circondata da assaggi salati, piccanti, croccanti e cremosi (uovo balinese, sate lilit, verdure, tofu, tempeh e sambal).",
-    comeFatto: "Base di riso cotto a vapore su cui vengono disposti vari contorni preparati separatamente: carne rendang, sate, tempeh caramellato, uova speziate e verdure stufate.",
+    comeFatto: "Base di riso cotto a vapore su cui vengono disposti vari contorni preparati separatamente: carne rendang, sate, tempeh caramellato, uovaspeziate e verdure stufate.",
     percheSicuro: "Sicuro se consumato in warung ad alto turnover nelle ore di punta (pranzo/cena). Nota di cautela: essendo un piatto a vetrina con contorni cotti in precedenza, assicurarsi che le pietanze siano ririscaldate o calde."
   },
   {
@@ -816,8 +807,7 @@ const FOOD_ITEMS = [
     scritturaIndonesiana: "Gado-Gado (Alfabeto Latino) • ꦒꦢꦺꦒꦢꦺꦴ (Aksara Jawa)",
     safetyLevel: "good",
     safetyBadge: "🟡 Buona Sicurezza — Verdure sbollentate, no crudo",
-    image: "/food/gado_gado.jpg",
-    fallbackImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Gado_gado_jakarta.jpg/800px-Gado_gado_jakarta.jpg",
+    image: "Gado_gado_jakarta.jpg",
     gusto: "Fresco, terroso, cremoso e leggermente dolce. La salsa alle arachidi fatta al mortaio avvolge le verdure croccanti, accompagnate dal tempeh fritto e dal croccante dei krupuk.",
     comeFatto: "Mix di verdure (cavolo, fagiolini, germogli di soia, patate) sbollentate in acqua bollente, servite con tofu, tempeh fritto, uovo sodo e condite al momento con salsa di arachidi pestata al mortaio.",
     percheSicuro: "A differenza dell'insalata cruda occidentale, nel Gado-Gado le verdure sono sbollentate in acqua bollente. Unica accortezza: verificare che la salsa alle arachidi sia preparata fresca sul momento e non lasciata all'aria."
@@ -1800,7 +1790,6 @@ export default function App() {
                     name: food.nome,
                     blurb: `${food.gusto}\n\n🍳 Come è fatto: ${food.comeFatto}\n\n🛡️ Perché è sicuro: ${food.percheSicuro}`,
                     images: [food.image],
-                    fallbackImages: [food.fallbackImage],
                     facts: [
                       `🇮🇩 Nome indonesiano: ${food.nomeIndonesiano}`,
                       `🔤 Scrittura / Alfabeto: ${food.scritturaIndonesiana}`,
@@ -1813,14 +1802,9 @@ export default function App() {
                   <div className="food-card-img-wrap">
                     <img 
                       className="food-card-img" 
-                      src={food.image.startsWith('/') ? food.image : commonsImg(food.image, 500)} 
+                      src={commonsImg(food.image, 500)} 
                       alt={food.nome} 
                       loading="lazy" 
-                      onError={(e) => {
-                        if (food.fallbackImage && e.currentTarget.src !== food.fallbackImage) {
-                          e.currentTarget.src = food.fallbackImage;
-                        }
-                      }}
                     />
                     <span className={`food-safety-tag ${food.safetyLevel}`}>
                       {food.safetyBadge}
@@ -2008,18 +1992,12 @@ export default function App() {
               <div className="modal-gallery">
                 {activeActivity.images.map((img: string, idx: number) => {
                   const imgSrc = commonsImg(img, 700);
-                  const fallback = activeActivity.fallbackImages && activeActivity.fallbackImages[idx];
                   return (
                     <img 
                       key={idx} 
                       src={imgSrc} 
                       alt={activeActivity.name} 
                       loading="lazy" 
-                      onError={(e) => {
-                        if (fallback && e.currentTarget.src !== fallback) {
-                          e.currentTarget.src = fallback;
-                        }
-                      }}
                     />
                   );
                 })}
