@@ -1,14 +1,9 @@
-const CACHE_NAME = "indonesia-itinerary-v2";
+const CACHE_NAME = "indonesia-itinerary-v3";
 const ASSETS_TO_CACHE = [
   "/",
   "/index.html",
   "/manifest.webmanifest",
-  "/manifest.json",
-  "/icon-192.png",
-  "/icon-512.png",
-  "/icon-maskable.png",
-  "/apple-touch-icon.png",
-  "/favicon.png"
+  "/manifest.json"
 ];
 
 // Install Event
