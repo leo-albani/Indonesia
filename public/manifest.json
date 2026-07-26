@@ -1,7 +1,7 @@
 {
   "short_name": "Indonesia 2026",
   "name": "Indonesia 2026: Giro dell'Arcipelago",
-  "description": "Diario di viaggio e itinerario interattivo per il viaggio in Indonesia di Leo ed Eli. Con mappe offline, consigli di sicurezza e liste bagagli.",
+  "description": "Diario di viaggio e itinerario interattivo per il viaggio in Indonesia di Leo ed Eli.",
   "id": "/",
   "start_url": "/",
   "scope": "/",
@@ -9,22 +9,11 @@
   "background_color": "#0E4D3C",
   "theme_color": "#0E4D3C",
   "orientation": "portrait",
+  "prefer_related_applications": false,
   "icons": [
-    {
-      "src": "https://lh3.googleusercontent.com/d/1ESElMhbBjU6Aik_ZCKlzGr5d08x15leE=s192",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
     {
       "src": "/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "https://lh3.googleusercontent.com/d/1ESElMhbBjU6Aik_ZCKlzGr5d08x15leE=s512",
-      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
@@ -35,13 +24,25 @@
       "purpose": "any"
     },
     {
-      "src": "https://lh3.googleusercontent.com/d/1ESElMhbBjU6Aik_ZCKlzGr5d08x15leE=s512",
+      "src": "/icon-maskable.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/icon-maskable.png",
+      "src": "https://lh3.googleusercontent.com/d/1ESElMhbBjU6Aik_ZCKlzGr5d08x15leE=s192",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://lh3.googleusercontent.com/d/1ESElMhbBjU6Aik_ZCKlzGr5d08x15leE=s512",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://lh3.googleusercontent.com/d/1ESElMhbBjU6Aik_ZCKlzGr5d08x15leE=s512",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
