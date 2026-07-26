@@ -85,7 +85,7 @@ export const PackingList: React.FC = () => {
             const isCompleted = checkedCount === cat.items.length;
 
             return (
-              <details key={catIdx} className="group border-b border-[#FFF8EC]/10 pb-4" open>
+              <details key={catIdx} className="group border-b border-[#FFF8EC]/10 pb-4">
                 <summary className="list-none flex items-center justify-between cursor-pointer focus:outline-none select-none py-1">
                   <div className="flex items-center gap-3">
                     <span className="text-lg md:text-xl">{cat.ico}</span>

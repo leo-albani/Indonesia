@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { PACK_LEO, PACK_ELI } from "./data";
 
 // Helper functions
 const mapLink = (q: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
@@ -345,137 +346,7 @@ const HERO_PHOTOS = [
   'Bukit Merese.jpg'
 ];
 
-// Packing lists
-const PACK_LEO = [
-  { ico: '📄', title: 'Documenti e soldi', items: [
-    'Passaporto + fotocopia/foto di backup',
-    'e-VOA stampato',
-    'Polizza Heymondo stampata (HEY2203579) + numero assistenza salvato anche in rubrica',
-    'QR Bali Tourist Levy salvato offline',
-    'Conferme hotel di tutte le tappe, scaricate offline',
-    'Conferma tour Komodo (Ceneast / GetYourGuide)',
-    'Contanti in Rupie (tasse traghetto Gili, ingresso Parco Komodo, mance)',
-    'Carta di credito/debito + una di riserva separata',
-    'Marsupio/pouch da nascondere sotto i vestiti per le tappe più a rischio'
-  ]},
-  { ico: '💊', title: 'Farmacia', items: [
-    'Mesalazina — scorta per tutti i 20 giorni + margine, solo nel bagaglio a mano',
-    'Bentelan',
-    'Cefixoral',
-    'Tachipirina 1000',
-    'Immodium',
-    'Normix',
-    'Sali reidratanti (Dicodral)',
-    'Fermenti lattici',
-    'Paracetamolo + ibuprofene',
-    'Antistaminico',
-    'Repellente zanzare con DEET o icaridina',
-    'Disinfettante, cerotti, garze',
-    'Gel mani',
-    'SPF 50+, meglio reef-safe',
-    'Melatonina + eventuale sonnifero prescritto dal medico, con foglietto/ricetta'
-  ]},
-  { ico: '👕', title: 'Vestiti — logica lavanderia (Ubud 4-5/8, Gili Air 8-9/8)', items: [
-    '8 mutande',
-    '3 costumi',
-    '6-7 magliette leggere e traspiranti',
-    '2 pantaloncini/bermuda + 1 pantalone leggero (templi)',
-    '1 camicia leggera a maniche lunghe per la sera',
-    '4-5 paia di calzini',
-    'Intimo/pigiama leggero',
-    '1 felpa leggera — solo per il Monte Batur',
-    'Sarong leggero — telo mare + copertura templi'
-  ]},
-  { ico: '👟', title: 'Scarpe', items: [
-    'Scarpe da trekking/chiuse robuste (Padar, Batur, Gunung Kawi, Batukaru)',
-    'Sandali/scarpette da scoglio (Pink Beach, ingresso in acqua)',
-    'Infradito o sandali comodi per la vita quotidiana'
-  ]},
-  { ico: '🎒', title: 'Zaino da giornata', items: [
-    'Powerbank',
-    'Torcia frontale/headlamp — per la salita al Batur nel buio',
-    'Sacca stagna/dry bag piccola',
-    'Cappellino + occhiali da sole',
-    'Bottiglia d\'acqua riutilizzabile'
-  ]},
-  { ico: '✈️', title: 'Kit comfort volo', items: [
-    'Cuscino da collo',
-    'Mascherina per gli occhi',
-    'Tappi per le orecchie o cuffie noise-cancelling',
-    'Calze a compressione',
-    'Melatonina/sonnifero già nel bagaglio a mano'
-  ]},
-  { ico: '🔌', title: 'Varie tecniche', items: [
-    'Adattatore universale (Indonesia: prese C/F, 220V)',
-    'Sapone da bucato / bustina detersivo da viaggio',
-    'Telo microfibra ad asciugatura rapida',
-    'Lucchetto piccolo per zaino/trolley'
-  ]}
-];
-
-const PACK_ELI = [
-  { ico: '📄', title: 'Documenti e soldi', items: [
-    'Passaporto + fotocopia/foto di backup',
-    'e-VOA stampato',
-    'Polizza Heymondo stampata (HEY2203579) + numero assistenza salvato anche in rubrica',
-    'QR Bali Tourist Levy salvato offline',
-    'Conferme hotel di tutte le tappe, scaricate offline',
-    'Conferma tour Komodo (Ceneast / GetYourGuide)',
-    'Contanti in Rupie (tasse traghetto Gili, ingresso Parco Komodo, mance)',
-    'Carta di credito/debito + una di riserva separata',
-    'Marsupio/pouch da nascondere sotto i vestiti per le tappe più a rischio'
-  ]},
-  { ico: '💊', title: 'Farmacia', items: [
-    'Eventuali farmaci personali abituali, scorta per tutti i 20 giorni nel bagaglio a mano',
-    'Sali reidratanti (Dicodral)',
-    'Imodium, fermenti lattici',
-    'Paracetamolo + ibuprofene',
-    'Antistaminico',
-    'Repellente zanzare con DEET o icaridina',
-    'Disinfettante, cerotti, garze',
-    'Gel mani',
-    'SPF 50+, meglio reef-safe',
-    'Melatonina — utile per il volo lungo Jeddah-Giacarta'
-  ]},
-  { ico: '👕', title: 'Vestiti — logica lavanderia (Ubud 4-5/8, Gili Air 8-9/8)', items: [
-    '8 slip/mutande',
-    '3 reggiseni (uno da bagno a parte)',
-    '3 bikini/costumi',
-    '6-7 magliette leggere e traspiranti',
-    '2 pantaloncini/shorts + 1 pantalone leggero (templi)',
-    '1 vestito leggero per la sera',
-    '4-5 paia di calzini',
-    'Intimo/pigiama leggero',
-    '1 felpa leggera — solo per il Monte Batur',
-    'Sarong leggero — telo mare + copertura templi'
-  ]},
-  { ico: '👟', title: 'Scarpe', items: [
-    'Scarpe da trekking/chiuse robuste (Padar, Batur, Gunung Kawi, Batukaru)',
-    'Sandali/scarpette da scoglio (Pink Beach, ingresso in acqua)',
-    'Infradito o sandali comodi per la vita quotidiana'
-  ]},
-  { ico: '🎒', title: 'Zaino da giornata', items: [
-    'Powerbank',
-    'Torcia frontale/headlamp — per la salita al Batur nel buio',
-    'Sacca stagna/dry bag piccola',
-    'Cappellino + occhiali da sole',
-    'Bottiglia d\'acqua riutilizzabile'
-  ]},
-  { ico: '✈️', title: 'Kit comfort volo', items: [
-    'Cuscino da collo',
-    'Mascherina per gli occhi',
-    'Tappi per le orecchie o cuffie noise-cancelling',
-    'Calze a compressione',
-    'Melatonina già nel bagaglio a mano'
-  ]},
-  { ico: '🔌', title: 'Varie tecniche', items: [
-    'Adattatore universale (Indonesia: prese C/F, 220V)',
-    'Sapone da bucato / bustina detersivo da viaggio',
-    'Telo microfibra ad asciugatura rapida',
-    'Lucchetto piccolo per zaino/trolley',
-    'Beauty essenziale (i prodotti pieni si comprano facilmente a Bali)'
-  ]}
-];
+// Packing lists imported from ./data
 
 const PACK_NOTE = 'Da ricordare, non da mettere in valigia: mai toccare le scimmie al Monkey Forest (niente sorrisi, niente cibo in vista) · bandiera rossa = niente bagno, soprattutto a Lombok sud · solo bevande sigillate, niente Arak né cocktail artigianali · controllare i giubbotti di salvataggio appena si sale su traghetto o barca.';
 
@@ -815,7 +686,8 @@ const FOOD_ITEMS = [
 ];
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'itinerario' | 'briefing' | 'cibo' | 'valigia'>('itinerario');
+  const [activeTab, setActiveTab] = useState<'itinerario' | 'briefing' | 'cibo' | 'valigia' | 'consigli'>('itinerario');
+  const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
   const [activeStopId, setActiveStopId] = useState<number>(1);
   const [activePack, setActivePack] = useState<'leo' | 'eli'>('leo');
   const [activeActivity, setActiveActivity] = useState<any | null>(null);
@@ -854,6 +726,122 @@ export default function App() {
 
   return (
     <>
+      {/* TOP BAR WITH HAMBURGER MENU */}
+      <header className="top-bar">
+        <div className="top-bar-inner">
+          <button 
+            type="button" 
+            className="hamburger-btn" 
+            onClick={() => setIsNavOpen(true)}
+            aria-label="Apri menu"
+          >
+            <span className="hamburger-icon">☰</span>
+            <span className="hamburger-label">Menu</span>
+          </button>
+          <div className="top-bar-title" onClick={() => { setActiveTab('itinerario'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+            <span className="flag">🇮🇩</span>
+            <span className="title-text">Indonesia</span>
+          </div>
+          <div className="top-bar-active-tab">
+            {activeTab === 'itinerario' && '🗺️ Itinerario'}
+            {activeTab === 'briefing' && '📋 Briefing'}
+            {activeTab === 'cibo' && '🍜 Cibo'}
+            {activeTab === 'valigia' && '🎒 Valigia'}
+            {activeTab === 'consigli' && '💡 Consigli'}
+          </div>
+        </div>
+      </header>
+
+      {/* OFF-CANVAS SIDE DRAWER NAVIGATION */}
+      <div className={`drawer-overlay ${isNavOpen ? 'open' : ''}`} onClick={() => setIsNavOpen(false)}>
+        <div className={`drawer-content ${isNavOpen ? 'open' : ''}`} onClick={(e) => e.stopPropagation()}>
+          <div className="drawer-header">
+            <div className="drawer-brand">
+              <span className="drawer-flag">🇮🇩</span>
+              <div>
+                <div className="drawer-title">Indonesia</div>
+                <div className="drawer-subtitle">27 Lug — 16 Ago 2026</div>
+              </div>
+            </div>
+            <button type="button" className="drawer-close-btn" onClick={() => setIsNavOpen(false)} aria-label="Chiudi menu">
+              ✕
+            </button>
+          </div>
+
+          <nav className="drawer-nav">
+            <button 
+              type="button"
+              className={`drawer-nav-item ${activeTab === 'itinerario' ? 'active' : ''}`}
+              onClick={() => {
+                setActiveTab('itinerario');
+                setIsNavOpen(false);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
+              <span className="nav-icon">🗺️</span>
+              <span className="nav-text">Itinerario</span>
+            </button>
+
+            <button 
+              type="button"
+              className={`drawer-nav-item ${activeTab === 'briefing' ? 'active' : ''}`}
+              onClick={() => {
+                setActiveTab('briefing');
+                setIsNavOpen(false);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
+              <span className="nav-icon">📋</span>
+              <span className="nav-text">Briefing</span>
+            </button>
+
+            <button 
+              type="button"
+              className={`drawer-nav-item ${activeTab === 'cibo' ? 'active' : ''}`}
+              onClick={() => {
+                setActiveTab('cibo');
+                setIsNavOpen(false);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
+              <span className="nav-icon">🍜</span>
+              <span className="nav-text">Cibo &amp; Street Food</span>
+            </button>
+
+            <button 
+              type="button"
+              className={`drawer-nav-item ${activeTab === 'valigia' ? 'active' : ''}`}
+              onClick={() => {
+                setActiveTab('valigia');
+                setIsNavOpen(false);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
+              <span className="nav-icon">🎒</span>
+              <span className="nav-text">Valigia</span>
+            </button>
+
+            <button 
+              type="button"
+              className={`drawer-nav-item ${activeTab === 'consigli' ? 'active' : ''}`}
+              onClick={() => {
+                setActiveTab('consigli');
+                setIsNavOpen(false);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
+              <span className="nav-icon">💡</span>
+              <span className="nav-text">Consigli</span>
+            </button>
+          </nav>
+
+          <div className="drawer-footer">
+            <p>Giro dell'arcipelago in 20 giorni</p>
+            <span>Leo &amp; Eli · 2026</span>
+          </div>
+        </div>
+      </div>
+
       {activeTab === 'itinerario' && (
         <header className="hero">
           <div className="wrap hero-inner">
@@ -881,26 +869,35 @@ export default function App() {
           <>
             {/* VIEW MODE SELECTOR (2 VISTE) */}
             <div className="view-mode-bar" style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: '12px',
-              margin: '28px 0 24px',
-              flexWrap: 'wrap'
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '14px',
+              maxWidth: '740px',
+              margin: '28px auto 24px',
+              width: '100%'
             }}>
               <button 
                 type="button"
-                className={`mode-btn ${itineraryViewMode === 'simplified' ? 'active' : ''}`}
+                className={`mode-btn-card ${itineraryViewMode === 'simplified' ? 'active' : ''}`}
                 onClick={() => setItineraryViewMode('simplified')}
               >
-                📅 Calendario Giornaliero (Vista Semplificata)
+                <div className="mode-btn-icon">📅</div>
+                <div className="mode-btn-content">
+                  <span className="mode-btn-title">Calendario Giornaliero</span>
+                  <span className="mode-btn-sub">Vista a griglia giorno per giorno</span>
+                </div>
               </button>
+
               <button 
                 type="button"
-                className={`mode-btn ${itineraryViewMode === 'all' ? 'active' : ''}`}
+                className={`mode-btn-card ${itineraryViewMode === 'all' ? 'active' : ''}`}
                 onClick={() => setItineraryViewMode('all')}
               >
-                👁️ Vista Dettagliata Completa
+                <div className="mode-btn-icon">👁️</div>
+                <div className="mode-btn-content">
+                  <span className="mode-btn-title">Vista Dettagliata Completa</span>
+                  <span className="mode-btn-sub">Tutte le tappe e attività estese</span>
+                </div>
               </button>
             </div>
 
@@ -918,13 +915,12 @@ export default function App() {
                 </p>
               </div>
 
-              {/* CLASSIC MONTH GRID CALENDAR */}
+              {/* UNIFIED MONTH GRID CALENDAR */}
               <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
-                  {/* MESE DI LUGLIO 2026 */}
                   <div className="month-calendar-box">
                     <div className="month-title">
-                      <span>JUL 2026 · Luglio</span>
-                      <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--ink-soft)' }}>27 — 31 Luglio (5 Giorni)</span>
+                      <span>27 Luglio — 16 Agosto 2026</span>
+                      <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--ink-soft)' }}>20 Giorni · Calendario Unico</span>
                     </div>
 
                     <div className="calendar-grid-wrapper">
@@ -933,8 +929,8 @@ export default function App() {
                           <div key={i} className="cal-header-cell">{h}</div>
                         ))}
 
-                        {/* July 27 to 31 */}
-                        {CALENDAR_DAYS.filter(d => d.month === 'Luglio').map((d) => {
+                        {/* All 21 days from July 27 to August 16 */}
+                        {CALENDAR_DAYS.map((d) => {
                           const isSelected = selectedCalDay?.id === d.id;
                           return (
                             <div 
@@ -942,11 +938,11 @@ export default function App() {
                               className={`cal-grid-day ${d.isTransition ? 'is-trans' : ''} ${isSelected ? 'selected' : ''}`}
                               onClick={() => {
                                 setSelectedCalDay(d);
-                                setActiveStopId(d.stopId);
+                                handleSelectStop(d.stopId, true);
                               }}
                             >
                               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                <span className="cal-day-num">{d.dayNum}</span>
+                                <span className="cal-day-num">{d.dayNum} {d.month === 'Luglio' ? 'LUG' : 'AGO'}</span>
                                 {d.isTransition && <span style={{ fontSize: '12px' }}>{d.transIcon}</span>}
                               </div>
 
@@ -960,68 +956,6 @@ export default function App() {
                             </div>
                           );
                         })}
-
-                        {/* Empty cells for Saturday and Sunday in July */}
-                        <div className="cal-grid-day empty"></div>
-                        <div className="cal-grid-day empty"></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* MESE DI AGOSTO 2026 */}
-                  <div className="month-calendar-box">
-                    <div className="month-title">
-                      <span>AGO 2026 · Agosto</span>
-                      <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--ink-soft)' }}>1 — 16 Agosto (16 Giorni)</span>
-                    </div>
-
-                    <div className="calendar-grid-wrapper">
-                      <div className="calendar-grid">
-                        {['LUN', 'MAR', 'MER', 'GIO', 'VEN', 'SAB', 'DOM'].map((h, i) => (
-                          <div key={i} className="cal-header-cell">{h}</div>
-                        ))}
-
-                        {/* 5 empty padding cells before 1st August (Saturday) */}
-                        <div className="cal-grid-day empty"></div>
-                        <div className="cal-grid-day empty"></div>
-                        <div className="cal-grid-day empty"></div>
-                        <div className="cal-grid-day empty"></div>
-                        <div className="cal-grid-day empty"></div>
-
-                        {/* August 1 to 16 */}
-                        {CALENDAR_DAYS.filter(d => d.month === 'Agosto').map((d) => {
-                          const isSelected = selectedCalDay?.id === d.id;
-                          return (
-                            <div 
-                              key={d.id}
-                              className={`cal-grid-day ${d.isTransition ? 'is-trans' : ''} ${isSelected ? 'selected' : ''}`}
-                              onClick={() => {
-                                setSelectedCalDay(d);
-                                setActiveStopId(d.stopId);
-                              }}
-                            >
-                              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                                <span className="cal-day-num">{d.dayNum}</span>
-                                {d.isTransition && <span style={{ fontSize: '12px' }}>{d.transIcon}</span>}
-                              </div>
-
-                              <span className="cal-day-stop-tag" style={{ background: ACCENTS[d.accent].solid }}>
-                                📍 {d.stopName}
-                              </span>
-
-                              <div className="cal-day-short-label">
-                                {d.shortLabel}
-                              </div>
-                            </div>
-                          );
-                        })}
-
-                        {/* 5 empty padding cells to complete row */}
-                        <div className="cal-grid-day empty"></div>
-                        <div className="cal-grid-day empty"></div>
-                        <div className="cal-grid-day empty"></div>
-                        <div className="cal-grid-day empty"></div>
-                        <div className="cal-grid-day empty"></div>
                       </div>
                     </div>
                   </div>
@@ -1342,6 +1276,23 @@ export default function App() {
                           )}
                         </div>
                       </div>
+
+                      {/* NOTA PUNTO D'INCONTRO AIRPORT PICKUP PER JAKARTA */}
+                      {activeStop.id === 1 && (
+                        <div className="warn" style={{ marginTop: '18px', borderLeft: '4px solid var(--jungle-deep)', background: 'var(--sand)', padding: '18px 20px', borderRadius: '14px', boxShadow: '0 2px 8px rgba(0,0,0,0.03)' }}>
+                          <p style={{ margin: 0, color: 'var(--jungle-deep)', fontWeight: 700, fontSize: '15px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <span>🚘</span> Ritiro in aeroporto — FM7 Resort Hotel
+                          </p>
+                          <ul style={{ margin: '12px 0 0', paddingLeft: '20px', color: 'var(--ink)', fontSize: '13.5px', lineHeight: '1.65', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                            <li><b>Transfer dall'aeroporto all'hotel:</b> GRATUITO per 2 ospiti (confermato dall'hotel).</li>
+                            <li><b>Volo di arrivo:</b> SV816, atterraggio ore <b>07:35</b>, Terminal 3 arrivi internazionali.</li>
+                            <li><b>Punto d'incontro:</b> negozio <b>"POINT CELLULAR"</b> (mobile phone shop), raggiungibile dai Gate 1, 2 o 3 della zona arrivi internazionali del Terminal 3 — <i>NON Alfa Express</i> (che è il punto d'incontro per gli arrivi domestici e non riguarda questo volo).</li>
+                            <li><b>Riconoscimento:</b> il rappresentante dell'hotel indossa una divisa color verde acqua ("Tosca"), con un cartello con scritto <b>"FM7 RESORT HOTEL"</b>.</li>
+                            <li><b>Cosa fare:</b> uscire dai controlli passaporti/dogana, dirigersi verso i Gate 1/2/3, cercare il rappresentante vicino al negozio Point Cellular.</li>
+                            <li><b>Contatto di riserva se non si trova il rappresentante:</b> WhatsApp <b>+62 811-8815-055</b> (Concierge Team FM7 Resort Hotel).</li>
+                          </ul>
+                        </div>
+                      )}
                     </div>
                   </details>
 
@@ -1573,7 +1524,7 @@ export default function App() {
               <span className="eyebrow" style={{ color: 'var(--coral-deep)', fontWeight: 700, fontSize: '11.5px', letterSpacing: '0.14em', textTransform: 'uppercase' }}>🛡️ Briefing generale</span>
               <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 'clamp(26px, 4vw, 36px)', color: 'var(--ink)', margin: '8px 0 6px' }}>Prima di partire, e una volta là</h2>
               <p style={{ color: 'var(--ink-soft)', maxWidth: '600px', margin: '0 auto', fontSize: '14px', lineHeight: 1.55 }}>
-                Documenti, gestione denaro, farmacia da viaggio, regole di comportamento e numeri utili. Fonte principale: scheda Indonesia di <b>viaggiaresicuri.it</b> (Unità di Crisi, Ministero degli Esteri), integrata con fonti sanitarie e allerte vulcaniche aggiornate.
+                Documenti e ingresso, farmacia da viaggio, prevenzione sanitaria, regole di comportamento e numeri utili. Fonte principale: scheda Indonesia di <b>viaggiaresicuri.it</b> (Unità di Crisi, Ministero degli Esteri), integrata con fonti sanitarie e allerte vulcaniche aggiornate.
               </p>
             </div>
             <div className="briefing-body">
@@ -1589,89 +1540,6 @@ export default function App() {
                     <li><b>Registrate il viaggio</b> su <a href="https://www.dovesiamonelmondo.it" target="_blank" rel="noopener noreferrer">dovesiamonelmondo.it</a> o con l'app <b>Viaggiare Sicuri</b>, e segnalate la presenza a consolare.jakarta@esteri.it con generalità, periodo e recapiti.</li>
                     <li>Portate <b>sempre il passaporto</b> con voi: ci sono stati fermi in cella fino a identificazione per chi ne era sprovvisto.</li>
                   </ul>
-                </div>
-              </details>
-
-              <details className="acc">
-                <summary><span className="ico">💳</span> Gestione del denaro e cambio valuta<span className="chev">▸</span></summary>
-                <div className="acc-body">
-                  <p><b>1. REGOLE GENERALI:</b></p>
-                  <ul>
-                    <li><b>Strumento principale per tutti i prelievi in loco:</b> Revolut, sempre in <b>IDR</b> e mai in EUR (rifiutare sempre la conversione dinamica DCC quando l'ATM la propone).</li>
-                    <li><b>Riserva contanti EUR (portata da Roma, 100–150€ in banconote nuove/integre):</b> resta ferma, si usa <b>SOLO in emergenza</b> (es. Revolut o carta bloccati), mai per cambio attivo.</li>
-                    <li><b>Carta di banca italiana normale (tenuta fisicamente separata da Revolut):</b> backup puro in caso di blocco/smarrimento carta; non va usata per "risparmiare" sui prelievi (Revolut resta più conveniente anche oltre la soglia gratuita).</li>
-                    <li><b>Mai cambiare valuta ai banchi in aeroporto:</b> applicano tassi dal <b>6% al 12% peggiori</b> del mercato. Evitare tassativamente anche i cambiavalute di strada senza insegna ufficiale nelle zone turistiche di Bali (rischio truffe sul resto o banconote scartate).</li>
-                    <li><b>Usare solo ATM dentro filiali bancarie:</b> preferire sempre banche ufficiali (<b>BCA, Mandiri, BNI, Permata</b>); mai usare macchinette isolate nei vicoli turistici.</li>
-                    <li><b>Grab:</b> si paga direttamente in app con carta collegata (Revolut/Apple Pay), quindi non pesa sul budget contanti.</li>
-                  </ul>
-
-                  <p style={{ marginTop: '20px' }}><b>2. GUIDA PRATICA REVOLUT PASSO-PASSO:</b></p>
-                  <ol style={{ paddingLeft: '20px', lineHeight: '1.65' }}>
-                    <li style={{ marginBottom: '8px' }}>
-                      <b>Piano Standard:</b> prelievi gratuiti fino a <b>200€ O 5 operazioni</b> al mese (qualunque limite si raggiunga prima), poi si applica una commissione del 2% (minimo 1€).
-                    </li>
-                    <li style={{ marginBottom: '8px' }}>
-                      <b>Il ciclo mensile gratuito si rinnova il 23 agosto</b> (verificato in app: <i>Profilo → Il tuo piano</i>): l'intero viaggio (27 luglio – 16 agosto) ricade quindi in <b>UN UNICO ciclo</b>, senza un secondo blocco di 200€ gratuiti a metà soggiorno.
-                    </li>
-                    <li style={{ marginBottom: '8px' }}>
-                      <b>Impatto reale delle commissioni:</b> solo i primi 200€ (o le prime 5 operazioni) restano senza commissioni; il resto dei prelievi del viaggio pagherà il 2%, per un costo totale stimato di circa <b>9–13€ sull'intero viaggio</b> — cifra trascurabile che non cambia la convenienza di usare Revolut per tutti i prelievi.
-                    </li>
-                    <li style={{ marginBottom: '8px' }}>
-                      <b>Fare pochi prelievi grandi invece di tanti piccoli:</b> ogni operazione consuma uno slot delle 5 gratuite indipendentemente dall'importo prelevato.
-                    </li>
-                    <li style={{ marginBottom: '8px' }}>
-                      <b>Mai prelevare nel weekend:</b> nei fine settimana Revolut applica una maggiorazione automatica indipendente dal piano.
-                    </li>
-                    <li style={{ marginBottom: '8px' }}>
-                      <b>Continuare a usare Revolut anche oltre la soglia gratuita:</b> il 2% resta molto più conveniente delle commissioni fisse e delle maggiorazioni sul cambio tipiche di una carta italiana normale all'estero.
-                    </li>
-                  </ol>
-
-                  <p style={{ marginTop: '20px' }}><b>3. TABELLA PRELIEVI CONSIGLIATI (cambio indicativo 1€ = 20.500 IDR):</b></p>
-                  <table className="kit-table">
-                    <thead>
-                      <tr style={{ borderBottom: '2px solid var(--sand-deep)', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.05em', color: 'var(--coral-deep)' }}>
-                        <td style={{ width: '28%', paddingBottom: '6px' }}><b>Quando</b></td>
-                        <td style={{ width: '28%', paddingBottom: '6px' }}><b>Importo IDR (~EUR)</b></td>
-                        <td style={{ paddingBottom: '6px' }}><b>Copre</b></td>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><b>28–29 Jul</b><br /><small style={{ color: 'var(--ink-soft)' }}>Feriale</small></td>
-                        <td><b>2.500.000 – 3.000.000 IDR</b><br /><small style={{ color: 'var(--jungle-deep)', fontWeight: 600 }}>~122 – 146€</small></td>
-                        <td>Jakarta + Yogyakarta + inizio Komodo</td>
-                      </tr>
-                      <tr>
-                        <td><b>31 Jul – 1 Aug</b></td>
-                        <td><b>2.000.000 IDR</b><br /><small style={{ color: 'var(--jungle-deep)', fontWeight: 600 }}>~98€</small></td>
-                        <td>Ingresso Parco Komodo (500.000 IDR/persona, solo contanti) + mance</td>
-                      </tr>
-                      <tr>
-                        <td style={{ background: '#FFF8EB' }}><b>5–6 Aug ⚠️</b><br /><small style={{ color: 'var(--coral-deep)', fontWeight: 700 }}>Ubud (Prelievo grande)</small></td>
-                        <td style={{ background: '#FFF8EB' }}><b>5.000.000 – 6.000.000 IDR</b><br /><small style={{ color: 'var(--coral-deep)', fontWeight: 700 }}>~244 – 293€</small><br /><small style={{ color: 'var(--ink-soft)' }}>(in 2 operazioni ATM)</small></td>
-                        <td style={{ background: '#FFF8EB' }}>Tutto Gili Air (zero ATM affidabili) + parte Kuta Lombok</td>
-                      </tr>
-                      <tr>
-                        <td><b>12–13 Aug</b></td>
-                        <td><b>2.000.000 – 3.000.000 IDR</b><br /><small style={{ color: 'var(--jungle-deep)', fontWeight: 600 }}>~98 – 146€</small></td>
-                        <td>Ultimi giorni + mance finali</td>
-                      </tr>
-                      <tr style={{ borderTop: '2px solid var(--sand-deep)', background: 'var(--sand)' }}>
-                        <td colSpan={2}><b>TOTALE STIMATO (coppia):</b></td>
-                        <td><b>13 – 16 Milioni IDR (~635 – 780€)</b></td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                  <div className="warn" style={{ marginTop: '20px', borderLeft: '4px solid var(--coral-deep)', background: '#FFF5F2', padding: '14px 16px', borderRadius: '10px' }}>
-                    <p style={{ margin: 0, color: 'var(--coral-deep)', fontWeight: 700, fontSize: '14px' }}>
-                      🚨 NOTA SU GILI AIR (NON NEGOZIABILE):
-                    </p>
-                    <p style={{ margin: '6px 0 0', color: 'var(--ink)', fontSize: '13.5px', lineHeight: '1.5' }}>
-                      <b>Nessun ATM affidabile sull'isola.</b> Il prelievo di Ubud del 5–6 agosto è quello non negoziabile: deve coprire l'intero soggiorno a Gili Air, senza alternative sul posto.
-                    </p>
-                  </div>
                 </div>
               </details>
 
@@ -1855,7 +1723,7 @@ export default function App() {
               <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 'clamp(26px, 4vw, 36px)', color: 'var(--ink)', margin: '8px 0 6px' }}>Gestione Bagagli e Valigia</h2>
             </div>
 
-            {/* GESTIONE BAGAGLI */}
+            {/* GESTIONE BAGAGLI & DIMENSIONI */}
             <div className="baggage-alert" style={{
               background: 'var(--paper)',
               border: '1px solid var(--sand-deep)',
@@ -1866,7 +1734,7 @@ export default function App() {
               boxShadow: '0 4px 18px rgba(14, 77, 60, 0.05)'
             }}>
               <h3 style={{ margin: '0 0 16px 0', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--jungle-deep)', fontWeight: '700', fontSize: '17px' }}>
-                🧳 Gestione Bagagli
+                🧳 Gestione Bagagli in Stiva e Cabina
               </h3>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px', marginBottom: '18px' }}>
                 <div style={{ background: 'var(--sand)', padding: '12px 14px', borderRadius: '12px', border: '1px solid var(--sand-deep)', fontSize: '13.5px' }}>
@@ -1895,6 +1763,69 @@ export default function App() {
               </div>
             </div>
 
+            {/* TABELLA DIMENSIONI BAGAGLIO A MANO */}
+            <div className="baggage-alert" style={{
+              background: 'var(--paper)',
+              border: '1px solid var(--sand-deep)',
+              borderRadius: '16px',
+              padding: '24px',
+              marginBottom: '28px',
+              color: 'var(--ink)',
+              boxShadow: '0 4px 18px rgba(14, 77, 60, 0.05)'
+            }}>
+              <h3 style={{ margin: '0 0 16px 0', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--jungle-deep)', fontWeight: '700', fontSize: '17px' }}>
+                📏 Limiti e Dimensioni Bagaglio a Mano (per Tratta)
+              </h3>
+
+              <div style={{ overflowX: 'auto', marginBottom: '16px' }}>
+                <table className="kit-table" style={{ width: '100%', minWidth: '580px' }}>
+                  <thead>
+                    <tr style={{ borderBottom: '2px solid var(--sand-deep)', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.05em', color: 'var(--coral-deep)' }}>
+                      <th style={{ textAlign: 'left', padding: '10px 12px' }}>Tratta</th>
+                      <th style={{ textAlign: 'left', padding: '10px 12px' }}>Compagnia</th>
+                      <th style={{ textAlign: 'left', padding: '10px 12px' }}>Limite Bagaglio a Mano</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style={{ padding: '10px 12px' }}><b>Roma ↔ Jeddah ↔ Giacarta</b></td>
+                      <td style={{ padding: '10px 12px' }}>Saudia</td>
+                      <td style={{ padding: '10px 12px' }}>Somma 3 dimensioni <b>≤ 115 cm</b> <small style={{ display: 'block', color: 'var(--ink-soft)' }}>(nessun limite rigido di forma)</small></td>
+                    </tr>
+                    <tr>
+                      <td style={{ padding: '10px 12px' }}><b>Giacarta → Yogyakarta</b></td>
+                      <td style={{ padding: '10px 12px' }}>TransNusa</td>
+                      <td style={{ padding: '10px 12px' }}><b>56 x 36 x 23 cm</b>, 7 kg totali</td>
+                    </tr>
+                    <tr>
+                      <td style={{ padding: '10px 12px' }}><b>Yogyakarta → Giacarta</b></td>
+                      <td style={{ padding: '10px 12px' }}>Batik Air</td>
+                      <td style={{ padding: '10px 12px' }}><b>56 x 36 x 23 cm</b>, 7 kg totali</td>
+                    </tr>
+                    <tr>
+                      <td style={{ padding: '10px 12px' }}><b>Giacarta → Labuan Bajo</b></td>
+                      <td style={{ padding: '10px 12px' }}>Super Air Jet</td>
+                      <td style={{ padding: '10px 12px' }}><b>56 x 36 x 23 cm</b>, 7 kg totali</td>
+                    </tr>
+                    <tr>
+                      <td style={{ padding: '10px 12px' }}><b>Komodo → Bali</b></td>
+                      <td style={{ padding: '10px 12px' }}>AirAsia (QZ647)</td>
+                      <td style={{ padding: '10px 12px' }}><b>56 x 36 x 23 cm</b> (+ personal item 40x30x10 cm), 7 kg totali</td>
+                    </tr>
+                    <tr>
+                      <td style={{ padding: '10px 12px' }}><b>Lombok → Giacarta</b></td>
+                      <td style={{ padding: '10px 12px' }}>Citilink (A320)</td>
+                      <td style={{ padding: '10px 12px' }}><b>56 x 36 x 23 cm</b>, 7 kg totali</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div style={{ background: 'var(--sand)', padding: '14px 18px', borderRadius: '12px', borderLeft: '4px solid var(--coral-deep)', color: 'var(--ink)', fontSize: '13.5px', lineHeight: '1.6' }}>
+                📌 <b>Nota da ricordare:</b> Tutte le tratte indonesiane condividono lo stesso limite standard (<b>56 x 36 x 23 cm</b>), quindi basta restare dentro questa misura su tutte le tratte tranne Saudia (più permissivo). Poiché queste compagnie sono note per misurare fisicamente il bagaglio al gate con gabarit rigidi, un borsone morbido va misurato nella sua <b>forma piena da viaggio</b>, non piegato.
+              </div>
+            </div>
+
             <div className="pack-toggle" style={{ marginBottom: '20px' }}>
               <button id="packBtnLeo" className={activePack === 'leo' ? 'active' : ''} onClick={() => setActivePack('leo')}>👤 Valigia Leo</button>
               <button id="packBtnEli" className={activePack === 'eli' ? 'active' : ''} onClick={() => setActivePack('eli')}>👤 Valigia Eli</button>
@@ -1902,7 +1833,7 @@ export default function App() {
 
             <div className="briefing-body">
                 {(activePack === 'leo' ? PACK_LEO : PACK_ELI).map((cat, cIdx) => (
-                  <details className="acc" key={cIdx} open>
+                  <details className="acc" key={cIdx}>
                     <summary>
                       <span className="ico">{cat.ico}</span> {cat.title}
                       <span className="chev">▸</span>
@@ -1930,58 +1861,300 @@ export default function App() {
             </div>
           </section>
         )}
+
+        {/* SECTION CONSIGLI */}
+        {activeTab === 'consigli' && (
+          <section className="briefing-section" id="consigliSection">
+            <div className="section-head text-center" style={{ marginBottom: '28px' }}>
+              <span className="eyebrow" style={{ color: 'var(--coral-deep)', fontWeight: 700, fontSize: '11.5px', letterSpacing: '0.14em', textTransform: 'uppercase' }}>💡 Consigli di Viaggio</span>
+              <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 'clamp(26px, 4vw, 36px)', color: 'var(--ink)', margin: '8px 0 6px' }}>Consigli e Strategie</h2>
+              <p style={{ color: 'var(--ink-soft)', maxWidth: '640px', margin: '0 auto', fontSize: '14px', lineHeight: 1.55 }}>
+                Guida pratica per la gestione del denaro, mance, protezione solare e antizanzare, acqua e idratazione, sonno in viaggio e fuso orario.
+              </p>
+            </div>
+
+            <div className="briefing-body">
+              {/* CARD 1: DENARO E CAMBIO VALUTA (CHIUSA DI DEFAULT) */}
+              <details className="acc">
+                <summary><span className="ico">💳</span> Gestione del denaro e cambio valuta<span className="chev">▸</span></summary>
+                <div className="acc-body">
+                  <p><b>1. REGOLE GENERALI:</b></p>
+                  <ul>
+                    <li><b>Strumento principale per tutti i prelievi in loco:</b> Revolut, sempre in <b>IDR</b> e mai in EUR (rifiutare sempre la conversione dinamica DCC quando l'ATM la propone).</li>
+                    <li><b>Riserva contanti EUR (portata da Roma, 100–150€ in banconote nuove/integre):</b> resta ferma, si usa <b>SOLO in emergenza</b> (es. Revolut o carta bloccati), mai per cambio attivo.</li>
+                    <li><b>Carta di banca italiana normale (tenuta fisicamente separata da Revolut):</b> backup puro in caso di blocco/smarrimento carta; non va usata per "risparmiare" sui prelievi (Revolut resta più conveniente anche oltre la soglia gratuita).</li>
+                    <li><b>Mai cambiare valuta ai banchi in aeroporto:</b> applicano tassi dal <b>6% al 12% peggiori</b> del mercato. Evitare tassativamente anche i cambiavalute di strada senza insegna ufficiale nelle zone turistiche di Bali (rischio truffe sul resto o banconote scartate).</li>
+                    <li><b>Usare solo ATM dentro filiali bancarie:</b> preferire sempre banche ufficiali (<b>BCA, Mandiri, BNI, Permata</b>); mai usare macchinette isolate nei vicoli turistici.</li>
+                    <li><b>Grab:</b> si paga direttamente in app con carta collegata (Revolut/Apple Pay), quindi non pesa sul budget contanti.</li>
+                  </ul>
+
+                  <p style={{ marginTop: '20px' }}><b>2. GUIDA PRATICA REVOLUT PASSO-PASSO:</b></p>
+                  <ol style={{ paddingLeft: '20px', lineHeight: '1.65' }}>
+                    <li style={{ marginBottom: '8px' }}>
+                      <b>Piano Standard:</b> prelievi gratuiti fino a <b>200€ O 5 operazioni</b> al mese (qualunque limite si raggiunga prima), poi si applica una commissione del 2% (minimo 1€).
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <b>Il ciclo mensile gratuito si rinnova il 23 agosto</b> (verificato in app: <i>Profilo → Il tuo piano</i>): l'intero viaggio (27 luglio – 16 agosto) ricade quindi in <b>UN UNICO ciclo</b>, senza un secondo blocco di 200€ gratuiti a metà soggiorno.
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <b>Impatto reale delle commissioni:</b> solo i primi 200€ (o le prime 5 operazioni) restano senza commissioni; il resto dei prelievi del viaggio pagherà il 2%, per un costo totale stimato di circa <b>9–13€ sull'intero viaggio</b> — cifra trascurabile che non cambia la convenienza di usare Revolut per tutti i prelievi.
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <b>Fare pochi prelievi grandi invece di tanti piccoli:</b> ogni operazione consuma uno slot delle 5 gratuite indipendentemente dall'importo prelevato.
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <b>Mai prelevare nel weekend:</b> nei fine settimana Revolut applica una maggiorazione automatica indipendente dal piano.
+                    </li>
+                    <li style={{ marginBottom: '8px' }}>
+                      <b>Continuare a usare Revolut anche oltre la soglia gratuita:</b> il 2% resta molto più conveniente delle commissioni fisse e delle maggiorazioni sul cambio tipiche di una carta italiana normale all'estero.
+                    </li>
+                  </ol>
+
+                  <p style={{ marginTop: '20px' }}><b>3. TABELLA PRELIEVI CONSIGLIATI (cambio indicativo 1€ = 20.500 IDR):</b></p>
+                  <table className="kit-table">
+                    <thead>
+                      <tr style={{ borderBottom: '2px solid var(--sand-deep)', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.05em', color: 'var(--coral-deep)' }}>
+                        <td style={{ width: '28%', paddingBottom: '6px' }}><b>Quando</b></td>
+                        <td style={{ width: '28%', paddingBottom: '6px' }}><b>Importo IDR (~EUR)</b></td>
+                        <td style={{ paddingBottom: '6px' }}><b>Copre</b></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><b>28–29 Jul</b><br /><small style={{ color: 'var(--ink-soft)' }}>Feriale</small></td>
+                        <td><b>2.500.000 – 3.000.000 IDR</b><br /><small style={{ color: 'var(--jungle-deep)', fontWeight: 600 }}>~122 – 146€</small></td>
+                        <td>Jakarta + Yogyakarta + inizio Komodo</td>
+                      </tr>
+                      <tr>
+                        <td><b>31 Jul – 1 Aug</b></td>
+                        <td><b>2.000.000 IDR</b><br /><small style={{ color: 'var(--jungle-deep)', fontWeight: 600 }}>~98€</small></td>
+                        <td>Ingresso Parco Komodo (500.000 IDR/persona, solo contanti) + mance</td>
+                      </tr>
+                      <tr>
+                        <td style={{ background: '#FFF8EB' }}><b>5–6 Aug ⚠️</b><br /><small style={{ color: 'var(--coral-deep)', fontWeight: 700 }}>Ubud (Prelievo grande)</small></td>
+                        <td style={{ background: '#FFF8EB' }}><b>5.000.000 – 6.000.000 IDR</b><br /><small style={{ color: 'var(--coral-deep)', fontWeight: 700 }}>~244 – 293€</small><br /><small style={{ color: 'var(--ink-soft)' }}>(in 2 operazioni ATM)</small></td>
+                        <td style={{ background: '#FFF8EB' }}>Tutto Gili Air (zero ATM affidabili) + parte Kuta Lombok</td>
+                      </tr>
+                      <tr>
+                        <td><b>12–13 Aug</b></td>
+                        <td><b>2.000.000 – 3.000.000 IDR</b><br /><small style={{ color: 'var(--jungle-deep)', fontWeight: 600 }}>~98 – 146€</small></td>
+                        <td>Ultimi giorni + mance finali</td>
+                      </tr>
+                      <tr style={{ borderTop: '2px solid var(--sand-deep)', background: 'var(--sand)' }}>
+                        <td colSpan={2}><b>TOTALE STIMATO (coppia):</b></td>
+                        <td><b>13 – 16 Milioni IDR (~635 – 780€)</b></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div className="warn" style={{ marginTop: '20px', borderLeft: '4px solid var(--coral-deep)', background: '#FFF5F2', padding: '14px 16px', borderRadius: '10px' }}>
+                    <p style={{ margin: 0, color: 'var(--coral-deep)', fontWeight: 700, fontSize: '14px' }}>
+                      🚨 NOTA SU GILI AIR (NON NEGOZIABILE):
+                    </p>
+                    <p style={{ margin: '6px 0 0', color: 'var(--ink)', fontSize: '13.5px', lineHeight: '1.5' }}>
+                      <b>Nessun ATM affidabile sull'isola.</b> Il prelievo di Ubud del 5–6 agosto è quello non negoziabile: deve coprire l'intero soggiorno a Gili Air, senza alternative sul posto.
+                    </p>
+                  </div>
+                </div>
+              </details>
+
+              {/* CARD 2: MANCE E CONTRATTAZIONE (CHIUSA DI DEFAULT) */}
+              <details className="acc">
+                <summary><span className="ico">🪙</span> Mance e contrattazione<span className="chev">▸</span></summary>
+                <div className="acc-body">
+                  <p><b>1. MANCE:</b></p>
+                  <ul style={{ paddingLeft: '20px', lineHeight: '1.65' }}>
+                    <li>Le mance <b>non sono obbligatorie</b> in Indonesia, ma sono sinceramente molto apprezzate da guide turistiche, autisti privati, personale dei charter in barca e massaggiatori/espert dei centri benessere.</li>
+                    <li>Si tratta di <b>piccole cifre simboliche</b> (es. 20.000–50.000 IDR per un autista o guida, circa 1–2,5€), non di percentuali fisse calcolate sul totale come negli Stati Uniti.</li>
+                    <li>Nei ristoranti e café di livello medio-alto, un "service charge" del 5–10% è spesso già incluso nello scontrino.</li>
+                  </ul>
+
+                  <p style={{ marginTop: '18px' }}><b>2. CONTRATTAZIONE:</b></p>
+                  <ul style={{ paddingLeft: '20px', lineHeight: '1.65' }}>
+                    <li>Nei <b>mercati di strada</b>, bancarelle artigianali e con i guidatori di risciò/transport non ufficiali (non nei minimarket Indomaret/Alfamart, né nei negozi o centri commerciali a prezzo fisso) la contrattazione è la regola sociale ed è pienamente attesa dai venditori.</li>
+                    <li>Ci si aspetta di iniziare la trattativa facendo un'offerta iniziale orientativamente <b>più bassa (circa il 30–50% in meno)</b> rispetto al primo prezzo sparato dal venditore, per poi incontrarsi a metà strada mantenendo sempre un tono sorridente e rilassato.</li>
+                  </ul>
+                </div>
+              </details>
+
+              {/* CARD 3: REPELLENTE E CREMA SOLARE (CHIUSA DI DEFAULT) */}
+              <details className="acc">
+                <summary><span className="ico">🧴</span> Repellente antizanzare e crema solare — come usarli insieme<span className="chev">▸</span></summary>
+                <div className="acc-body">
+                  <p><b>1. ORDINE DI APPLICAZIONE (FONDAMENTALE):</b></p>
+                  <ol style={{ paddingLeft: '20px', lineHeight: '1.65' }}>
+                    <li style={{ marginBottom: '6px' }}><b>Prima la crema solare:</b> applicarla in modo generoso e uniforme su tutta la pelle esposta.</li>
+                    <li style={{ marginBottom: '6px' }}><b>Aspettare 15–20 minuti:</b> lasciare che la crema solare si assorba completamente nella pelle.</li>
+                    <li style={{ marginBottom: '6px' }}><b>Solo dopo applicare il repellente antizanzare:</b> nebulizzarlo o stenderlo sopra la pelle.</li>
+                  </ol>
+                  <div className="warn" style={{ background: 'var(--sand)', padding: '12px 14px', borderRadius: '10px', borderLeft: '4px solid var(--jungle-deep)', fontSize: '13.5px', marginTop: '10px' }}>
+                    🔬 <i>Perché questo ordine?</i> Applicare il repellente <i>prima</i> della crema solare riduce l'efficacia del fattore di protezione solare (SPF) fino al <b>30%</b>. Applicato per ultimo, il repellente mantiene intatta la protezione solare.
+                  </div>
+
+                  <p style={{ marginTop: '20px' }}><b>2. FREQUENZA DI RIAPPLICAZIONE — ATTENZIONE AI RITMI DIVERSI:</b></p>
+                  <ul style={{ paddingLeft: '20px', lineHeight: '1.65' }}>
+                    <li><b>Crema solare:</b> va riapplicata circa ogni <b>2 ore</b>, e ancora più spesso se si suda abbondantemente o dopo ogni bagno in mare/piscina.</li>
+                    <li><b>Repellente antizanzare (in base alla concentrazione di DEET):</b>
+                      <ul style={{ marginTop: '6px' }}>
+                        <li><b>10% DEET:</b> protezione efficace per circa <b>2 ore</b></li>
+                        <li><b>20–30% DEET:</b> protezione efficace per circa <b>3–5 ore</b></li>
+                        <li><b>50% DEET:</b> protezione duratura fino a <b>8–10 ore</b></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <p style={{ fontSize: '13.5px', color: 'var(--ink-soft)', marginTop: '8px', lineHeight: 1.5 }}>
+                    💡 <i>Conclusione pratica:</i> Con un repellente forte al 50% DEET (es. Biokill/Jungle Formula forte), spesso basta un'unica applicazione al mattino per coprire gran parte della giornata contro le zanzare, mentre la crema solare andrà riapplicata più volte nel corso del giorno.
+                  </p>
+
+                  <p style={{ marginTop: '20px' }}><b>3. ATTENZIONE AI TESSUTI E AGLI OGGETTI (EFFETTO PLASTIFICANTE DEL DEET):</b></p>
+                  <p style={{ fontSize: '14px', lineHeight: 1.6 }}>
+                    Il DEET è un potente solvente/plastificante organico. Può <b>danneggiare, sciogliere o macchiare irrimediabilmente materiali sintetici e plastica</b>:
+                  </p>
+                  <ul style={{ paddingLeft: '20px', lineHeight: '1.65', color: 'var(--coral-deep)' }}>
+                    <li>Nylon, spandex, rayon, vinile, gomma ed elastici</li>
+                    <li>Membrane impermeabili e tessuti tecnici da trekking</li>
+                    <li>Montature in plastica degli occhiali da sole, vetrini degli orologi, custodie e schermi di smartphone/fotocamere</li>
+                  </ul>
+                  <p style={{ fontSize: '13.5px', color: 'var(--jungle-deep)', fontWeight: 600, marginTop: '8px' }}>
+                    ✅ NON danneggia invece le fibre naturali (cotone, lino, lana).
+                  </p>
+                  <div className="warn" style={{ background: '#FFF5F2', padding: '12px 14px', borderRadius: '10px', borderLeft: '4px solid var(--coral-deep)', fontSize: '13.5px', marginTop: '10px' }}>
+                    🛡️ <b>Consiglio operativo:</b> Spruzzare il repellente direttamente sui palmi delle mani e spalmarlo delicatamente sulla pelle esposta. Evitare di nebulizzarlo a pioggia sopra vestiti tecnici sintetici o vicino a orologi, occhiali da sole e fotocamere.
+                  </div>
+                </div>
+              </details>
+
+              {/* CARD 4: ACQUA E DISIDRATAZIONE (CHIUSA DI DEFAULT) */}
+              <details className="acc">
+                <summary><span className="ico">💧</span> Acqua — quale comprare ed evitare la disidratazione<span className="chev">▸</span></summary>
+                <div className="acc-body">
+                  <p><b>1. MARCHI AFFIDABILI DA CERCARE:</b></p>
+                  <ul style={{ paddingLeft: '20px', lineHeight: '1.65' }}>
+                    <li><b>Aqua (Gruppo Danone)</b>, <b>Le Minerale</b>, <b>Club</b>, <b>Cleo</b>, <b>Vit</b>: sono le marche leader e sicure di "air mineral" confezionata in Indonesia. Contengono minerali ed elettroliti standard.</li>
+                    <li>Si trovano facilmente ovunque, a prezzi modesti, in tutti i minimarket delle catene <b>Indomaret</b> e <b>Alfamart</b> o nei supermercati locali.</li>
+                  </ul>
+
+                  <p style={{ marginTop: '18px' }}><b>2. CONTROLLO TASSATIVO PRIMA DI BERE:</b></p>
+                  <ul style={{ paddingLeft: '20px', lineHeight: '1.65' }}>
+                    <li>Prima di aprire e bere da qualsiasi bottiglia di plastica acquistata, verificare sempre con attenzione che il <b>sigillo plastico del tappo sia perfettamente integro e non manomesso</b>.</li>
+                    <li>Non accettare mai bottiglie d'acqua già stappate o prive di sigillo originale.</li>
+                  </ul>
+
+                  <p style={{ marginTop: '18px' }}><b>3. IL PUNTO SULLA DISIDRATAZIONE E I SALI MINERALI:</b></p>
+                  <p style={{ fontSize: '14px', lineHeight: 1.6 }}>
+                    Nel clima caldo-umido dell'Indonesia si suda moltissimo. Bere grandi quantità di sola acqua osmotizzata/povera di sodio senza reintegrare i sali minerali persi può dare una <b>falsa sensazione di essere idratati</b>, provocando stanchezza, crampi, mal di testa o spossatezza.
+                  </p>
+                  <div className="warn" style={{ background: 'var(--sand)', padding: '14px 16px', borderRadius: '12px', borderLeft: '4px solid var(--jungle-deep)', fontSize: '13.5px', marginTop: '10px', lineHeight: 1.6 }}>
+                    ⚡ <b>Prevenzione nelle giornate attive:</b> Nelle giornate fisicamente più impegnative (es. trekking al Parco di Komodo sotto il sole, salita all'alba al Monte Batur, lunghe camminate a Prambanan), sciogliere una bustina di <b>sali reidratanti</b> (portati in valigia) nella borraccia d'acqua. Usateli non soltanto in caso di dissenteria, ma come vera e propria prevenzione da sforzo fisico in ambiente tropicale.
+                  </div>
+                </div>
+              </details>
+
+              <details className="acc">
+                <summary>
+                  <span className="ico">😴</span> Gestione del sonno in viaggio
+                  <span className="chev">▸</span>
+                </summary>
+                <div className="acc-body">
+                  <p style={{ fontSize: '14px', color: 'var(--ink-soft)', marginBottom: '18px', lineHeight: 1.6 }}>
+                    Strategia dettagliata tratta per tratta per minimizzare il jet-lag e ottimizzare il riposo durante i voli e gli scali.
+                  </p>
+
+                  <div className="sleep-schedule-grid" style={{ display: 'grid', gap: '16px' }}>
+                    
+                    {/* NOTTE PRIMA DELLA PARTENZA */}
+                    <div className="sleep-card" style={{ background: 'var(--sand)', border: '1px solid var(--sand-deep)', borderRadius: '14px', padding: '16px 18px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700, fontSize: '15px', color: 'var(--jungle-deep)', marginBottom: '8px' }}>
+                        <span style={{ fontSize: '18px' }}>🌙</span> NOTTE PRIMA DELLA PARTENZA (26-27 luglio)
+                      </div>
+                      <p style={{ margin: 0, fontSize: '14px', color: 'var(--ink)', lineHeight: 1.6 }}>
+                        Prendere melatonina 30-60 minuti prima di andare a dormire, puntando ad almeno 6-7 ore di sonno prima della sveglia delle 6:00. Nessuna valeriana questa notte.
+                      </p>
+                    </div>
+
+                    {/* ANDATA — Volo 1 */}
+                    <div className="sleep-card" style={{ background: 'var(--sand)', border: '1px solid var(--sand-deep)', borderRadius: '14px', padding: '16px 18px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700, fontSize: '15px', color: 'var(--jungle-deep)', marginBottom: '8px' }}>
+                        <span style={{ fontSize: '18px' }}>✈️</span> ANDATA — Volo 1: Roma→Jeddah (SV204, 09:25-15:10, diurno)
+                      </div>
+                      <p style={{ margin: 0, fontSize: '14px', color: 'var(--ink)', lineHeight: 1.6 }}>
+                        Non conviene dormire su questo volo: è diurno, dormirci sopra riduce la pressione di sonno utile per il volo notturno successivo. Restare svegli, muoversi, al massimo un pisolino leggero non strutturato.
+                      </p>
+                    </div>
+
+                    {/* ANDATA — Volo 2 */}
+                    <div className="sleep-card" style={{ background: 'var(--paper)', border: '1.5px solid var(--coral-deep)', borderRadius: '14px', padding: '18px 20px', boxShadow: '0 4px 14px rgba(255,107,74,0.08)' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', fontWeight: 700, fontSize: '15px', color: 'var(--coral-deep)', marginBottom: '10px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          <span style={{ fontSize: '18px' }}>⭐</span> ANDATA — Volo 2: Jeddah→Giacarta (SV816, 17:25-07:35+1, il volo chiave)
+                        </div>
+                        <span style={{ background: 'var(--coral-deep)', color: '#fff', fontSize: '11px', padding: '3px 8px', borderRadius: '6px', fontWeight: 800, textTransform: 'uppercase' }}>Volo chiave</span>
+                      </div>
+                      <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--ink)', lineHeight: 1.7, display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                        <li><b>Cena servita circa 1-1,5 ore dopo il decollo (~18:30-19:00 ora Jeddah, 22:30-23:00 ora Giacarta):</b> mangiare normalmente</li>
+                        <li><b>Melatonina:</b> prenderla subito dopo il ritiro dei vassoi e l'abbassamento delle luci, puntando ad addormentarsi verso le 20:00-20:30 ora Jeddah (00:00-00:30 ora Giacarta)</li>
+                        <li>Niente valeriana insieme alla melatonina</li>
+                        <li><b>Colazione servita ~1-1,5 ore prima dell'atterraggio (~06:00-06:30 ora Giacarta):</b> a quel punto saranno passate circa 8,5-9 ore dal decollo, con 1-1,5 ore rimanenti all'arrivo (07:35)</li>
+                        <li>Conviene farsi svegliare per la colazione: coincide con un risveglio mattutino normale a destinazione, rifiutarla non porta alcun vantaggio</li>
+                      </ul>
+                    </div>
+
+                    {/* RITORNO — Volo 1 */}
+                    <div className="sleep-card" style={{ background: 'var(--sand)', border: '1px solid var(--sand-deep)', borderRadius: '14px', padding: '16px 18px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700, fontSize: '15px', color: 'var(--jungle-deep)', marginBottom: '8px' }}>
+                        <span style={{ fontSize: '18px' }}>✈️</span> RITORNO — Volo 1: Giacarta→Jeddah (SV819, 17:30-23:05)
+                      </div>
+                      <p style={{ margin: 0, fontSize: '14px', color: 'var(--ink)', lineHeight: 1.6 }}>
+                        Non serve dormire in modo strutturato: arriva presto in orario locale Jeddah. Restare svegli/rilassati, pisolino leggero se necessario, riservare il sonno vero per l'hotel di transito.
+                      </p>
+                    </div>
+
+                    {/* RITORNO — Hotel Aerotel Jeddah */}
+                    <div className="sleep-card" style={{ background: 'var(--sand)', border: '1px solid var(--sand-deep)', borderRadius: '14px', padding: '16px 18px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700, fontSize: '15px', color: 'var(--jungle-deep)', marginBottom: '8px' }}>
+                        <span style={{ fontSize: '18px' }}>🏨</span> RITORNO — Hotel Aerotel Jeddah (23:30-09:30)
+                      </div>
+                      <p style={{ margin: 0, fontSize: '14px', color: 'var(--ink)', lineHeight: 1.6 }}>
+                        Notte di sonno principale del rientro. Melatonina facoltativa (30-60 minuti prima di coricarsi, ~23:00-23:30) solo se difficoltà ad addormentarsi — il salto di fuso verso Jeddah è minimo. Niente valeriana.
+                      </p>
+                    </div>
+
+                    {/* RITORNO — Volo 2 */}
+                    <div className="sleep-card" style={{ background: 'var(--sand)', border: '1px solid var(--sand-deep)', borderRadius: '14px', padding: '16px 18px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700, fontSize: '15px', color: 'var(--jungle-deep)', marginBottom: '8px' }}>
+                        <span style={{ fontSize: '18px' }}>✈️</span> RITORNO — Volo 2: Jeddah→Roma (SV201, 10:30-14:40, diurno)
+                      </div>
+                      <p style={{ margin: 0, fontSize: '14px', color: 'var(--ink)', lineHeight: 1.6 }}>
+                        Non dormire, è un volo diurno. Quella sera andare a letto a orario italiano normale senza melatonina: il fuso residuo (1 ora) si assorbe da solo.
+                      </p>
+                    </div>
+
+                    {/* REGOLE GENERALI */}
+                    <div className="sleep-card" style={{ background: 'rgba(14, 77, 60, 0.06)', border: '1.5px solid var(--jungle-deep)', borderRadius: '14px', padding: '18px 20px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 800, fontSize: '15px', color: 'var(--jungle-deep)', marginBottom: '10px' }}>
+                        <span style={{ fontSize: '18px' }}>🛡️</span> REGOLE GENERALI
+                      </div>
+                      <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--ink)', lineHeight: 1.65, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        <li><b>Il timing conta più della dose:</b> 0,5-1mg preso al momento giusto batte 5mg preso al momento sbagliato.</li>
+                        <li>Dopo l'arrivo, continuare la melatonina per 3-5 notti consecutive (copre Jakarta 27-29 e parte di Yogyakarta), sempre 30-60 minuti prima di coricarsi secondo l'orario locale.</li>
+                        <li>Cercare luce naturale del mattino nei primi giorni a Giacarta/Yogyakarta (aiuta l'adattamento viaggiando verso est).</li>
+                        <li><b>Evitare alcol durante i voli:</b> riduce l'efficacia della melatonina e frammenta il sonno.</li>
+                        <li><b>Non combinare mai melatonina e valeriana nella stessa notte:</b> aumentano insieme il rischio di sonnolenza eccessiva e vertigini il giorno dopo, senza beneficio proporzionale — scegliere l'una o l'altra a seconda della sera.</li>
+                      </ul>
+                    </div>
+
+                  </div>
+                </div>
+              </details>
+            </div>
+          </section>
+        )}
       </main>
 
       {/* FOOTER */}
       <footer>
         Fatto con <span className="heart">♥</span> per Leo &amp; Eli — buon viaggio nell'arcipelago.
       </footer>
-
-      {/* BOTTOM NAVIGATION BAR */}
-      <nav className="bottom-nav">
-        <div className="bottom-nav-inner">
-          <button 
-            className={`nav-tab-item ${activeTab === 'itinerario' ? 'active' : ''}`}
-            onClick={() => {
-              setActiveTab('itinerario');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          >
-            <span className="nav-tab-icon">🗺️</span>
-            <span className="nav-tab-label">Itinerario</span>
-          </button>
-          <button 
-            className={`nav-tab-item ${activeTab === 'briefing' ? 'active' : ''}`}
-            onClick={() => {
-              setActiveTab('briefing');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          >
-            <span className="nav-tab-icon">📋</span>
-            <span className="nav-tab-label">Briefing</span>
-          </button>
-          <button 
-            className={`nav-tab-item ${activeTab === 'cibo' ? 'active' : ''}`}
-            onClick={() => {
-              setActiveTab('cibo');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          >
-            <span className="nav-tab-icon">🍜</span>
-            <span className="nav-tab-label">Cibo</span>
-          </button>
-          <button 
-            className={`nav-tab-item ${activeTab === 'valigia' ? 'active' : ''}`}
-            onClick={() => {
-              setActiveTab('valigia');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          >
-            <span className="nav-tab-icon">🎒</span>
-            <span className="nav-tab-label">Valigia</span>
-          </button>
-        </div>
-      </nav>
 
       {/* DETAILED PHOTO MODAL */}
       {activeActivity && (

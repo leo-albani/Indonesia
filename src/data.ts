@@ -888,8 +888,7 @@ export const PACK_LEO: PackingCategory[] = [
       "Conferme hotel di tutte le tappe, scaricate offline",
       "Conferma tour Komodo (Ceneast / GetYourGuide)",
       "Contanti in Rupie (tasse traghetto Gili, ingresso Parco Komodo, mance)",
-      "Carta di credito/debito + una di riserva separata",
-      "Marsupio/pouch da nascondere sotto i vestiti per le tappe più a rischio"
+      "Carta di credito/debito + una di riserva separata"
     ]
   },
   {
@@ -899,30 +898,29 @@ export const PACK_LEO: PackingCategory[] = [
       "Mesalazina — scorta per tutti i 20 giorni + margine, solo nel bagaglio a mano",
       "Bentelan",
       "Cefixoral",
-      "Tachipirina 1000",
+      "Tachipirina 1000 / Paracetamolo",
       "Immodium",
       "Normix",
       "Sali reidratanti (Dicodral)",
       "Fermenti lattici",
-      "Paracetamolo + ibuprofene",
       "Antistaminico",
       "Repellente zanzare con DEET o icaridina",
       "Disinfettante, cerotti, garze",
       "Gel mani",
       "SPF 50+, meglio reef-safe",
-      "Melatonina + eventuale sonnifero prescritto dal medico, con foglietto/ricetta"
+      "Melatonina"
     ]
   },
   {
     ico: "👕",
     title: "Vestiti — logica lavanderia (Ubud 4-5/8, Gili Air 8-9/8)",
     items: [
-      "8 mutande",
+      "10 mutande",
       "3 costumi",
       "6-7 magliette leggere e traspiranti",
       "2 pantaloncini/bermuda + 1 pantalone leggero (templi)",
       "1 camicia leggera a maniche lunghe per la sera",
-      "4-5 paia di calzini",
+      "10 paia di calzini",
       "Intimo/pigiama leggero",
       "1 felpa leggera — solo per il Monte Batur",
       "Sarong leggero — telo mare + copertura templi"
@@ -932,7 +930,6 @@ export const PACK_LEO: PackingCategory[] = [
     ico: "👟",
     title: "Scarpe",
     items: [
-      "Scarpe da trekking/chiuse robuste (Padar, Batur, Gunung Kawi, Batukaru)",
       "Sandali/scarpette da scoglio (Pink Beach, ingresso in acqua)",
       "Infradito o sandali comodi per la vita quotidiana"
     ]
@@ -942,10 +939,8 @@ export const PACK_LEO: PackingCategory[] = [
     title: "Zaino da giornata",
     items: [
       "Powerbank",
-      "Torcia frontale/headlamp — per la salita al Batur nel buio",
       "Sacca stagna/dry bag piccola",
-      "Cappellino + occhiali da sole",
-      "Bottiglia d'acqua riutilizzabile"
+      "Cappellino + occhiali da sole"
     ]
   },
   {
@@ -955,8 +950,7 @@ export const PACK_LEO: PackingCategory[] = [
       "Cuscino da collo",
       "Mascherina per gli occhi",
       "Tappi per le orecchie o cuffie noise-cancelling",
-      "Calze a compressione",
-      "Melatonina/sonnifero già nel bagaglio a mano"
+      "Melatonina già nel bagaglio a mano"
     ]
   },
   {
@@ -964,6 +958,8 @@ export const PACK_LEO: PackingCategory[] = [
     title: "Varie tecniche",
     items: [
       "Adattatore universale (Indonesia: prese C/F, 220V)",
+      "Caricatori per cellulare",
+      "Caricatore per smartwatch",
       "Sapone da bucato / bustina detersivo da viaggio",
       "Telo microfibra ad asciugatura rapida",
       "Lucchetto piccolo per zaino/trolley"
@@ -983,8 +979,7 @@ export const PACK_ELI: PackingCategory[] = [
       "Conferme hotel di tutte le tappe, scaricate offline",
       "Conferma tour Komodo (Ceneast / GetYourGuide)",
       "Contanti in Rupie (tasse traghetto Gili, ingresso Parco Komodo, mance)",
-      "Carta di credito/debito + una di riserva separata",
-      "Marsupio/pouch da nascondere sotto i vestiti per le tappe più a rischio"
+      "Carta di credito/debito + una di riserva separata"
     ]
   },
   {
@@ -994,26 +989,26 @@ export const PACK_ELI: PackingCategory[] = [
       "Eventuali farmaci personali abituali, scorta per tutti i 20 giorni nel bagaglio a mano",
       "Sali reidratanti (Dicodral)",
       "Imodium, fermenti lattici",
-      "Paracetamolo + ibuprofene",
+      "Tachipirina / Paracetamolo",
       "Antistaminico",
       "Repellente zanzare con DEET o icaridina",
       "Disinfettante, cerotti, garze",
       "Gel mani",
       "SPF 50+, meglio reef-safe",
-      "Melatonina — utile per il volo lungo Jeddah-Giacarta"
+      "Melatonina"
     ]
   },
   {
     ico: "👕",
     title: "Vestiti — logica lavanderia (Ubud 4-5/8, Gili Air 8-9/8)",
     items: [
-      "8 slip/mutande",
+      "10 mutande",
       "3 reggiseni (uno da bagno a parte)",
       "3 bikini/costumi",
       "6-7 magliette leggere e traspiranti",
       "2 pantaloncini/shorts + 1 pantalone leggero (templi)",
       "1 vestito leggero per la sera",
-      "4-5 paia di calzini",
+      "10 paia di calzini",
       "Intimo/pigiama leggero",
       "1 felpa leggera — solo per il Monte Batur",
       "Sarong leggero — telo mare + copertura templi"
@@ -1023,7 +1018,6 @@ export const PACK_ELI: PackingCategory[] = [
     ico: "👟",
     title: "Scarpe",
     items: [
-      "Scarpe da trekking/chiuse robuste (Padar, Batur, Gunung Kawi, Batukaru)",
       "Sandali/scarpette da scoglio (Pink Beach, ingresso in acqua)",
       "Infradito o sandali comodi per la vita quotidiana"
     ]
@@ -1033,10 +1027,8 @@ export const PACK_ELI: PackingCategory[] = [
     title: "Zaino da giornata",
     items: [
       "Powerbank",
-      "Torcia frontale/headlamp — per la salita al Batur nel buio",
       "Sacca stagna/dry bag piccola",
-      "Cappellino + occhiali da sole",
-      "Bottiglia d'acqua riutilizzabile"
+      "Cappellino + occhiali da sole"
     ]
   },
   {
@@ -1046,7 +1038,6 @@ export const PACK_ELI: PackingCategory[] = [
       "Cuscino da collo",
       "Mascherina per gli occhi",
       "Tappi per le orecchie o cuffie noise-cancelling",
-      "Calze a compressione",
       "Melatonina già nel bagaglio a mano"
     ]
   },
@@ -1055,6 +1046,8 @@ export const PACK_ELI: PackingCategory[] = [
     title: "Varie tecniche",
     items: [
       "Adattatore universale (Indonesia: prese C/F, 220V)",
+      "Caricatori per cellulare",
+      "Caricatore per smartwatch",
       "Sapone da bucato / bustina detersivo da viaggio",
       "Telo microfibra ad asciugatura rapida",
       "Lucchetto piccolo per zaino/trolley",
