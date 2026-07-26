@@ -1,5 +1,5 @@
 {
-  "name": "Indonesia 2026 - Leo & Eli Itinerary",
+  "name": "Indonesia",
   "description": "App PWA installabile per l'itinerario di viaggio di Leo ed Eli in Indonesia nel 2026, con valigia interattiva, mappe e note offline.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
