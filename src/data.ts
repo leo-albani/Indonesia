@@ -111,9 +111,9 @@ export const STOPS_DATA: StopItinerary[] = [
           flightNo: "Volo interno",
           company: "—",
           date: "29 lug 2026",
-          dep: "11:30",
-          arr: "~12:50",
-          duration: "1h 20m",
+          dep: "10:40",
+          arr: "~11:50",
+          duration: "1h 10m",
           note: "Volo diretto, tratta domestica",
           bookedVia: "Kiss&Fly"
         }

@@ -56,7 +56,7 @@ const stops = [
     arrival: {
       label: 'Come si arriva · da Jakarta',
       segments: [
-        { route: 'Jakarta (CGK) → Yogyakarta (JOG)', flightNo: 'Volo interno', company: '—', date: '29 lug 2026', dep: '11:30', arr: '~12:50', duration: '1h 20m', note: 'Volo diretto, tratta domestica', bookedVia: 'Kiss&Fly' }
+        { route: 'Jakarta (CGK) → Yogyakarta (JOG)', flightNo: 'Volo interno', company: '—', date: '29 lug 2026', dep: '10:40', arr: '~11:50', duration: '1h 10m', note: 'Volo diretto, tratta domestica', bookedVia: 'Kiss&Fly' }
       ],
       footNote: 'Tratta breve e diretta, giusto il tempo di spostarsi a Giava centrale.'
     },
