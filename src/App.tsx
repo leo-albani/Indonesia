@@ -65,38 +65,28 @@ const stops = [
       {
         dd: '29 LUG',
         title: 'Arrivo e primo contatto con Yogyakarta',
-        trailer: 'Arrivo a Yogyakarta, pranzo su Malioboro, passeggiata tra mercato e monumenti, cena serale nella Malioboro pedonale.',
+        trailer: 'Arrivo a Yogyakarta, sistemazione in hotel, passeggiata e shopping nei mercati del batik, cena presto nella Malioboro pedonale.',
         activities: [
           {
-            name: '1. PRANZO (~14:00, arrivo in hotel)',
-            blurb: "Su Malioboro Street stessa (a 1 minuto dall'hotel Novotel Suites Yogyakarta Malioboro) o al food court del Malioboro Mall, adiacente all'hotel.",
-            map: 'Novotel Suites Yogyakarta Malioboro',
-            images: ['Malioboro Street, Yogyakarta.JPG'],
-            facts: [
-              "Pranzo comodo a pochissimi passi dall'hotel Novotel Suites Yogyakarta Malioboro.",
-              "Possibilità di scegliere tra i ristorantini su Jalan Malioboro o il food court al coperto del Malioboro Mall."
-            ]
-          },
-          {
-            name: '2. PASSEGGIATA POMERIDIANA',
-            blurb: 'Alla scoperta del centro storico a piedi tra mercati storici del batik, musei e monumenti simbolo della città.',
+            name: '1. PASSEGGIATA E SHOPPING BATIK',
+            blurb: 'Pomeriggio dedicato ai giri in centro e allo shopping tra i mercati del batik e le vie tradizionali di Yogyakarta.',
             map: 'Pasar Beringharjo, Yogyakarta',
-            images: ['Pasar Beringharjo.jpg', 'Benteng Vredeburg.jpg', 'Tugu Yogyakarta.jpg'],
+            images: ['Pasar Beringharjo.jpg', 'Malioboro Street, Yogyakarta.JPG', 'Tugu Yogyakarta.jpg'],
             facts: [
-              'Pasar Beringharjo (11 min a piedi): mercato storico, ottimo per il batik (contrattazione benvenuta).',
-              'Fort Vredeburg Museum (12 min a piedi): museo storico, buona opzione al coperto nelle ore più calde.',
-              'Tugu Monument (15 min a piedi): monumento simbolo della città.'
+              'Pasar Beringharjo & Jalan Malioboro: shopping tra botteghe e bancarelle alla ricerca di capi in batik (contrattazione benvenuta).',
+              'Tugu Monument (15 min a piedi): il monumento simbolo della città.',
+              'Pomeriggio rilassante senza musei per esplorare a ritmo leggero e fare acquisti.'
             ]
           },
           {
-            name: '3. CENA SERALE',
-            blurb: "Malioboro Street diventa pedonale (car-free) dalle 17:00 alle 21:00/22:00. Cena dagli angkringan (chioschetti di street food locale) che aprono con l'imbrunire — cibo caldo cotto al momento.",
+            name: '2. CENA PRESTO',
+            blurb: 'Cena ad ora di cena presto lungo Malioboro Street pedonale (car-free), ideale per mangiare bene e andare a dormire presto prima dell\'alba a Borobudur.',
             map: 'Jalan Malioboro, Yogyakarta',
             images: ['Andong Atau Delman Malioboro.jpg'],
             facts: [
-              'Malioboro Street diventa pedonale (car-free) dalle 17:00 alle 21:00/22:00.',
-              "Cena dagli angkringan (chioschetti di street food locale) che aprono con l'imbrunire — cibo caldo cotto al momento.",
-              "Passeggiata serale rilassante a due passi dall'hotel."
+              'Malioboro Street diventa pedonale (car-free) dalle 17:00 in poi.',
+              'Cena dagli angkringan (chioschetti di street food) o nei ristorantini su Malioboro.',
+              'Consigliato andare a dormire presto per la levataccia del giorno dopo (sveglia ore ~02:30 per Borobudur).'
             ]
           }
         ]
