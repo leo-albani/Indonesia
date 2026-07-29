@@ -54,7 +54,7 @@ const stops = [
     id: 2, num: '02', name: 'Yogyakarta', region: 'Giava centrale',
     dates: '29 – 31 luglio', nights: 2, accent: 'coral',
     arrival: {
-      label: 'Come si arriva · da Jakarta',
+      label: 'Come si arrives · da Jakarta',
       segments: [
         { route: 'Jakarta (CGK) → Yogyakarta (JOG)', flightNo: 'Volo interno', company: '—', date: '29 lug 2026', dep: '10:40', arr: '~11:50', duration: '1h 10m', note: 'Volo diretto, tratta domestica', bookedVia: 'Kiss&Fly' }
       ],
@@ -63,30 +63,125 @@ const stops = [
     hotel: { name: 'Novotel Suites Yogyakarta Malioboro', area: 'Sulla via Malioboro, cuore della città', checkin: '29 lug, dalle 14:00', checkout: '31 lug, entro le 12:00', nights: '2 notti', map: 'Novotel Suites Yogyakarta Malioboro' },
     days: [
       {
-        dd: '29 LUG', title: 'Arrivo e primo giro', trailer: 'Pomeriggio leggero per ambientarsi, con una passeggiata serale sulla via più viva della città.',
+        dd: '29 LUG',
+        title: 'Arrivo e primo contatto con Yogyakarta',
+        trailer: 'Arrivo a Yogyakarta, pranzo su Malioboro, passeggiata tra mercato e monumenti, cena serale nella Malioboro pedonale.',
         activities: [
           {
-            name: 'Passeggiata su Jl. Malioboro', blurb: 'La via principale dello shopping e della vita serale di Yogyakarta, tra bancarelle, street food e batik.', map: 'Jalan Malioboro, Yogyakarta',
+            name: '1. PRANZO (~14:00, arrivo in hotel)',
+            blurb: "Su Malioboro Street stessa (a 1 minuto dall'hotel Novotel Suites Yogyakarta Malioboro) o al food court del Malioboro Mall, adiacente all'hotel.",
+            map: 'Novotel Suites Yogyakarta Malioboro',
+            images: ['Malioboro Street, Yogyakarta.JPG'],
+            facts: [
+              "Pranzo comodo a pochissimi passi dall'hotel Novotel Suites Yogyakarta Malioboro.",
+              "Possibilità di scegliere tra i ristorantini su Jalan Malioboro o il food court al coperto del Malioboro Mall."
+            ]
+          },
+          {
+            name: '2. PASSEGGIATA POMERIDIANA',
+            blurb: 'Alla scoperta del centro storico a piedi tra mercati storici del batik, musei e monumenti simbolo della città.',
+            map: 'Pasar Beringharjo, Yogyakarta',
+            images: ['Pasar Beringharjo.jpg', 'Benteng Vredeburg.jpg', 'Tugu Yogyakarta.jpg'],
+            facts: [
+              'Pasar Beringharjo (11 min a piedi): mercato storico, ottimo per il batik (contrattazione benvenuta).',
+              'Fort Vredeburg Museum (12 min a piedi): museo storico, buona opzione al coperto nelle ore più calde.',
+              'Tugu Monument (15 min a piedi): monumento simbolo della città.'
+            ]
+          },
+          {
+            name: '3. CENA SERALE',
+            blurb: "Malioboro Street diventa pedonale (car-free) dalle 17:00 alle 21:00/22:00. Cena dagli angkringan (chioschetti di street food locale) che aprono con l'imbrunire — cibo caldo cotto al momento.",
+            map: 'Jalan Malioboro, Yogyakarta',
             images: ['Andong Atau Delman Malioboro.jpg'],
-            facts: ['La strada è stata riconosciuta patrimonio culturale UNESCO nel 2023.', 'Segue un asse simbolico nord-sud che collega il Kraton (palazzo del sultano) al monte Merapi.', 'Di sera i marciapiedi si riempiono di "lesehan", ristorantini a terra su stuoie.']
+            facts: [
+              'Malioboro Street diventa pedonale (car-free) dalle 17:00 alle 21:00/22:00.',
+              "Cena dagli angkringan (chioschetti di street food locale) che aprono con l'imbrunire — cibo caldo cotto al momento.",
+              "Passeggiata serale rilassante a due passi dall'hotel."
+            ]
           }
         ]
       },
       {
-        dd: '30 LUG', title: 'Borobudur e Prambanan', trailer: 'Il giorno clou di Yogyakarta: alba al tempio buddista più grande del mondo, pausa nelle ore calde, tramonto al complesso induista di Prambanan.',
+        dd: '30 LUG',
+        title: "Borobudur all'alba e Prambanan",
+        trailer: "Sveglia prestissimo per l'alba a Borobudur, rientro in hotel a metà mattina, pomeriggio e tramonto a Prambanan.",
+        transfers: [
+          {
+            route: 'Hotel → Tempio di Borobudur',
+            flightNo: '🚗 ~42 km',
+            company: 'Trasferimento privato',
+            date: '30 lug 2026',
+            dep: '03:30',
+            arr: '~04:30',
+            duration: '1 - 1,5 ore',
+            note: 'Distanza ~42 km · 1-1,5 ore di guida in auto'
+          },
+          {
+            route: 'Hotel → Tempio di Prambanan',
+            flightNo: '🚗 ~17 km',
+            company: 'Trasferimento privato',
+            date: '30 lug 2026',
+            dep: '14:00 - 14:30',
+            arr: '~15:00',
+            duration: '30 - 40 min',
+            note: 'Distanza ~17 km · 30-40 minuti di guida in auto'
+          }
+        ],
         activities: [
           {
-            name: 'Borobudur all\'alba', blurb: 'Il più grande tempio buddista al mondo: da vivere alle prime luci per luce migliore, meno caldo e meno folla — è lo standard consigliato per questo sito.', map: 'Borobudur Temple, Magelang, Indonesia',
-            images: ['Borobudur, Java, Indonesia, 20220817 1058 8808.jpg', 'Stupa Borobudur.jpg', 'Borobudur Temple Compounds-111351.jpg'],
-            facts: ['Costruito tra il 750 e l\'850 d.C. dalla dinastia Sailendra, è il più grande monumento buddista al mondo.', 'Visto dall\'alto disegna un mandala: nove piattaforme, sei quadrate e tre circolari.', 'Abbandonato tra il XIV e il XV secolo, fu riscoperto solo nel 1814.']
+            name: "1. BOROBUDUR ALL'ALBA",
+            blurb: "Orario: sveglia ~02:30-03:00, partenza dall'hotel ~03:30, arrivo e registrazione ~04:30, alba dalla sommità del tempio ~05:40-05:45, esplorazione con calma fino alle 07:30, colazione leggera in loco ~07:30-08:00. Rientro in hotel: ~09:30-10:00.",
+            map: 'Borobudur Temple, Magelang, Indonesia',
+            images: [
+              'Borobudur, Java, Indonesia, 20220817 1058 8808.jpg',
+              'Stupa Borobudur.jpg',
+              'Borobudur Temple Compounds-111351.jpg'
+            ],
+            facts: [
+              'Orario: sveglia ~02:30-03:00, partenza dall\'hotel ~03:30, arrivo e registrazione ~04:30.',
+              'Alba dalla sommità del tempio ~05:40-05:45 (orario indicativo, Yogyakarta è vicino all\'equatore quindi varia pochissimo tutto l\'anno).',
+              'Esplorazione con calma fino alle 07:30, colazione leggera in loco ~07:30-08:00.',
+              'Rientro in hotel: ~09:30-10:00.',
+              'Curiosità: la visita all\'alba offre luce radente e atmosfera nebbiosa sulle migliaia di stupa, spesso con il vulcano Merapi visibile sullo sfondo, e permette di evitare folla e calore rispetto alla visita diurna.'
+            ]
           },
-          { name: 'Pausa a metà giornata', blurb: 'Rientro in hotel nelle ore più calde: la combinazione funziona bene proprio perché lascia un buco di riposo tra i due siti.', map: null },
           {
-            name: 'Prambanan al tramonto', blurb: 'Il complesso induista più grande dell\'Indonesia, spettacolare quando il sole basso illumina le guglie appuntite.', map: 'Prambanan Temple, Yogyakarta, Indonesia',
-            images: ['Prambanan Complex 1.jpg', 'Yogyakarta Indonesia Prambanan-temple-complex-02.jpg'],
-            facts: ['Costruito intorno all\'850 d.C., è dedicato alla Trimurti: Brahma, Vishnu e Shiva.', 'È il più grande tempio induista d\'Indonesia e il secondo nel Sud-est asiatico.', 'Danneggiato da un terremoto nel 2006, oggi resta un luogo di culto attivo durante le festività indù.']
+            name: '2. PRANZO (dopo il rientro, metà/tarda mattinata)',
+            blurb: "Di nuovo su Malioboro o nei dintorni dell'hotel, con tempo per doccia/riposo prima.",
+            map: 'Novotel Suites Yogyakarta Malioboro',
+            images: ['Malioboro Street, Yogyakarta.JPG'],
+            facts: [
+              "Rientro in hotel a metà mattina (~09:30-10:00) dopo l'escursione a Borobudur.",
+              "Tempo dedicato a doccia, riposo e pranzo con calma su Malioboro o nei dintorni dell'hotel."
+            ]
+          },
+          {
+            name: '3. PRAMBANAN NEL POMERIGGIO',
+            blurb: "Partenza dall'hotel ~14:00-14:30, arrivo ~15:00. Esplorazione del complesso di templi indù (il più grande dell'Asia), con possibilità di godersi anche il tramonto in loco ~17:30-17:45.",
+            map: 'Prambanan Temple, Yogyakarta, Indonesia',
+            images: [
+              'Prambanan Complex 1.jpg',
+              'Yogyakarta Indonesia Prambanan-temple-complex-02.jpg'
+            ],
+            facts: [
+              "Partenza dall'hotel ~14:00-14:30, arrivo ~15:00.",
+              "Esplorazione del complesso di templi indù (il più grande dell'Asia sud-orientale).",
+              "Possibilità di godersi anche il tramonto in loco ~17:30-17:45."
+            ]
+          },
+          {
+            name: '4. CENA SERALE',
+            blurb: "Rientro a Yogyakarta città in serata. Consigliata Gudeg Yu Djum, una delle gudeg house più storiche e famose della città, oppure di nuovo la zona Malioboro per restare comodi vicino all'hotel dopo una giornata lunga.",
+            map: 'Gudeg Yu Djum, Yogyakarta',
+            images: ['Gudeg Jogja.jpg'],
+            facts: [
+              'Rientro a Yogyakarta città in serata.',
+              'Consigliata Gudeg Yu Djum, una delle gudeg house più storiche e famose della città.',
+              "In alternativa, di nuovo la zona Malioboro per restare comodi vicino all'hotel dopo una giornata lunga."
+            ]
           }
-        ]
+        ],
+        tips: 'Giornata fisicamente impegnativa (sveglia prestissimo + due siti in un giorno), consigliare di andare a letto presto la sera del 29 per gestire la levataccia.'
       }
     ],
     tips: 'Borobudur e Prambanan nello stesso giorno è la combinazione classica consigliata (alba sull\'uno, tramonto sull\'altro): giornata piena ma con un riposo nel mezzo, non due tappe di fila senza sosta.',
@@ -550,7 +645,7 @@ const TIMELINE_STEPS: Array<
 const CALENDAR_DAYS = [
   { id: 0, dateNum: '27 LUG', dayNum: 27, month: 'Luglio', dayName: 'Lun', fullDate: '27 Luglio', stopId: 1, stopName: 'Jakarta', accent: 'gold', activity: 'Partenza da Roma FCO (09:25) ➔ Scalo a Jeddah', shortLabel: '✈️ Partenza Roma & Scalo Jeddah', isTransition: true, transIcon: '✈️', transDetail: 'Volo Saudia SV204 (09:25) Roma-Jeddah + SV816 Jeddah-Jakarta' },
   { id: 1, dateNum: '28 LUG', dayNum: 28, month: 'Luglio', dayName: 'Mar', fullDate: '28 Luglio', stopId: 1, stopName: 'Jakarta', accent: 'gold', activity: 'Arrivo a Giacarta CGK (07:35) & recupero jet-lag in hotel', shortLabel: 'Arrivo CGK & Hotel', isTransition: false },
-  { id: 2, dateNum: '29 LUG', dayNum: 29, month: 'Luglio', dayName: 'Mer', fullDate: '29 Luglio', stopId: 2, stopName: 'Yogyakarta', accent: 'coral', activity: 'Volo Giacarta ➔ Yogyakarta (11:30 - 12:50)', shortLabel: '✈️ Volo CGK ➔ JOG', isTransition: true, transIcon: '✈️', transDetail: 'Volo interno CGK ➔ JOG + Transfer in hotel' },
+  { id: 2, dateNum: '29 LUG', dayNum: 29, month: 'Luglio', dayName: 'Mer', fullDate: '29 Luglio', stopId: 2, stopName: 'Yogyakarta', accent: 'coral', activity: 'Volo Giacarta ➔ Yogyakarta (10:40 - ~11:50) & Arrivo', shortLabel: '✈️ Volo CGK ➔ JOG (10:40)', isTransition: true, transIcon: '✈️', transDetail: 'Volo interno CGK ➔ JOG (10:40 - ~11:50) + Transfer in hotel + Passeggiata Malioboro' },
   { id: 3, dateNum: '30 LUG', dayNum: 30, month: 'Luglio', dayName: 'Gio', fullDate: '30 Luglio', stopId: 2, stopName: 'Yogyakarta', accent: 'coral', activity: 'Templi UNESCO Borobudur & Prambanan', shortLabel: 'Borobudur & Prambanan', isTransition: false },
   { id: 4, dateNum: '31 LUG', dayNum: 31, month: 'Luglio', dayName: 'Ven', fullDate: '31 Luglio', stopId: 3, stopName: 'Komodo', accent: 'jungle', activity: 'Volo 1 JOG-CGK (07:55) + Scalo ~4h + Volo 2 CGK-LBJ (13:00)', shortLabel: '✈️ 2 Voli via CGK per LBJ', isTransition: true, transIcon: '✈️', transDetail: '2 Voli interni via Jakarta per Labuan Bajo / Komodo (arrivo 16:25)' },
   { id: 5, dateNum: '1 AGO', dayNum: 1, month: 'Agosto', dayName: 'Sab', fullDate: '1 Agosto', stopId: 3, stopName: 'Komodo', accent: 'jungle', activity: 'Parco Nazionale Komodo: Isola di Komodo, Draghi & Pink Beach', shortLabel: 'Parco Komodo & Draghi', isTransition: false },
@@ -1317,6 +1412,38 @@ export default function App() {
                                 <summary>Anteprima della giornata</summary>
                                 <p>{day.trailer}</p>
                               </details>
+
+                              {/* Trasferimenti della giornata (stile boarding pass) */}
+                              {day.transfers && day.transfers.length > 0 && (
+                                <div style={{ marginTop: '14px', marginBottom: '8px' }}>
+                                  <div style={{ fontFamily: 'Space Mono, monospace', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--coral-deep)', fontWeight: 700, marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                    <span>🚗</span> Come si arriva (Trasferimenti)
+                                  </div>
+                                  <div className="pass-row">
+                                    {day.transfers.map((seg, idx) => (
+                                      <div className="boarding-pass" key={idx}>
+                                        <div className="bp-main">
+                                          <div className="bp-top">
+                                            <div className="bp-route">{seg.route}<small>{seg.date}</small></div>
+                                            <div className="bp-company">{seg.company}</div>
+                                          </div>
+                                          <div className="bp-times">
+                                            <div><div className="t-label">Partenza</div><div className="t-val">{seg.dep}</div></div>
+                                            <div><div className="t-label">Arrivo</div><div className="t-val">{seg.arr}</div></div>
+                                            <div><div className="t-label">Durata</div><div className="t-val">{seg.duration}</div></div>
+                                          </div>
+                                          {seg.note && <div className="bp-note" dangerouslySetInnerHTML={{ __html: seg.note }} />}
+                                        </div>
+                                        <div className="bp-stub">
+                                          <div className="plane">🚗</div>
+                                          <div className="flightno">{seg.flightNo}</div>
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+
                               <div className="activity-list">
                                 {day.activities.map((act, aIdx) => {
                                   const clickable = !!(act.images || act.facts);
@@ -1355,6 +1482,12 @@ export default function App() {
                                   );
                                 })}
                               </div>
+
+                              {day.tips && (
+                                <div className="warn" style={{ marginTop: '14px', background: 'var(--sand)', padding: '12px 14px', borderRadius: '12px', borderLeft: '4px solid var(--coral-deep)', fontSize: '13px', lineHeight: 1.55 }}>
+                                  💡 <b>Accortezze della giornata:</b> {day.tips}
+                                </div>
+                              )}
                             </div>
                           ))}
                         </div>

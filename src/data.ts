@@ -131,33 +131,81 @@ export const STOPS_DATA: StopItinerary[] = [
     days: [
       {
         dd: "29 LUG",
-        title: "Arrivo e primo giro",
-        trailer: "Pomeriggio leggero per ambientarsi, con una passeggiata serale sulla via più viva della città.",
+        title: "Arrivo e primo contatto con Yogyakarta",
+        trailer: "Arrivo a Yogyakarta, pranzo su Malioboro, passeggiata tra mercato e monumenti, cena serale nella Malioboro pedonale.",
         activities: [
           {
-            name: "Passeggiata su Jl. Malioboro",
-            blurb: "La via principale dello shopping e della vita serale di Yogyakarta, tra bancarelle, street food e batik.",
+            name: "1. PRANZO (~14:00, arrivo in hotel)",
+            blurb: "Su Malioboro Street stessa (a 1 minuto dall'hotel Novotel Suites Yogyakarta Malioboro) o al food court del Malioboro Mall, adiacente all'hotel.",
+            map: "Novotel Suites Yogyakarta Malioboro",
+            images: [
+              "Malioboro Street, Yogyakarta.JPG"
+            ],
+            facts: [
+              "Pranzo comodo a pochissimi passi dall'hotel Novotel Suites Yogyakarta Malioboro.",
+              "Possibilità di scegliere tra i ristorantini su Jalan Malioboro o il food court al coperto del Malioboro Mall."
+            ]
+          },
+          {
+            name: "2. PASSEGGIATA POMERIDIANA",
+            blurb: "Alla scoperta del centro storico a piedi tra mercati storici del batik, musei e monumenti simbolo della città.",
+            map: "Pasar Beringharjo, Yogyakarta",
+            images: [
+              "Pasar Beringharjo.jpg",
+              "Benteng Vredeburg.jpg",
+              "Tugu Yogyakarta.jpg"
+            ],
+            facts: [
+              "Pasar Beringharjo (11 min a piedi): mercato storico, ottimo per il batik (contrattazione benvenuta).",
+              "Fort Vredeburg Museum (12 min a piedi): museo storico, buona opzione al coperto nelle ore più calde.",
+              "Tugu Monument (15 min a piedi): monumento simbolo della città."
+            ]
+          },
+          {
+            name: "3. CENA SERALE",
+            blurb: "Malioboro Street diventa pedonale (car-free) dalle 17:00 alle 21:00/22:00. Cena dagli angkringan (chioschetti di street food locale) che aprono con l'imbrunire — cibo caldo cotto al momento.",
             map: "Jalan Malioboro, Yogyakarta",
             images: [
-              "Malioboro Street, Yogyakarta.JPG",
               "Andong Atau Delman Malioboro.jpg"
             ],
             facts: [
-              "La strada è stata riconosciuta patrimonio culturale UNESCO nel 2023.",
-              "Segue un asse simbolico nord-sud che collega il Kraton (palazzo del sultano) al monte Merapi.",
-              "Di sera i marciapiedi si riempiono di 'lesehan', ristorantini a terra su stuoie."
+              "Malioboro Street diventa pedonale (car-free) dalle 17:00 alle 21:00/22:00.",
+              "Cena dagli angkringan (chioschetti di street food locale) che aprono con l'imbrunire — cibo caldo cotto al momento.",
+              "Passeggiata serale rilassante a due passi dall'hotel."
             ]
           }
         ]
       },
       {
         dd: "30 LUG",
-        title: "Borobudur e Prambanan",
-        trailer: "Il giorno clou di Yogyakarta: alba al tempio buddista più grande del mondo, pausa nelle ore calde, tramonto al complesso induista di Prambanan.",
+        title: "Borobudur all'alba e Prambanan",
+        trailer: "Sveglia prestissimo per l'alba a Borobudur, rientro in hotel a metà mattina, pomeriggio e tramonto a Prambanan.",
+        transfers: [
+          {
+            route: "Hotel → Tempio di Borobudur",
+            flightNo: "🚗 ~42 km",
+            company: "Trasferimento privato",
+            date: "30 lug 2026",
+            dep: "03:30",
+            arr: "~04:30",
+            duration: "1 - 1,5 ore",
+            note: "Distanza ~42 km · 1-1,5 ore di guida in auto"
+          },
+          {
+            route: "Hotel → Tempio di Prambanan",
+            flightNo: "🚗 ~17 km",
+            company: "Trasferimento privato",
+            date: "30 lug 2026",
+            dep: "14:00 - 14:30",
+            arr: "~15:00",
+            duration: "30 - 40 min",
+            note: "Distanza ~17 km · 30-40 minuti di guida in auto"
+          }
+        ],
         activities: [
           {
-            name: "Borobudur all'alba",
-            blurb: "Il più grande tempio buddista al mondo: da vivere alle prime luci per luce migliore, meno caldo e meno folla — è lo standard consigliato per questo sito.",
+            name: "1. BOROBUDUR ALL'ALBA",
+            blurb: "Orario: sveglia ~02:30-03:00, partenza dall'hotel ~03:30, arrivo e registrazione ~04:30, alba dalla sommità del tempio ~05:40-05:45, esplorazione con calma fino alle 07:30, colazione leggera in loco ~07:30-08:00. Rientro in hotel: ~09:30-10:00.",
             map: "Borobudur Temple, Magelang, Indonesia",
             images: [
               "Borobudur, Java, Indonesia, 20220817 1058 8808.jpg",
@@ -165,31 +213,54 @@ export const STOPS_DATA: StopItinerary[] = [
               "Borobudur Temple Compounds-111351.jpg"
             ],
             facts: [
-              "Costruito tra il 750 e l'850 d.C. dalla dinastia Sailendra, è il più grande monumento buddista al mondo.",
-              "Visto dall'alto disegna un mandala: nove piattaforme, sei quadrate e tre circolari.",
-              "Abbandonato tra il XIV e il XV secolo, fu riscoperto solo nel 1814."
+              "Orario: sveglia ~02:30-03:00, partenza dall'hotel ~03:30, arrivo e registrazione ~04:30.",
+              "Alba dalla sommità del tempio ~05:40-05:45 (orario indicativo, Yogyakarta è vicino all'equatore quindi varia pochissimo tutto l'anno).",
+              "Esplorazione con calma fino alle 07:30, colazione leggera in loco ~07:30-08:00.",
+              "Rientro in hotel: ~09:30-10:00.",
+              "Curiosità: la visita all'alba offre luce radente e atmosfera nebbiosa sulle migliaia di stupa, spesso con il vulcano Merapi visibile sullo sfondo, e permette di evitare folla e calore rispetto alla visita diurna."
             ]
           },
           {
-            name: "Pausa a metà giornata",
-            blurb: "Rientro in hotel nelle ore più calde: la combinazione funziona bene proprio perché lascia un buco di riposo tra i due siti.",
-            map: null
+            name: "2. PRANZO (dopo il rientro, metà/tarda mattinata)",
+            blurb: "Di nuovo su Malioboro o nei dintorni dell'hotel, con tempo per doccia/riposo prima.",
+            map: "Novotel Suites Yogyakarta Malioboro",
+            images: [
+              "Malioboro Street, Yogyakarta.JPG"
+            ],
+            facts: [
+              "Rientro in hotel a metà mattina (~09:30-10:00) dopo l'escursione a Borobudur.",
+              "Tempo dedicato a doccia, riposo e pranzo con calma su Malioboro o nei dintorni dell'hotel."
+            ]
           },
           {
-            name: "Prambanan al tramonto",
-            blurb: "Il complesso induista più grande dell'Indonesia, spettacolare quando il sole basso illumina le guglie appuntite.",
+            name: "3. PRAMBANAN NEL POMERIGGIO",
+            blurb: "Partenza dall'hotel ~14:00-14:30, arrivo ~15:00. Esplorazione del complesso di templi indù (il più grande dell'Asia), con possibilità di godersi anche il tramonto in loco ~17:30-17:45.",
             map: "Prambanan Temple, Yogyakarta, Indonesia",
             images: [
               "Prambanan Complex 1.jpg",
               "Yogyakarta Indonesia Prambanan-temple-complex-02.jpg"
             ],
             facts: [
-              "Costruito intorno all'850 d.C., è dedicato alla Trimurti: Brahma, Vishnu e Shiva.",
-              "È il più grande tempio induista d'Indonesia e il secondo nel Sud-est asiatico.",
-              "Danneggiato da un terremoto nel 2006, oggi resta un luogo di culto attivo durante le festività indù."
+              "Partenza dall'hotel ~14:00-14:30, arrivo ~15:00.",
+              "Esplorazione del complesso di templi indù (il più grande dell'Asia sud-orientale).",
+              "Possibilità di godersi anche il tramonto in loco ~17:30-17:45."
+            ]
+          },
+          {
+            name: "4. CENA SERALE",
+            blurb: "Rientro a Yogyakarta città in serata. Consigliata Gudeg Yu Djum, una delle gudeg house più storiche e famose della città, oppure di nuovo la zona Malioboro per restare comodi vicino all'hotel dopo una giornata lunga.",
+            map: "Gudeg Yu Djum, Yogyakarta",
+            images: [
+              "Gudeg Jogja.jpg"
+            ],
+            facts: [
+              "Rientro a Yogyakarta città in serata.",
+              "Consigliata Gudeg Yu Djum, una delle gudeg house più storiche e famose della città.",
+              "In alternativa, di nuovo la zona Malioboro per restare comodi vicino all'hotel dopo una giornata lunga."
             ]
           }
-        ]
+        ],
+        tips: "Giornata fisicamente impegnativa (sveglia prestissimo + due siti in un giorno), consigliare di andare a letto presto la sera del 29 per gestire la levataccia."
       }
     ],
     tips: "Borobudur e Prambanan nello stesso giorno è la combinazione classica consigliata (alba sull'uno, tramonto sull'altro): giornata piena ma con un riposo nel mezzo, non due tappe di fila senza sosta.",

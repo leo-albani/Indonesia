@@ -33,7 +33,9 @@ export interface DayItinerary {
   dd: string;
   title: string;
   trailer: string;
+  transfers?: TransitSegment[];
   activities: Activity[];
+  tips?: string;
 }
 
 export interface SafetyNotice {
