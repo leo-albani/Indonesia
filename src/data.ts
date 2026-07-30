@@ -448,8 +448,8 @@ export const STOPS_DATA: StopItinerary[] = [
           flightNo: "Volo interno",
           company: "—",
           date: "3 ago 2026",
-          dep: "17:30",
-          arr: "~18:45",
+          dep: "13:05",
+          arr: "14:20",
           duration: "1h 15m",
           note: "Volo diretto verso Bali",
           bookedVia: "Kiwi.com"
@@ -903,9 +903,9 @@ export const STOPS_DATA: StopItinerary[] = [
       company: "—",
       date: "15 ago 2026",
       dep: "12:10",
-      arr: "~14:10",
+      arr: "13:10",
       duration: "2h",
-      note: "Ultima tratta domestica, verso l'hub di Giacarta",
+      note: "Ultima tratta domestica verso Giacarta (durata 2h per fuso -1h)",
       bookedVia: "Booking.com",
       bookingNote: "prenotato dall'account leoalbani@live.it"
     },

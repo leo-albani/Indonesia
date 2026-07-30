@@ -188,9 +188,9 @@ const stops = [
       label: 'Come si arriva · da Yogyakarta',
       segments: [
         { route: 'Yogyakarta (JOG) → Jakarta (CGK)', flightNo: 'Volo 1', company: 'Volo interno', date: '31 lug 2026', dep: '07:55', arr: '09:05', duration: '1h 10m', note: 'Prima tratta per lo scalo a Jakarta (CGK)', bookedVia: 'Kiss&Fly' },
-        { route: 'Jakarta (CGK) → Labuan Bajo / Komodo (LBJ)', flightNo: 'Volo 2', company: 'Volo interno', date: '31 lug 2026', dep: '13:00', arr: '16:25', duration: '3h 25m', note: 'Seconda tratta dopo scalo di ~4 ore', bookedVia: 'Kiss&Fly' }
+        { route: 'Jakarta (CGK) → Labuan Bajo / Komodo (LBJ)', flightNo: 'Volo 2', company: 'Volo interno', date: '31 lug 2026', dep: '13:00', arr: '16:25', duration: '2h 25m', note: 'Seconda tratta dopo scalo di ~4 ore (fuso +1h)', bookedVia: 'Kiss&Fly' }
       ],
-      footNote: 'Volo con scalo a Jakarta (CGK): partenza da Yogyakarta (JOG) alle 07:55, arrivo a Jakarta alle 09:05. Scalo di circa 4 ore e ripartenza alle 13:00 per Labuan Bajo (LBJ) con arrivo alle 16:25.'
+      footNote: 'Volo con scalo a Jakarta (CGK): partenza da Yogyakarta (JOG) alle 07:55, arrivo a Jakarta alle 09:05. Scalo di circa 4 ore e ripartenza alle 13:00 per Labuan Bajo (LBJ) con arrivo alle 16:25 (durata volo 2h 25m per fuso +1h).'
     },
     hotel: { name: 'Harbour Komodo Hotel', area: 'Labuan Bajo, sul porto', checkin: '31 lug, dalle 14:00', checkout: '3 ago, entro le 11:00', nights: '3 notti', map: 'Harbour Komodo Hotel, Labuan Bajo' },
     days: [
@@ -259,7 +259,7 @@ const stops = [
     arrival: {
       label: 'Come si arriva · da Labuan Bajo',
       segments: [
-        { route: 'Labuan Bajo (LBJ) → Bali (DPS)', flightNo: 'Volo interno', company: '—', date: '3 ago 2026', dep: '17:30', arr: '~18:45', duration: '1h 15m', note: 'Volo diretto verso Bali', bookedVia: 'Kiwi.com' }
+        { route: 'Labuan Bajo (LBJ) → Bali (DPS)', flightNo: 'Volo interno', company: '—', date: '3 ago 2026', dep: '13:05', arr: '14:20', duration: '1h 15m', note: 'Volo diretto verso Bali', bookedVia: 'Kiwi.com' }
       ],
       footNote: 'Da qui inizia la parte più lunga e rilassata del viaggio: 5 notti a Ubud.'
     },
@@ -436,7 +436,7 @@ const stops = [
     id: 7, num: '07', name: 'Rientro', region: 'Lombok → Jakarta → Jeddah → Roma',
     dates: '15 – 16 agosto', nights: 0, accent: 'jungle',
     isReturn: true,
-    legOut: { route: 'Lombok (LOP) → Jakarta (CGK)', flightNo: 'Volo interno', company: '—', date: '15 ago 2026', dep: '12:10', arr: '~14:10', duration: '2h', note: 'Ultima tratta domestica, verso l\'hub di Giacarta', bookedVia: 'Booking.com', bookingNote: 'prenotato dall\'account leoalbani@live.it' },
+    legOut: { route: 'Lombok (LOP) → Jakarta (CGK)', flightNo: 'Volo interno', company: '—', date: '15 ago 2026', dep: '12:10', arr: '13:10', duration: '2h', note: 'Ultima tratta domestica verso Giacarta (durata 2h per fuso -1h)', bookedVia: 'Booking.com', bookingNote: 'prenotato dall\'account leoalbani@live.it' },
     legs: [
       { route: 'Giacarta (CGK) → Jeddah (JED)', flightNo: 'SV819', company: 'Saudia · SkyTeam', date: '15 ago 2026', dep: '17:30', arr: '23:05', duration: '9h 35m', note: 'Terminal 3 → Terminal 1', bookedVia: 'Trip.com', bookingNote: 'stesso biglietto A/R del volo Roma–Jakarta, gestione su sito/app Saudia' },
       { route: 'Jeddah (JED) → Roma (FCO)', flightNo: 'SV201', company: 'Saudia · SkyTeam', date: '16 ago 2026', dep: '10:30', arr: '14:40', duration: '5h 10m', note: 'Terminal 1 → Terminal 3', bookedVia: 'Trip.com', bookingNote: 'stesso biglietto A/R del volo Roma–Jakarta, gestione su sito/app Saudia' }
@@ -570,7 +570,7 @@ const TIMELINE_STEPS: Array<
       title: 'Giorno di Spostamento',
       mode: 'Volo interno + Auto',
       route: 'Labuan Bajo (LBJ) ➔ Bali Denpasar (DPS) ➔ Ubud',
-      details: 'Partenza ore 17:30 · Volo 1h 15m + Transfer in auto dall\'aeroporto di Denpasar a Ubud'
+      details: 'Partenza ore 13:05 · Volo 1h 15m (13:05 - 14:20) + Transfer in auto dall\'aeroporto di Denpasar a Ubud'
     }
   },
   {
@@ -642,7 +642,7 @@ const TIMELINE_STEPS: Array<
       title: 'Voli di Rientro',
       mode: 'Volo interno + Voli internazionali (Saudia)',
       route: 'Kuta Lombok ➔ Aeroporto Lombok (LOP) ➔ Jakarta ➔ Jeddah ➔ Roma',
-      details: 'Volo LOP-CGK + Volo Saudia CGK-JED-FCO con notte in transit hotel Aerotel Jeddah. Arrivo a FCO il 16/08 ore 14:40.'
+      details: 'Volo LOP-CGK (12:10 - 13:10, 2h per fuso -1h) + Voli Saudia CGK-JED-FCO con notte in transit hotel Aerotel Jeddah. Arrivo a FCO il 16/08 ore 14:40.'
     }
   },
   {
@@ -669,7 +669,7 @@ const CALENDAR_DAYS = [
   { id: 4, dateNum: '31 LUG', dayNum: 31, month: 'Luglio', dayName: 'Ven', fullDate: '31 Luglio', stopId: 3, stopName: 'Komodo', accent: 'jungle', activity: 'Volo 1 JOG-CGK (07:55) + Scalo ~4h + Volo 2 CGK-LBJ (13:00) & Cenetta a Labuan Bajo', shortLabel: '✈️ 2 Voli via CGK & Cenetta LBJ', isTransition: true, transIcon: '✈️', transDetail: '2 Voli interni via Jakarta per Labuan Bajo (arrivo 16:25) + Cenetta serale a Labuan Bajo' },
   { id: 5, dateNum: '1 AGO', dayNum: 1, month: 'Agosto', dayName: 'Sab', fullDate: '1 Agosto', stopId: 3, stopName: 'Komodo', accent: 'jungle', activity: 'Parco Nazionale Komodo: Isola di Komodo, Draghi & Pink Beach', shortLabel: 'Parco Komodo & Draghi', isTransition: false },
   { id: 6, dateNum: '2 AGO', dayNum: 2, month: 'Agosto', dayName: 'Dom', fullDate: '2 Agosto', stopId: 3, stopName: 'Komodo', accent: 'jungle', activity: 'Escursione in barca, Snorkeling Padar & Manta Point', shortLabel: 'Snorkeling Padar & Mante', isTransition: false },
-  { id: 7, dateNum: '3 AGO', dayNum: 3, month: 'Agosto', dayName: 'Lun', fullDate: '3 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Volo Labuan Bajo ➔ Bali (17:30 - 18:45) + Transfer Ubud', shortLabel: '✈️ Volo LBJ ➔ Bali', isTransition: true, transIcon: '✈️', transDetail: 'Volo per Bali (DPS) + Transfer auto fino ad Ubud' },
+  { id: 7, dateNum: '3 AGO', dayNum: 3, month: 'Agosto', dayName: 'Lun', fullDate: '3 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Volo Labuan Bajo ➔ Bali (13:05 - 14:20) + Transfer Ubud', shortLabel: '✈️ Volo LBJ ➔ Bali (13:05)', isTransition: true, transIcon: '✈️', transDetail: 'Volo per Bali DPS (13:05 - 14:20) + Transfer auto fino ad Ubud' },
   { id: 8, dateNum: '4 AGO', dayNum: 4, month: 'Agosto', dayName: 'Mar', fullDate: '4 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Risaie di Tegallalang & Sacred Monkey Forest', shortLabel: 'Risaie & Monkey Forest', isTransition: false },
   { id: 9, dateNum: '5 AGO', dayNum: 5, month: 'Agosto', dayName: 'Mer', fullDate: '5 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Trekking all\'alba sul Vulcano Batur e Sorgenti Termali', shortLabel: 'Vulcano Batur Sunrise', isTransition: false },
   { id: 10, dateNum: '6 AGO', dayNum: 6, month: 'Agosto', dayName: 'Gio', fullDate: '6 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Tempio di Tirta Empul & Cascata Tukad Cepung', shortLabel: 'Tempio Tirta Empul', isTransition: false },
@@ -681,7 +681,7 @@ const CALENDAR_DAYS = [
   { id: 16, dateNum: '12 AGO', dayNum: 12, month: 'Agosto', dayName: 'Mer', fullDate: '12 Agosto', stopId: 6, stopName: 'Kuta Lombok', accent: 'coral', activity: 'Barca locale per Lombok + Auto fino a Kuta Lombok', shortLabel: '⛵ Barca per Lombok', isTransition: true, transIcon: '⛵', transDetail: 'Barca per Bangsal (~20m) + Transfer auto per Kuta Lombok (~1h30m)' },
   { id: 17, dateNum: '13 AGO', dayNum: 13, month: 'Agosto', dayName: 'Gio', fullDate: '13 Agosto', stopId: 6, stopName: 'Kuta Lombok', accent: 'coral', activity: 'Spiagge di Mawun, Selong Belanak & Lezione di Surf', shortLabel: 'Spiagge Mawun & Surf', isTransition: false },
   { id: 18, dateNum: '14 AGO', dayNum: 14, month: 'Agosto', dayName: 'Ven', fullDate: '14 Agosto', stopId: 6, stopName: 'Kuta Lombok', accent: 'coral', activity: 'Relax in spiaggia & Tramonto a Bukit Merese', shortLabel: 'Bukit Merese Sunset', isTransition: false },
-  { id: 19, dateNum: '15 AGO', dayNum: 15, month: 'Agosto', dayName: 'Sab', fullDate: '15 Agosto', stopId: 7, stopName: 'Rientro', accent: 'jungle', activity: 'Volo Lombok ➔ Jakarta ➔ Jeddah (Notte in transit hotel)', shortLabel: '✈️ Volo LOP-CGK-JED', isTransition: true, transIcon: '✈️', transDetail: 'Partenza da Lombok LOP ore 13:40, scalo Jakarta & volo notturno' },
+  { id: 19, dateNum: '15 AGO', dayNum: 15, month: 'Agosto', dayName: 'Sab', fullDate: '15 Agosto', stopId: 7, stopName: 'Rientro', accent: 'jungle', activity: 'Volo Lombok ➔ Jakarta (12:10 - 13:10) ➔ Jeddah (Notte in transit hotel)', shortLabel: '✈️ Volo LOP-CGK-JED', isTransition: true, transIcon: '✈️', transDetail: 'Partenza da Lombok LOP ore 12:10 (arrivo CGK 13:10, 2h di volo per fuso -1h), scalo Jakarta & volo notturno' },
   { id: 20, dateNum: '16 AGO', dayNum: 16, month: 'Agosto', dayName: 'Dom', fullDate: '16 Agosto', stopId: 7, stopName: 'Rientro', accent: 'jungle', activity: 'Volo Jeddah ➔ Roma FCO (Arrivo ore 14:40)', shortLabel: '✈️ Volo JED-FCO & Arrivo', isTransition: false }
 ];
 
