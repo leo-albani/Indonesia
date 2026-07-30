@@ -319,6 +319,37 @@ export const STOPS_DATA: StopItinerary[] = [
     },
     days: [
       {
+        dd: "31 LUG",
+        title: "Spostamento e arrivo a Labuan Bajo",
+        trailer: "Giornata interamente dedicata ai due voli di trasferimento via Jakarta e al relax con cenetta serale a Labuan Bajo.",
+        activities: [
+          {
+            name: "1. SPOSTAMENTO IN AEREO (Volo con scalo)",
+            blurb: "Volo 1 JOG-CGK (07:55 - 09:05), scalo di circa 4 ore a Jakarta e Volo 2 CGK-LBJ (13:00 - 16:25).",
+            map: null,
+            facts: [
+              "Partenza da Yogyakarta (JOG) ore 07:55 con arrivo a Jakarta (CGK) ore 09:05.",
+              "Scalo di ~4 ore all'aeroporto di Jakarta per sgranchirsi e pranzare con calma.",
+              "Ripartenza ore 13:00 per Labuan Bajo / Komodo (LBJ) con atterraggio alle 16:25.",
+              "Trasferimento al porto / hotel (Harbour Komodo Hotel) all'arrivo."
+            ]
+          },
+          {
+            name: "2. CENETTA SERALE A LABUAN BAJO",
+            blurb: "Check-in in hotel e cenetta serale nei ristorantini sul porto di Labuan Bajo per iniziare la tappa a Komodo.",
+            map: "Labuan Bajo waterfront, Indonesia",
+            images: [
+              "Labuan Bajo waterfront.jpg",
+              "Labuan Bajo sunset (Flores, Indonesia 2016).jpg"
+            ],
+            facts: [
+              "Cenetta serale nei ristorantini di pesce o locali sul porto di Labuan Bajo.",
+              "Passeggiata serale e relax per recuperare dal viaggio in aereo."
+            ]
+          }
+        ]
+      },
+      {
         dd: "1 AGO",
         title: "Relax sul porto",
         trailer: "Giornata cuscinetto per godersi Komodo con calma, prima del tour impegnativo del giorno dopo.",

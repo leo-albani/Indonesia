@@ -187,12 +187,41 @@ const stops = [
     arrival: {
       label: 'Come si arriva · da Yogyakarta',
       segments: [
-        { route: 'Yogyakarta (JOG) → Labuan Bajo (LBJ)', flightNo: 'Volo interno', company: '—', date: '31 lug 2026', dep: '15:30', arr: '~17:00', duration: '1h 30m', note: 'Volo diretto verso Komodo', bookedVia: 'Kiss&Fly' }
+        { route: 'Yogyakarta (JOG) → Jakarta (CGK)', flightNo: 'Volo 1', company: 'Volo interno', date: '31 lug 2026', dep: '07:55', arr: '09:05', duration: '1h 10m', note: 'Prima tratta per lo scalo a Jakarta (CGK)', bookedVia: 'Kiss&Fly' },
+        { route: 'Jakarta (CGK) → Labuan Bajo / Komodo (LBJ)', flightNo: 'Volo 2', company: 'Volo interno', date: '31 lug 2026', dep: '13:00', arr: '16:25', duration: '3h 25m', note: 'Seconda tratta dopo scalo di ~4 ore', bookedVia: 'Kiss&Fly' }
       ],
-      footNote: 'Tratta interna diretta verso l\'estremo est dell\'itinerario, prima di tornare verso ovest.'
+      footNote: 'Volo con scalo a Jakarta (CGK): partenza da Yogyakarta (JOG) alle 07:55, arrivo a Jakarta alle 09:05. Scalo di circa 4 ore e ripartenza alle 13:00 per Labuan Bajo (LBJ) con arrivo alle 16:25.'
     },
     hotel: { name: 'Harbour Komodo Hotel', area: 'Labuan Bajo, sul porto', checkin: '31 lug, dalle 14:00', checkout: '3 ago, entro le 11:00', nights: '3 notti', map: 'Harbour Komodo Hotel, Labuan Bajo' },
     days: [
+      {
+        dd: '31 LUG',
+        title: 'Spostamento e arrivo a Labuan Bajo',
+        trailer: 'Giornata interamente dedicata ai due voli di trasferimento via Jakarta e al relax con cenetta serale a Labuan Bajo.',
+        activities: [
+          {
+            name: '1. SPOSTAMENTO IN AEREO (Volo con scalo)',
+            blurb: 'Volo 1 JOG-CGK (07:55 - 09:05), scalo di circa 4 ore a Jakarta e Volo 2 CGK-LBJ (13:00 - 16:25).',
+            map: null,
+            facts: [
+              'Partenza da Yogyakarta (JOG) ore 07:55 con arrivo a Jakarta (CGK) ore 09:05.',
+              'Scalo di ~4 ore all\'aeroporto di Jakarta per sgranchirsi e pranzare con calma.',
+              'Ripartenza ore 13:00 per Labuan Bajo / Komodo (LBJ) con atterraggio alle 16:25.',
+              'Trasferimento al porto / hotel (Harbour Komodo Hotel) all\'arrivo.'
+            ]
+          },
+          {
+            name: '2. CENETTA SERALE A LABUAN BAJO',
+            blurb: 'Check-in in hotel e cenetta serale nei ristorantini sul porto di Labuan Bajo per iniziare la tappa a Komodo.',
+            map: 'Labuan Bajo waterfront, Indonesia',
+            images: ['Labuan Bajo waterfront.jpg', 'Labuan Bajo sunset (Flores, Indonesia 2016).jpg'],
+            facts: [
+              'Cenetta serale nei ristorantini di pesce o locali sul porto di Labuan Bajo.',
+              'Passeggiata serale e relax per recuperare dal viaggio in aereo.'
+            ]
+          }
+        ]
+      },
       {
         dd: '1 AGO', title: 'Relax sul porto', trailer: 'Giornata cuscinetto per godersi Komodo con calma, prima del tour impegnativo del giorno dopo.',
         activities: [
@@ -517,7 +546,7 @@ const TIMELINE_STEPS: Array<
       title: 'Giorno di Spostamento (2 Voli)',
       mode: '2 Voli interni (Scalo Jakarta)',
       route: 'Yogyakarta (JOG) ➔ Jakarta (CGK) ➔ Labuan Bajo / Komodo (LBJ)',
-      details: '1° Volo JOG-CGK (07:55 - 09:05) · Scalo ~4h a Jakarta · 2° Volo CGK-LBJ (13:00 - 16:25)'
+      details: '1° Volo JOG-CGK (07:55 - 09:05) · Scalo ~4h a Jakarta · 2° Volo CGK-LBJ (13:00 - 16:25) · Arrivo e cenetta serale a Labuan Bajo'
     }
   },
   {
@@ -637,7 +666,7 @@ const CALENDAR_DAYS = [
   { id: 1, dateNum: '28 LUG', dayNum: 28, month: 'Luglio', dayName: 'Mar', fullDate: '28 Luglio', stopId: 1, stopName: 'Jakarta', accent: 'gold', activity: 'Arrivo a Giacarta CGK (07:35) & recupero jet-lag in hotel', shortLabel: 'Arrivo CGK & Hotel', isTransition: false },
   { id: 2, dateNum: '29 LUG', dayNum: 29, month: 'Luglio', dayName: 'Mer', fullDate: '29 Luglio', stopId: 2, stopName: 'Yogyakarta', accent: 'coral', activity: 'Volo Giacarta ➔ Yogyakarta (10:40 - ~11:50) & Arrivo', shortLabel: '✈️ Volo CGK ➔ JOG (10:40)', isTransition: true, transIcon: '✈️', transDetail: 'Volo interno CGK ➔ JOG (10:40 - ~11:50) + Transfer in hotel + Passeggiata Malioboro' },
   { id: 3, dateNum: '30 LUG', dayNum: 30, month: 'Luglio', dayName: 'Gio', fullDate: '30 Luglio', stopId: 2, stopName: 'Yogyakarta', accent: 'coral', activity: 'Templi UNESCO Borobudur & Prambanan', shortLabel: 'Borobudur & Prambanan', isTransition: false },
-  { id: 4, dateNum: '31 LUG', dayNum: 31, month: 'Luglio', dayName: 'Ven', fullDate: '31 Luglio', stopId: 3, stopName: 'Komodo', accent: 'jungle', activity: 'Volo 1 JOG-CGK (07:55) + Scalo ~4h + Volo 2 CGK-LBJ (13:00)', shortLabel: '✈️ 2 Voli via CGK per LBJ', isTransition: true, transIcon: '✈️', transDetail: '2 Voli interni via Jakarta per Labuan Bajo / Komodo (arrivo 16:25)' },
+  { id: 4, dateNum: '31 LUG', dayNum: 31, month: 'Luglio', dayName: 'Ven', fullDate: '31 Luglio', stopId: 3, stopName: 'Komodo', accent: 'jungle', activity: 'Volo 1 JOG-CGK (07:55) + Scalo ~4h + Volo 2 CGK-LBJ (13:00) & Cenetta a Labuan Bajo', shortLabel: '✈️ 2 Voli via CGK & Cenetta LBJ', isTransition: true, transIcon: '✈️', transDetail: '2 Voli interni via Jakarta per Labuan Bajo (arrivo 16:25) + Cenetta serale a Labuan Bajo' },
   { id: 5, dateNum: '1 AGO', dayNum: 1, month: 'Agosto', dayName: 'Sab', fullDate: '1 Agosto', stopId: 3, stopName: 'Komodo', accent: 'jungle', activity: 'Parco Nazionale Komodo: Isola di Komodo, Draghi & Pink Beach', shortLabel: 'Parco Komodo & Draghi', isTransition: false },
   { id: 6, dateNum: '2 AGO', dayNum: 2, month: 'Agosto', dayName: 'Dom', fullDate: '2 Agosto', stopId: 3, stopName: 'Komodo', accent: 'jungle', activity: 'Escursione in barca, Snorkeling Padar & Manta Point', shortLabel: 'Snorkeling Padar & Mante', isTransition: false },
   { id: 7, dateNum: '3 AGO', dayNum: 3, month: 'Agosto', dayName: 'Lun', fullDate: '3 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Volo Labuan Bajo ➔ Bali (17:30 - 18:45) + Transfer Ubud', shortLabel: '✈️ Volo LBJ ➔ Bali', isTransition: true, transIcon: '✈️', transDetail: 'Volo per Bali (DPS) + Transfer auto fino ad Ubud' },
@@ -770,15 +799,33 @@ const FOOD_ITEMS = [
   }
 ];
 
+// Helper to select today's calendar day on app load
+const getTodayCalDay = () => {
+  const now = new Date();
+  const day = now.getDate();
+  const month = now.getMonth(); // 0-indexed: 6 = July, 7 = August
+
+  let monthName = '';
+  if (month === 6) monthName = 'Luglio';
+  else if (month === 7) monthName = 'Agosto';
+
+  if (monthName) {
+    const found = CALENDAR_DAYS.find(d => d.dayNum === day && d.month === monthName);
+    if (found) return found;
+  }
+  return CALENDAR_DAYS[0];
+};
+
 export default function App() {
+  const initialCalDay = getTodayCalDay();
   const [activeTab, setActiveTab] = useState<'itinerario' | 'briefing' | 'cibo' | 'valigia' | 'consigli'>('itinerario');
   const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
-  const [activeStopId, setActiveStopId] = useState<number>(1);
+  const [activeStopId, setActiveStopId] = useState<number>(initialCalDay ? initialCalDay.stopId : 1);
   const [activePack, setActivePack] = useState<'leo' | 'eli'>('leo');
   const [activeActivity, setActiveActivity] = useState<any | null>(null);
   const [checkedItems, setCheckedItems] = useState<{ [key: string]: boolean }>({});
   const [itineraryViewMode, setItineraryViewMode] = useState<'simplified' | 'all'>('simplified');
-  const [selectedCalDay, setSelectedCalDay] = useState<any>(CALENDAR_DAYS[0]);
+  const [selectedCalDay, setSelectedCalDay] = useState<any>(initialCalDay);
 
   const activeStop = (stops.find((s) => s.id === activeStopId) || stops[0]) as any;
 
@@ -1017,18 +1064,39 @@ export default function App() {
                         {/* All 21 days from July 27 to August 16 */}
                         {CALENDAR_DAYS.map((d) => {
                           const isSelected = selectedCalDay?.id === d.id;
+                          const now = new Date();
+                          const todayDayNum = now.getDate();
+                          const todayMonthName = now.getMonth() === 6 ? 'Luglio' : now.getMonth() === 7 ? 'Agosto' : '';
+                          const isToday = d.dayNum === todayDayNum && d.month === todayMonthName;
+
                           return (
                             <div 
                               key={d.id}
-                              className={`cal-grid-day ${d.isTransition ? 'is-trans' : ''} ${isSelected ? 'selected' : ''}`}
+                              className={`cal-grid-day ${d.isTransition ? 'is-trans' : ''} ${isSelected ? 'selected' : ''} ${isToday ? 'is-today' : ''}`}
                               onClick={() => {
                                 setSelectedCalDay(d);
                                 handleSelectStop(d.stopId, true);
                               }}
                             >
-                              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '2px' }}>
                                 <span className="cal-day-num">{d.dayNum} {d.month === 'Luglio' ? 'LUG' : 'AGO'}</span>
-                                {d.isTransition && <span style={{ fontSize: '12px' }}>{d.transIcon}</span>}
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                  {isToday && (
+                                    <span style={{
+                                      background: 'var(--coral-deep)',
+                                      color: '#fff',
+                                      fontSize: '9px',
+                                      fontWeight: 800,
+                                      padding: '2px 5px',
+                                      borderRadius: '5px',
+                                      letterSpacing: '0.04em',
+                                      lineHeight: 1
+                                    }}>
+                                      OGGI
+                                    </span>
+                                  )}
+                                  {d.isTransition && <span style={{ fontSize: '12px' }}>{d.transIcon}</span>}
+                                </div>
                               </div>
 
                               <span className="cal-day-stop-tag" style={{ background: ACCENTS[d.accent].solid }}>

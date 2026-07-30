@@ -2230,6 +2230,11 @@ body {
   min-height: 120px;
 }
 
+.cal-grid-day.is-today {
+  border: 2px solid var(--coral-deep);
+  background: #FFFBF8;
+}
+
 .cal-grid-day.selected {
   border: 2px solid var(--jungle-deep) !important;
   background: #fff !important;
