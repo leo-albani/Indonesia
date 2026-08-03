@@ -266,68 +266,102 @@ const stops = [
     hotel: { name: 'Sunari Villa', area: 'Ubud', checkin: '3 ago, check-in flessibile dalle 02:00', checkout: '8 ago, entro le 12:00', nights: '5 notti', map: 'Sunari Villa, Ubud, Bali' },
     days: [
       {
-        dd: '4 AGO', title: 'A piedi tra risaie e sentieri', trailer: 'Giorno di adattamento senza fretta: due passeggiate panoramiche collegate tra loro e un massaggio per scaricare la tensione del volo.',
+        dd: '4 AGO', title: 'Ubud centro, tutto a piedi', trailer: 'Passeggiata panoramica all\'alba, palazzo reale, tempio del loto e foresta delle scimmie — tutto raggiungibile a piedi nel cuore di Ubud, cena con vista su un tempio nella giungla.',
         activities: [
           {
-            name: 'Campuhan Ridge Walk', blurb: 'Cresta erbosa panoramica appena fuori dal centro di Ubud, ideale al mattino presto quando la luce è più dolce e c\'è meno gente.', map: 'Campuhan Ridge Walk, Ubud, Bali',
+            name: '1. CAMPUHAN RIDGE WALK', blurb: 'Da fare la mattina presto, prima del caldo. Passeggiata panoramica su cresta erbosa con vista sulla valle, circa 20 minuti fino a un piccolo villaggio con vista sulle risaie circostanti. Aperta 24 ore, gratuita.', map: 'Campuhan Ridge Walk, Ubud, Bali',
             images: ['Man in the rice fields in Ubud Wokshots.jpg', 'Bali rice terraces.JPG'],
-            facts: ['"Campuhan" significa "dove si incontrano due fiumi" in balinese.', 'Segna il punto in cui il sacerdote indù Rsi Markandeya fondò il primo tempio di Ubud.', 'Il sistema di irrigazione a risaie della zona, il subak, è patrimonio UNESCO dal 2012.']
+            facts: ['Passeggiata panoramica lungo la cresta erbosa tra le valli dei fiumi Wos e Cerik.', 'Percorso aperto 24 ore su 24, ad accesso gratuito.', 'Circa 20 minuti di camminata fino al piccolo villaggio di Bangkiang Sidem con vista panoramica sulle risaie.']
           },
           {
-            name: 'Sari Organic Walk', blurb: 'Il sentiero prosegue tra le risaie: molto meno battuto dei classici punti fotografici di Ubud, quasi sempre tranquillo.', map: 'Sari Organic Walk, Ubud, Bali',
-            images: ['Bali Rice Terrace.JPG', 'Rice fields of Bali.jpg'],
-            facts: ['Il sentiero attraversa risaie ancora coltivate, con qualche caffè-fattoria lungo il percorso.', 'Meno pubblicizzato del Campuhan Ridge Walk, resta uno dei modi più tranquilli per vedere le risaie da vicino.']
+            name: '2. UBUD PALACE (Puri Saren Agung)', blurb: 'Il palazzo reale di Ubud, ingresso libero, architettura balinese tradizionale con cortili scolpiti.', map: 'Ubud Palace, Bali',
+            images: ['Puri Saren Agung, Ubud, Bali.jpg', 'Ubud Palace 2019.jpg'],
+            facts: ['Il palazzo reale di Ubud, residenza della famiglia reale balinese, costruito all\'inizio del XIX secolo.', 'Ingresso libero: architettura balinese tradizionale con cortili finemente scolpiti e portali decorati.', 'Nel cortile principale si tengono ogni sera spettacoli di danza tradizionale balinese.']
           },
           {
-            name: 'Massaggio balinese', blurb: 'Un\'ora–un\'ora e mezza di massaggio tradizionale: tanti piccoli spa a conduzione familiare in centro a Ubud, prezzi onesti.', map: 'balinese massage spa Ubud',
-            images: ['Fleurs de Frangipanier (Île de la Réunion) (4125134278).jpg'],
-            facts: ['Il massaggio balinese unisce influenze indiane, cinesi e del sud-est asiatico.', 'Combina agopressione, stone massage e oli essenziali, spesso a base di frangipane e cocco.']
-          }
-        ]
-      },
-      {
-        dd: '5 AGO', title: 'Risaie UNESCO e tempio di montagna', trailer: 'Giornata verso nord-ovest, tra le risaie più belle di Bali e un tempio nella foresta ancora poco turistico.',
-        activities: [
-          {
-            name: 'Jatiluwih', blurb: 'Risaie a terrazza patrimonio UNESCO, tra le più belle di Bali e ancora relativamente tranquille rispetto a quelle vicino Ubud.', map: 'Jatiluwih Rice Terraces, Bali',
-            images: ['Jatiluwih rice terraces.jpg', 'Rice fields at Jatiluwih. Bali, Indonesia.JPG'],
-            facts: ['Il nome significa più o meno "veramente meraviglioso" in balinese.', 'Fa parte del sito UNESCO "Paesaggio culturale di Bali" insieme al sistema subak, riconosciuto nel 2012.', 'Si coltivano ancora varietà di riso balinese tradizionale, più lente ma più pregiate di quelle moderne.']
+            name: '3. PURA TAMAN SARASWATI', blurb: 'Piccolo ma scenico tempio nel cuore di Ubud, dedicato alla dea della conoscenza, con laghetto di fiori di loto davanti all\'ingresso.', map: 'Pura Taman Saraswati, Ubud, Bali',
+            images: ['Pura Taman Saraswati, Ubud, Bali.jpg'],
+            facts: ['Tempio dedicato a Dewi Saraswati, la dea indù balinese dell\'arte, della saggezza e della conoscenza.', 'Caratterizzato dal celebre e suggestivo laghetto ricoperto di fiori di loto rosa davanti al portale scolpito.', 'Progettato dal rinomato maestro d\'arte balinese I Gusti Nyoman Lempad.']
           },
           {
-            name: 'Pura Luhur Batukaru', blurb: 'Tempio immerso nella foresta pluviale ai piedi del monte Batukaru, quasi sempre avvolto in un silenzio quasi mistico.', map: 'Pura Luhur Batukaru, Bali',
-            images: ['Batukaru pilgrims Bali.jpg'],
-            facts: ['È uno dei sei grandi templi direzionali sacri di Bali (Sad Kahyangan).', 'Si trova ai piedi del monte Batukaru, la seconda vetta più alta dell\'isola.']
-          }
-        ]
-      },
-      {
-        dd: '6 AGO', title: 'Alba al Monte Batur', trailer: 'Sveglia nel cuore della notte per il trekking fino in vetta e l\'alba sul vulcano — poi giornata di puro recupero.',
-        activities: [
-          {
-            name: 'Alba al Monte Batur', blurb: 'Trekking notturno con guida obbligatoria (partenza verso le 2:00–2:30) fino in vetta per l\'alba sul vulcano: faticoso ma vissuto, non solo fotografato.', map: 'Mount Batur, Kintamani, Bali',
-            images: ['Mount of Batur sunrise.jpg', 'Gunung Batur Kintamani Bali.jpg', 'Mount Batur panorama.jpg'],
-            facts: ['È un vulcano attivo di 1.717 metri, l\'ultima eruzione registrata risale al 1999-2000.', 'Sorge al centro di una doppia caldera che racchiude anche un lago.', 'La prima eruzione documentata risale al 1804.']
-          },
-          { name: 'Riposo pomeridiano', blurb: 'Rientro in hotel a metà mattina: il resto della giornata va lasciato libero per recuperare il sonno perso nella notte.', map: null },
-          {
-            name: 'Monkey Forest', blurb: 'Riserva naturale nel cuore di Ubud con centinaia di macachi: attività leggera, adatta al tardo pomeriggio dopo una notte in bianco.', map: 'Sacred Monkey Forest Sanctuary, Ubud, Bali',
+            name: '4. MONKEY FOREST (Sacred Monkey Forest Sanctuary)', blurb: 'Santuario con centinaia di macachi grigi in libertà, rovine di templi nella foresta. Attenzione: non portare cibo/buste visibili, non fissare negli occhi le scimmie, tenere stretti oggetti come occhiali/cappelli.', map: 'Sacred Monkey Forest Sanctuary, Ubud, Bali',
             images: ['Sacred Monkey Forest Sanctuary (49818583783).jpg', 'Monkey Forest Road, Ubud, Bali (15009558257).jpg'],
-            facts: ['Il nome ufficiale è Mandala Wisata Wenara Wana ("foresta sacra delle scimmie").', 'Ospita diverse centinaia di macachi dalla coda lunga in libertà.', 'Non è solo un parco: al suo interno si trovano tre templi indù ancora attivi.']
+            facts: ['Santuario naturale nel cuore di Ubud che ospita centinaia di macachi grigi dalla coda lunga in libertà.', 'Immerso in una foresta secolare con tre templi indù del XIV secolo ancora attivi.', 'Regole tassative: non portare cibo né buste visibili, non fissare le scimmie negli occhi e tenere ben saldi occhiali, cappelli e oggetti personali.']
+          },
+          {
+            name: '5. CENA: CANTINA ROOFTOP RESTAURANT', blurb: 'Vista diretta su un tempio nella giungla dalla terrazza, consigliato prenotare in anticipo (molto richiesto), consiglio arrivare prima del tramonto per la luce migliore.', map: 'Cantina Rooftop Restaurant, Ubud, Bali',
+            images: ['Ubud jungle view.jpg'],
+            facts: ['Ristorante rooftop con vista diretta mozzafiato su un tempio immerso nella giungla di Ubud.', 'Molto richiesto: raccomandato prenotare in anticipo.', 'Consigliabile arrivare prima del tramonto per godersi la luce migliore sulla giungla.']
           }
         ]
       },
       {
-        dd: '7 AGO', title: 'Storia e natura a est', trailer: 'Ultimo giorno pieno a Ubud, lontano dai grandi bus turistici: santuari rupestri antichi e una cascata poco nota.',
+        dd: '5 AGO', title: 'Anello nord (Tegalalang e Tampaksiring)', trailer: 'Le terrazze di riso più famose di Bali, una sosta caffè tra le risaie, un santuario scavato nella roccia lungo un fiume, e una cascata nascosta nella giungla.',
+        transfers: [
+          {
+            route: 'Ubud → Anello Nord (Tegalalang, Tampaksiring, Kemenuh)', flightNo: 'Auto Privata', company: 'Driver locale con auto privata', date: '5 ago 2026', dep: 'Mattina', arr: 'Pomeriggio', duration: 'Tour giornaliero', note: 'Giro in auto privata con autista: partenza dall\'hotel in mattinata. Le quattro tappe sono sulla stessa direttrice nord, con spostamenti brevi tra una e l\'altra.'
+          }
+        ],
         activities: [
           {
-            name: 'Gunung Kawi Tampaksiring', blurb: 'Santuari rupestri dell\'XI secolo scavato nella roccia lungo un fiume, raggiungibili con una breve scalinata tra le risaie: spesso semivuoto.', map: 'Gunung Kawi Tampaksiring, Bali',
-            images: ['Bali.GunungKawi.jpg', 'Gunung Kawi Rice Terrace Tampaksiring 1.jpg'],
-            facts: ['Conosciuto come la "Valle dei Re", risale all\'XI secolo.', 'Dieci santuari (candi) sono scavati direttamente in nicchie di 7 metri nella roccia, lungo il fiume Pakerisan.', 'Si ritiene siano dedicati al re Anak Wungsu e alle sue regine.']
+            name: '1. TEGALALANG RICE TERRACE', blurb: 'Le terrazze di riso più famose e fotografate di Bali, valle verde a gradoni. Presenti altalene panoramiche e caffè con vista (a pagamento per le foto/altalene). Consigliata la mattina presto per meno folla.', map: 'Tegalalang Rice Terrace, Bali',
+            images: ['Bali rice terraces.JPG', 'Rice fields of Bali.jpg'],
+            facts: ['Le terrazze di riso più iconiche di Bali, disposte a gradoni lungo la valle con sistema di irrigazione subak.', 'Presenti altalene panoramiche e caffè con vista per scattare foto e rilassarsi.', 'Consigliabile visitarle la mattina presto per evitare la calura e il grosso dei gruppi turistici.']
           },
           {
-            name: 'Uma Anyar Waterfall', blurb: 'Cascata meno nota vicino Kemenuh, alternativa tranquilla alle cascate più affollate della zona (come Tegenungan).', map: 'Uma Anyar Waterfall, Kemenuh, Bali',
+            name: '2. BALI\'AGRICULTURE (piantagione di caffè)', blurb: 'Sosta in una piantagione con degustazione di tè e caffè locali, incluso il kopi luwak, vista sulle risaie circostanti.', map: 'Bali Agriculture coffee plantation, Tegalalang',
+            images: ['Coffee plantation in Bali.jpg'],
+            facts: ['Sosta in piantagione locale tra piante di caffè, cacao e spezie balinesi.', 'Degustazione guidata di vari tipi di tè e caffè locali, incluso il celebre Kopi Luwak.', 'Splendida vista aperta sulle risaie e sulla vegetazione circostante.']
+          },
+          {
+            name: '3. GUNUNG KAWI TAMPAKSIRING', blurb: 'Complesso di santuari funerari scavati nella roccia lungo un fiume sacro, circondato da terrazze di riso, atmosfera suggestiva e meno affollata dei siti più turistici. Nota pratica: non comprare i sarong dai venditori lungo la strada, sono forniti gratuitamente all\'ingresso.', map: 'Gunung Kawi Tampaksiring, Bali',
+            images: ['Bali.GunungKawi.jpg', 'Gunung Kawi Rice Terrace Tampaksiring 1.jpg'],
+            facts: ['Complesso funerario dell\'XI secolo con 10 imponenti santuari (candi) di 7 metri scavati nella parete rocciosa lungo il fiume Pakerisan.', 'Atmosfera solenne e suggestiva, immersa tra risaie e giungla, meno affollata dei siti più turistici.', 'Nota pratica: i sarong tradizionali obbligatori sono forniti gratuitamente all\'ingresso (non serve acquistarli dai venditori di strada).']
+          },
+          {
+            name: '4. UMA ANYAR WATERFALL', blurb: 'Cascata nella giungla, meno battuta rispetto alle cascate più famose. Consigliato andarci la mattina presto per evitare la folla e godersela in tranquillità.', map: 'Uma Anyar Waterfall, Kemenuh, Bali',
             images: ['Air Terjun Tegunungan waterfall.jpg', 'Tegenungan Waterfall sideview.jpg'],
-            facts: ['La zona di Kemenuh è attraversata dal fiume Petanu, tra i più lunghi di Bali (circa 47 km), che nasce alle pendici del monte Batur.', 'La comunità locale considera l\'area sacra, adatta a meditazione e preghiera.']
+            facts: ['Cascata immersa nella giungla balinese vicino a Kemenuh, ancora preservata dal turismo di massa.', 'Ideale per un momento rinfrescante e tranquillo lontano dalla folla.']
+          }
+        ]
+      },
+      {
+        dd: '6 AGO', title: 'Monte Batur all\'alba + recupero', trailer: 'Alba dalla cima di un vulcano attivo, poi una giornata di puro riposo dopo la levataccia.',
+        activities: [
+          {
+            name: '1. MONTE BATUR — TREKKING ALL\'ALBA', blurb: 'Sveglia prestissimo (indicativamente 2:30-3:00), partenza al buio, trekking con guida obbligatoria per legge fino alla cima, alba spettacolare sopra le nuvole con vista su altri vulcani. Rientro in hotel a metà mattinata.', map: 'Mount Batur, Kintamani, Bali',
+            images: ['Mount of Batur sunrise.jpg', 'Gunung Batur Kintamani Bali.jpg', 'Mount Batur panorama.jpg'],
+            facts: [
+              'Trekking notturno fino a 1.717 metri di quota per ammirare l\'alba spettacolare sopra la caldera e il mare di nuvole.',
+              'Guida locale accreditata obbligatoria per legge per l\'intera ascensione.',
+              'In vetta le temperature scendono a 10-15°C prima dell\'alba: portate una felpa o una giacca leggera.',
+              '⚠️ NOTA IMPORTANTE: Prenotare il tour con largo anticipo, idealmente non ridursi agli ultimi giorni — i tour popolari si esauriscono, specialmente in alta stagione.'
+            ]
+          },
+          {
+            name: '2. POMERIGGIO DI RIPOSO', blurb: 'Nessuna attività programmata, recupero dopo la sveglia notturna. Opzionale: classe leggera da The Yoga Barn per chi se la sente.', map: 'The Yoga Barn, Ubud, Bali',
+            images: ['Fleurs de Frangipanier (Île de la Réunion) (4125134278).jpg'],
+            facts: ['Rientro in hotel a metà mattina e pomeriggio interamente dedicato al riposo e al relax in villa.', 'Opzionale per chi desidera fare attività leggera: classe di yoga o stretching da The Yoga Barn a Ubud.']
+          }
+        ]
+      },
+      {
+        dd: '7 AGO', title: 'Rafting + anello sud', trailer: 'Rapide sul fiume Ayung tra la giungla, poi un tempio-grotta e una delle cascate più spettacolari di Bali.',
+        activities: [
+          {
+            name: '1. RAFTING SUL FIUME AYUNG (mattina)', blurb: 'Circa 2-2,5 ore di rafting tra rapide e giungla lussureggiante lungo uno dei fiumi più famosi di Bali per questa attività. Non richiede esperienza pregressa. Portare vestiti comodi che si possono bagnare, scarpe adatte all\'acqua, e denaro contante per eventuali extra.', map: 'Ayung River Rafting, Ubud, Bali',
+            images: ['White water rafting on Ayung River Bali.jpg', 'Ayung River Bali.jpg'],
+            facts: ['Circa 2-2,5 ore di discesa lungo 10-12 km di fiume tra rapide divertenti (livello I-II), pareti rocciose scolpite e giungla lussureggiante.', 'Non richiede esperienza pregressa: guida qualificata su ogni gommone e attrezzatura completa fornita.', 'Consigliato: vestiti comodi che si bagnano, scarpe adatte all\'acqua/scoglio e contanti per eventuali extra o mance.']
+          },
+          {
+            name: '2. GOA GAJAH (Elephant Cave)', blurb: 'Tempio-grotta con ingresso scolpito, tappa breve ma suggestiva, vicina al fiume Ayung.', map: 'Goa Gajah, Ubud, Bali',
+            images: ['Goa Gajah 2019.jpg', 'Goa Gajah sanctuary Bali.jpg'],
+            facts: ['Santuario storico risalente al IX secolo celebre per l\'ingresso alla grotta scolpito con il volto demoniaco di un guardiano.', 'All\'interno si trovano nicchie di meditazione, altari e statue di Ganesha e Shiva.', 'Tappa breve ma ricca di fascino e vicina al percorso del fiume Ayung.']
+          },
+          {
+            name: '3. CASCATA TEGENUNGAN', blurb: 'Una delle cascate più spettacolari e famose di Bali, area balneabile ai piedi della cascata. Consigliate scarpe con buona aderenza per le scale/rocce bagnate, e andarci nel tardo pomeriggio per evitare il grosso della folla del mattino.', map: 'Tegenungan Waterfall, Kemenuh, Bali',
+            images: ['Air Terjun Tegunungan waterfall.jpg', 'Tegenungan Waterfall sideview.jpg'],
+            facts: ['Una delle cascate più maestose e famose dell\'isola, immersa in un gola verdeggiante.', 'Ampia vasca naturale ai piedi del salto d\'acqua per fare il bagno.', 'Consigliate scarpe con buona aderenza per la gradinata e le rocce bagnate; ideale visitarla nel tardo pomeriggio per evitare il picco di folla mattutino.']
           }
         ]
       }
@@ -670,10 +704,10 @@ const CALENDAR_DAYS = [
   { id: 5, dateNum: '1 AGO', dayNum: 1, month: 'Agosto', dayName: 'Sab', fullDate: '1 Agosto', stopId: 3, stopName: 'Komodo', accent: 'jungle', activity: 'Parco Nazionale Komodo: Isola di Komodo, Draghi & Pink Beach', shortLabel: 'Parco Komodo & Draghi', isTransition: false },
   { id: 6, dateNum: '2 AGO', dayNum: 2, month: 'Agosto', dayName: 'Dom', fullDate: '2 Agosto', stopId: 3, stopName: 'Komodo', accent: 'jungle', activity: 'Escursione in barca, Snorkeling Padar & Manta Point', shortLabel: 'Snorkeling Padar & Mante', isTransition: false },
   { id: 7, dateNum: '3 AGO', dayNum: 3, month: 'Agosto', dayName: 'Lun', fullDate: '3 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Volo Labuan Bajo ➔ Bali (13:05 - 14:20) + Transfer Ubud', shortLabel: '✈️ Volo LBJ ➔ Bali (13:05)', isTransition: true, transIcon: '✈️', transDetail: 'Volo per Bali DPS (13:05 - 14:20) + Transfer auto fino ad Ubud' },
-  { id: 8, dateNum: '4 AGO', dayNum: 4, month: 'Agosto', dayName: 'Mar', fullDate: '4 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Risaie di Tegallalang & Sacred Monkey Forest', shortLabel: 'Risaie & Monkey Forest', isTransition: false },
-  { id: 9, dateNum: '5 AGO', dayNum: 5, month: 'Agosto', dayName: 'Mer', fullDate: '5 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Trekking all\'alba sul Vulcano Batur e Sorgenti Termali', shortLabel: 'Vulcano Batur Sunrise', isTransition: false },
-  { id: 10, dateNum: '6 AGO', dayNum: 6, month: 'Agosto', dayName: 'Gio', fullDate: '6 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Tempio di Tirta Empul & Cascata Tukad Cepung', shortLabel: 'Tempio Tirta Empul', isTransition: false },
-  { id: 11, dateNum: '7 AGO', dayNum: 7, month: 'Agosto', dayName: 'Ven', fullDate: '7 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Relax, Mercato artigianale, Yoga & Massaggio balinese', shortLabel: 'Relax & Massaggi', isTransition: false },
+  { id: 8, dateNum: '4 AGO', dayNum: 4, month: 'Agosto', dayName: 'Mar', fullDate: '4 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Campuhan Ridge Walk, Ubud Palace, Tempio Saraswati, Monkey Forest & Cena Rooftop', shortLabel: 'Ubud Centro a piedi', isTransition: false },
+  { id: 9, dateNum: '5 AGO', dayNum: 5, month: 'Agosto', dayName: 'Mer', fullDate: '5 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Tegalalang Rice Terrace, Piantagione Caffè, Gunung Kawi & Cascata Uma Anyar', shortLabel: 'Anello Nord Tegalalang', isTransition: false },
+  { id: 10, dateNum: '6 AGO', dayNum: 6, month: 'Agosto', dayName: 'Gio', fullDate: '6 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Trekking all\'alba sul Monte Batur & Pomeriggio di riposo', shortLabel: 'Monte Batur & Riposo', isTransition: false },
+  { id: 11, dateNum: '7 AGO', dayNum: 7, month: 'Agosto', dayName: 'Ven', fullDate: '7 Agosto', stopId: 4, stopName: 'Ubud', accent: 'turquoise', activity: 'Rafting sul Fiume Ayung, Tempio Goa Gajah & Cascata Tegenungan', shortLabel: 'Rafting Fiume Ayung', isTransition: false },
   { id: 12, dateNum: '8 AGO', dayNum: 8, month: 'Agosto', dayName: 'Sab', fullDate: '8 Agosto', stopId: 5, stopName: 'Gili Air', accent: 'gold', activity: 'Fast Ferry Padang Bai ➔ Gili Air (08:30)', shortLabel: '⛴️ Fast Ferry Padang Bai', isTransition: true, transIcon: '⛴️', transDetail: 'Transfer porto Padang Bai + Fast Ferry per Gili Air (~2 ore)' },
   { id: 13, dateNum: '9 AGO', dayNum: 9, month: 'Agosto', dayName: 'Dom', fullDate: '9 Agosto', stopId: 5, stopName: 'Gili Air', accent: 'gold', activity: 'Snorkeling con le tartarughe & Barriera Corallina', shortLabel: 'Snorkeling Tartarughe', isTransition: false },
   { id: 14, dateNum: '10 AGO', dayNum: 10, month: 'Agosto', dayName: 'Lun', fullDate: '10 Agosto', stopId: 5, stopName: 'Gili Air', accent: 'gold', activity: 'Giro dell\'isola in bicicletta & Tramonto sul mare', shortLabel: 'Giro Bici & Sunset', isTransition: false },
